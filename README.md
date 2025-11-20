@@ -1,3 +1,11 @@
-## EdenCode Inc.
 
-Welcome to visit our website at [edencode.ai](https://www.edencode.ai/). We are an AI-powered quantum computing software company. This repository contains the [Jekyll](https://jekyllrb.com/) text files that generate our website. We acknowledge [Github Pages](https://pages.github.com/) for hosting our website. 
+  # EdenCode Website
+
+  This is a code bundle for EdenCode Website. The original project is available at https://www.figma.com/design/g4X6S22EIj2cu2GA5oStQs/EdenCode-Website.
+
+  ## Running the code
+
+  Run `npm i` to install the dependencies.
+
+  Run `npm run dev` to start the development server.
+  
