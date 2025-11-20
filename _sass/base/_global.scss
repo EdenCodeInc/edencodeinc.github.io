@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+figure {
+  margin: 0;
+}
+
+html {
+  background: var(--background);
+}
+
+// Typography
+::selection {
+  background: var(--selection);
+}
+
+::-moz-selection {
+  background: var(--selection);
+}
+
+body {
+  padding-top: 3.5em; // Finetuned to match header height
+  color: var(--text);
+  font-family: $font-family-main;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: $font-size;
+  word-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3;
+  margin: 0.67em 0;
+  font-family: $font-family-headings;
+  // font-optical-sizing: auto;
+}
+
+h1 {
+  font-weight: 850;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5{
+  font-size: 1.1em;
+}
+
+h6{
+  font-size: 1.0em;
+}
+
+h1 a, h2 a, h3 a{
+  color: var(--text);
+}
+
+iframe,
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  padding: 0 9%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img[align=left] {
+  margin-right: 3%;
+}
+
+img[align=right] {
+  margin-left: 3%;
+}
+
+/* ---- Responsive ---- */
+
+@media screen and (max-width: $break) {
+  body{
+    padding-top: 3.0em;
+  }
+}
+
+@media screen and (max-width: $sm-break) {
+  body{
+    padding-top: 2.7em;
+  }
+
+  table {
+    overflow-x: scroll;
+  }
+}
+
+blockquote {
+  border-left: 2px solid #9fd2e3;
+  margin: 1em 1em;
+  padding: 0.75em 1em;
+  background-color: var(--blockquote);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+blockquote *:last-child,
+footer *:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  word-wrap: break-word;
+  table-layout: fixed;
+  width: 100%;
+  display: inline-block;
+}
+
+td,
+th {
+  padding: 0.5em 1em;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+table,
+dl,
+kbd,
+samp {
+  margin: 1em 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 2em;
+}
+
+p,
+ol,
+ul,
+dl,
+.math-display {
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+
+// Lists within lists
+li {
+
+  p {
+    font-size: inherit;
+    display: inline;
+  }
+
+  & > ul,
+  & > ol {
+    margin-bottom: 0.25em;
+    margin-left: 1em;
+  }
+}
+
+ol,
+ul {
+  list-style-position: outside;
+  margin-left: 1em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1em 0;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+kbd {
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: .85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+// Cookie consent
+#cookie-notice {
+  padding: 0.5rem 1rem;
+  display: none;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(2, 2, 2, 0.85);
+  color: lightgray;
+  z-index: 1000;
+}
+
+#cookie-notice a {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 0.6rem;
+}
+
+/* Vendor tweaks */
+// For correct line number width in Github Gists
+.gist table tbody tr td {
+  box-sizing: content-box;
+}
+
+// KaTeX math display
+.math-display {
+  display: inline-block;
+  width: 100%;
+}
+
+// Mermaid
+.mermaid {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 2%;
+}
+
+.mermaid > svg {
+  margin: auto;
+  display: block;
+  height: auto;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  max-width: 100%;
+}

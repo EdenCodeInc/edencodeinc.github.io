@@ -1,0 +1,58 @@
+---
+layout: page
+---
+
+<link rel="stylesheet" href="{{ 'assets/css/joinus.css' | relative_url }}">
+
+<div class="joinus-container">
+    {% for section in site.data.joinus %}
+    <h3>{{ section.role }}</h3>
+    <div class="joinus-grid">
+        {% for member in section.members %}
+        <div class="joinus">
+            {% if member.photo %}
+                <img class="joinus-photo" src="{{ site.baseurl }}{{ member.photo }}" alt="{{ member.name }}">
+            {% endif %}
+            <div class="joinus-info">
+                <h4>
+                {% if member.profile_link %}
+                    <a href="{{ member.profile_link }}" class="member-name-link">{{ member.name }}</a>
+                {% else %}
+                    {{ member.name }}
+                {% endif %}
+                </h4>
+                {% if member.info %}
+                <p>{{ member.info }}</p>
+                {% endif %}
+                <ul>
+                    {% if member.email %}
+                    <li><strong>Email:</strong> <a href="mailto:{{ member.email }}">{{ member.email }}</a></li>
+                    {% endif %}
+                    {% if member.phone %}
+                    <li><strong>Phone:</strong> {{ member.phone }}</li>
+                    {% endif %}
+                    {% if member.office %}
+                    <li><strong>Office:</strong> {{ member.office }}</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="growing-text">... and growing</div>
+    {% endfor %}
+</div>
+
+<style>
+.member-name-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.member-name-link:hover {
+    color: #EB612E !important;
+}
+</style>
+
+{{content}} 

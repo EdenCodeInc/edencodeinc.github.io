@@ -1,0 +1,147 @@
+/* TYPOGRAPHY */
+$font-family-main: 'Noto Sans', Helvetica, Arial, sans-serif;
+$font-family-headings: 'Noto Sans', Helvetica, Arial, sans-serif;
+$font-family-logo: 'Poppins', 'Montserrat', 'Raleway', 'Roboto', 'Open Sans', Helvetica, Arial, sans-serif;
+$font-size: clamp(15px, 2vw, 18px);
+
+$monospace: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif !default;
+$font-size-code: 0.85em !default;
+$font-height-code: 1.3em !default;
+$border-radius: 4px !default;
+
+/* PADDING */
+$padding-x-large: 22%;
+$padding-large: 16%;
+$padding-medium: 8%;
+$padding-small: 4%;
+$padding-x-small: 2%;
+$title-padding: 1%;
+$feature-image-padding: 10%;
+
+/* MOBILE */
+$xl-break: 2000px;
+$l-break: 1250px;
+$m-break: 1000px;
+$break: 700px;
+$sm-break: 380px;
+$x-sm-break: 240px;
+
+
+/* THEME COLOR SCHEMES */
+html, html[data-theme="light"] {
+  --background: #FFF9D0;
+  --blockquote: #F4A135;
+  --selection: #EB612E;
+  --meta: #553128;
+  --link: #EB612E;
+  --header-background: transparent;
+  --header-text: #553128;
+  --header-link: #F4A135;
+  --code-background: #F4A135;
+  --code-inline: #553128;
+  --text-shadow: #000000;
+  --text: #553128;
+  --h1: #000000;
+  --h2: #553128;
+  --h3: #F4A135;
+  --h4: #EB612E;
+  --h5: #F4A135;
+  --h6: #553128;
+  --border: rgba(0, 0, 0, 0.2);
+  --company-name: #000000;
+  --slogan: #553128;
+}
+
+html[data-theme="dark"] {
+  --background: #22272e; // brand, background
+  --blockquote: #373e47; // blockquote
+  --selection: #545d68; // selection
+  --meta: #909dab; // meta
+  --link: #00a8e0; // theme, link, link shadow header bg
+  --header-background: #000000; // Color before header image load
+  --header-text: #553128; // header text, feature img text
+  --header-link: #adbac7; // header link, search color
+  --code-background: #2A3444;
+  --code-inline: #d9b600;
+  --text-shadow: #2d333b; // text shadow
+  --text: #cdd9e5; // text
+  --h1: #d40059;
+  --h2: #ff5c00; // headers
+  --h3: #d9b600;
+  --h4: #6bac00;
+  --h5: #00af9e;
+  --h6: #b37eff;
+  --border: rgba(255, 255, 255, 0.4); // border
+  --cusdis--color-text-default: var(--text);
+  --cusdis--color-comment-username-text: var(--link);
+}
+
+/* BASE16 CODE HIGHLIGHT */
+// Material Theme
+html, html[data-theme="light"] {
+  --base00: #000000;
+  --base01: #F4A135;
+  --base02: #EB612E;
+  --base03: #553128;
+  --base04: #FFF9D0;
+  --base05: #FFF9D0;
+  --base06: #FFF9D0;
+  --base07: #FFF9D0;
+  --base08: #EB612E;
+  --base09: #F4A135;
+  --base0a: #FFF9D0;
+  --base0b: #F4A135;
+  --base0c: #EB612E;
+  --base0d: #F4A135;
+  --base0e: #553128;
+  --base0f: #EB612E;
+}
+
+// Supernova Theme
+html[data-theme="dark"] {
+  --base00: #373e47; // Default Background
+  --base01: #444c56; // Lighter Background (Used for status bars, line number and folding marks)
+  --base02: #545d68; // Selection Background
+  --base03: #909dab; // Comments, Invisible, Line Highlighting
+  --base04: #adbac7; // Dark Foreground (Used for status bars)
+  --base05: #cdd9e5; // Default Foreground, Caret, Delimiters, Operators
+  --base06: #e7f3f4; // Light Foreground (Not often used)
+  --base07: #ffffff; // Light Background (Not often used)
+  --base08: #d40059; // Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  --base09: #ff5c00; // Integers, Boolean, Constants, XML Attributes, Markup Link Url
+  --base0a: #d9b600; // Classes, Markup Bold, Search Text Background
+  --base0b: #6bac00; // Strings, Inherited Class, Markup Code, Diff Inserted
+  --base0c: #00a8e0; // Support, Regular Expressions, Escape Characters, Markup Quotes
+  --base0d: #b37eff; // Functions, Methods, Attribute IDs, Headings
+  --base0e: #00af9e; // Keywords, Storage, Selector, Markup Italic, Diff Changed
+  --base0f: #ff66c2; // Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+}
+
+// Monokai Theme
+//html[data-theme="dark"] {
+//  --base00: #272822; // Default Background
+//  --base01: #383830; // Lighter Background (Used for status bars)
+//  --base02: #49483e; // Selection Background
+//  --base03: #75715e; // Comments, Invisible, Line Highlighting
+//  --base04: #a59f85; // Dark Foreground (Used for status bars)
+//  --base05: #f8f8f2; // Light Foreground (Not often used)
+//  --base06: #f5f4f1; // Light Background (Not often used)
+//  --base07: #f9f8f5; // Default text color
+//  --base08: #f92672; // Parenthesis, Caret, Delimiters, Operators
+//  --base09: #fd971f; // Classes, Markup Bold, Search Text Background
+//  --base0a: #e6db74; // Strings, Inherited Class, Markup Code, Diff Inserted
+//  --base0b: #a6e22e; // Functions, Methods, Attribute IDs, Headings
+//  --base0c: #a1efe4; // Support, Regular Expressions, Escape Characters, Markup Quotes
+//  --base0d: #66d9ef; // Keywords, Storage, Selector, Markup Italic, Diff Changed
+//  --base0e: #ae81ff; // Integers, Boolean, Constants, XML Attributes, Markup Link Url
+//  --base0f: #cc6633; // Deprecated, Opening/Closing Embedded Language Tags e.g.
+//}
+
+/* Font options for the company name:
+ * - Roboto: Modern, friendly, highly readable
+ * - Montserrat: Modern, geometric, professional
+ * - Raleway: Elegant, contemporary
+ * - Open Sans: Clean, highly readable
+ * - Lato: Balanced, serious
+ * - Poppins: Modern, geometric
+ */

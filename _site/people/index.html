@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.7
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+        
+    <!-- Theme Mode-->
+    <script>
+        const darkBtn = "Dark"
+        const lightBtn = "Light"
+        const isAutoTheme = true
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (isAutoTheme) {
+            document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme') ?? preferredTheme)
+        } else {
+            document.documentElement.setAttribute('data-theme', "auto")
+        }
+    </script>
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/logos/avatar.png" type="image/x-icon">
+
+    
+
+    <!-- KaTeX 0.13.9 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 10.6.1 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({
+      startOnLoad:true,
+      theme: 'true',
+    });"></script>
+    
+
+    <!-- Simple Jekyll Search 1.10.0 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-http://localhost:4000';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+      const analyticsNameGA4 = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="http://localhost:4000/assets/img/figures/people-min.png">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>People | EdenCode Inc.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="People" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="AI+Quantum" />
+<meta property="og:description" content="AI+Quantum" />
+<link rel="canonical" href="http://localhost:4000/people/" />
+<meta property="og:url" content="http://localhost:4000/people/" />
+<meta property="og:site_name" content="EdenCode Inc." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="People" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"AI+Quantum","headline":"People","url":"http://localhost:4000/people/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="EdenCode Inc." href="http://localhost:4000/feed.xml"/>
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="EdenCode Inc." />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="People">
+    <meta name="twitter:description" content="EdenCode Inc.">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://localhost:4000/assets/img/figures/people-min.png">
+    <meta name="twitter:image:alt" content="People">
+</head>
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+    <div class="branding">
+        
+        <a href="/">
+            <img alt="logo img" class="avatar" src="/assets/img/logos/avatar.png" loading="lazy"/>
+        </a>
+        
+        <a class="site-title" aria-label="EdenCode Inc." href="/">
+        EdenCode Inc.
+        </a>
+    </div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="People" title="People" href="/people/">
+                     People 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search.html">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="People " aria-label="People" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+    </nav>
+</header>
+    <div class="content">
+      <article class="feature-image">
+
+  <header id="main" style="background-image: url('/assets/img/figures/people-min.png')">
+    <div class="title-padder">
+      
+        <h1 id="People" class="title"> People</h1>
+        
+      
+    </div>
+    
+  </header>
+
+  <section class="page-content">
+  
+  
+<h3>Our Team</h3>
+
+<div class="people">
+    
+    <div class="people-info">
+        <h4>
+        
+            <a href="https://www.linkedin.com/in/wanda-hou-986b61264/">Wanda Hou</a>
+        
+        </h4>
+        
+        <ul>
+            
+            
+            
+        </ul>
+    </div>
+</div>
+
+<div class="people">
+    
+    <div class="people-info">
+        <h4>
+        
+            <a href="https://www.linkedin.com/in/yi-zhuang-you-1703a1272/">Yi-Zhuang You</a>
+        
+        </h4>
+        
+        <ul>
+            
+            
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+  
+  </section>
+
+
+  <!-- Tag list for portfolio -->
+  
+  
+
+
+  <div class="tag-list"></div>
+
+
+</article>
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        
+    </p>
+    <div class="footer-icons">
+        <ul>
+        <!-- Social icons from Font Awesome, if enabled -->
+        
+<li>
+    <a feed.xml href="/feed.xml"
+       title="Follow RSS feed"
+       target="_blank">
+        <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+</li>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/EdenCodeInc"
+               title="Follow on Github"
+               target="_blank"
+               rel="me">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+        
+        
+        
+        <li>
+            <a href="mailto:info@edencode.ai"
+               title="Follow on Mail"
+               target="_blank"
+               rel="me">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+        </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+        </ul>
+    </div>
+</footer>
+  </body>
+</html>

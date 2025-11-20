@@ -1,0 +1,16 @@
+current directory: /Users/home/Documents/GitHub/everettyou.github.io/vendor/bundle/ruby/3.0.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+/Users/home/.rvm/rubies/ruby-3.0.2/bin/ruby -I /Users/home/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0 -r ./siteconf20240617-80697-dzwlki.rb extconf.rb
+creating Makefile
+
+current directory: /Users/home/Documents/GitHub/everettyou.github.io/vendor/bundle/ruby/3.0.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= clean
+
+current directory: /Users/home/Documents/GitHub/everettyou.github.io/vendor/bundle/ruby/3.0.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\=
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.bundle
+
+current directory: /Users/home/Documents/GitHub/everettyou.github.io/vendor/bundle/ruby/3.0.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 ruby_http_parser.bundle ./.gem.20240617-80697-nwgkrg
