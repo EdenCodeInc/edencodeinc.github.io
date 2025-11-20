@@ -47,7 +47,10 @@
           "recharts": "^2.15.2",
           "sonner": "^2.0.3",
           "tailwind-merge": "*",
+<<<<<<< HEAD
           "tailwindcss": "*",
+=======
+>>>>>>> parent of ae10d84 (debug)
           "vaul": "^1.1.2",
           "vite": "*",
           "wouter": "*"
