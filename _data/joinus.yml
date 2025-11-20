@@ -1,0 +1,9 @@
+# This file contains the information of the team members.
+
+- role: Our Team
+  members:
+    - name: "Wanda Hou"
+      profile_link: "https://www.linkedin.com/in/wanda-hou-986b61264/"
+
+    - name: "Yi-Zhuang You"
+      profile_link: "https://www.linkedin.com/in/yi-zhuang-you-1703a1272/" 

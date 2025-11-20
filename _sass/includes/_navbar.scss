@@ -1,0 +1,162 @@
+// To clear things when we float the element inside nav and ul
+.clear {
+  *zoom: 1;
+
+  &:after {
+    clear: both;
+  }
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; // Ensure it stays above other elements
+  padding: 2% 2% 1% 2%;
+  background: var(--background);
+  border-bottom: 1px solid var(--border); // Add a border to separate the header from the content
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; // Ensure the site title and nav stay on the same line
+
+  .separator {
+    user-select: none;
+    opacity: 0;
+
+    &:first-child {
+      display: none;
+    }
+  }
+
+  a {
+    color: var(--header-link);
+  }
+
+  a.site-title {
+    color: #553128; /* Make site title link black */
+  }
+
+  .avatar {
+    height: 3em;
+    width: 3em;
+    float: left;
+    margin-top: -0.75em;
+    border-radius: 0.2em;
+    margin-right: 0.5em;
+    padding: 10px 10px;
+
+  }
+
+  .site-title {
+    float: left;
+    font-weight: 700;
+    font-family: $font-family-logo;
+    font-size: 1.8em;
+    color: #553128;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        color: var(--link);
+        transform: translateY(-1px);
+    }
+  }
+}
+
+nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 1.5;
+    float: right;
+    text-align: right;
+    display: block;
+  }
+
+  li {
+    display: inline;
+    float: left;
+    margin-right: 0.4em;
+  }
+
+  a {
+    &:hover {
+      color: var(--link);
+    }
+
+    &#pull {
+      i {
+        margin-top: 13px;
+        margin-right: 10px;
+        float: right;
+      }
+
+    }
+
+  }
+}
+
+/* ---- Responsive ---- */
+
+@media (min-width: $break) {
+  a#pull {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $break) {
+  nav {
+    height: auto;
+
+    .separator {
+      display: none !important;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      overflow: hidden;
+      padding-top: $padding-medium;
+
+      /* fade out, then shrink */
+      transition: opacity .25s 0s, font-size .25s 0s;
+      transition-delay: 0s;
+
+      &.hide {
+        font-size: 0;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+      }
+    }
+
+    li {
+      width: 100%;
+      text-align: center;
+      position: relative;
+      background-color: var(--background);
+
+      a {
+        width: 100%;
+        margin: 0;
+        display: block;
+      }
+
+    }
+  }
+}

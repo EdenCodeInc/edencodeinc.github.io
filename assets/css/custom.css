@@ -1,0 +1,124 @@
+/* Theme Configuration */
+html {
+    --background: #FFF9D0;
+    --blockquote: #F4A135;
+    --selection: #EB612E;
+    --meta: #553128;
+    --link: #EB612E;
+    --header-background: transparent;
+    --header-text: #553128;
+    --header-link: #F4A135;
+    --code-background: #F4A135;
+    --code-inline: #553128;
+    --text-shadow: #000000;
+    --text: #553128;
+    --h1: #000000;
+    --h2: #553128;
+    --h3: #F4A135;
+    --h4: #EB612E;
+    --h5: #F4A135;
+    --h6: #553128;
+    --border: rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styles */
+.site-header {
+    z-index: 1001;
+}
+
+/* Content Layout */
+.page-content {
+    margin-top: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+/* Image and Background Handling */
+.feature-image header, 
+#main:not(.call-out),
+.call-out, 
+.call-out_img,
+#main.call-out {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-color: var(--background);
+}
+
+/* Home Page Specific */
+.home {
+    margin-top: -3.5em;
+}
+
+.call-out, 
+.call-out_img,
+#main.call-out {
+    background-position: top center !important;
+    background-origin: content-box !important;
+    margin-top: -3.5em;
+    min-height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Article Styling */
+article.feature-image {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Title Handling */
+.feature-image .title-padder,
+.call-out h1 {
+    background-color: rgba(255, 249, 208, 0.7);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 auto;
+    max-width: 80%;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    text-align: center;
+}
+
+.call-out h1 {
+    white-space: pre-line;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+/* Utility */
+body {
+    overflow-x: hidden;
+}
+
+/* Call-out section styling */
+.call-out {
+    background-color: var(--background);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: -3.5em;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.call-out h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #553128;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.4;
+    font-weight: 300;
+    white-space: pre-line;
+    background-color: rgba(255, 249, 208, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 800px;
+}

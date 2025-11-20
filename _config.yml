@@ -1,0 +1,58 @@
+# =============================================================================
+# SITE CONFIGURATION
+# =============================================================================
+# Basic site information
+url: "https://www.edencode.ai/"
+title: EdenCode Inc.
+description: "AI+Quantum"
+favicon: assets/img/logos/avatar.png
+
+# =============================================================================
+# HEADER AND FOOTER CONTENT
+# =============================================================================
+# Footer copyright text
+footer_text: >-
+  © 2025 EdenCode Inc.
+
+# =============================================================================
+# CONTENT SETTINGS
+# =============================================================================
+# Enable post excerpts on index pages
+excerpt: true
+# Enable post navigation (previous/next post links)
+post_navigation: true
+# Default color for images with transparency
+color_image: rgba(255, 255, 255, 0.8)
+
+# =============================================================================
+# THEME SETTINGS
+# =============================================================================
+# Theme color scheme (light/dark)
+color_theme: light
+
+# =============================================================================
+# BUILD SETTINGS
+# =============================================================================
+# SASS compilation settings
+sass:
+  style: compressed
+
+# Jekyll plugins to use
+plugins: 
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-redirect-from
+
+# Directories and files to exclude from processing
+exclude: 
+  - ".jekyll-cache"
+  - ".idea"
+  - "vendor/*"
+  - "assets/node_modules/*"
+
+# Plugins to whitelist for GitHub Pages
+whitelist: 
+  - jekyll-redirect-from
+
+# Theme to use (Type on Strap)
+remote_theme: sylhare/Type-on-Strap
