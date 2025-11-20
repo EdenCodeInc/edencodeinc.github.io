@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "Starting build..."
           npm run build || {
-            echo "❌ Build failed!"
+            echo "Build failed!"
             echo "Showing last 50 lines of output above"
             exit 1
           }
@@ -44,16 +44,6 @@ jobs:
           echo "Current directory contents:"
           ls -la
           echo ""
-          echo "Checking for dist directory..."
-          if [ -d "dist" ]; then
-            echo "✅ dist directory exists"
-            echo "Contents of dist:"
-            ls -la dist
-          else
-            echo "❌ dist directory not found"
-            echo "Something went wrong during build"
-            exit 1
-          fi
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -61,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./build
 
   deploy:
     environment:
