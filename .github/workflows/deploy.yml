@@ -44,16 +44,6 @@ jobs:
           echo "Current directory contents:"
           ls -la
           echo ""
-          echo "Checking for dist directory..."
-          if [ -d "dist" ]; then
-            echo "dist directory exists"
-            echo "Contents of dist:"
-            ls -la dist
-          else
-            echo "dist directory not found"
-            echo "Something went wrong during build"
-            exit 1
-          fi
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
