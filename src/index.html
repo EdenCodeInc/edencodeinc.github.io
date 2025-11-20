@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="EdenCode - Real-time AI-decoder technology for quantum error correction ecosystems" />
     <title>EdenCode - Quantum AI Error Correction</title>
+    <!-- GitHub Pages SPA redirect handling -->
+    <script>
+      (function() {
+        var redirect = new URLSearchParams(window.location.search).get('redirect');
+        if (redirect) {
+          var basePath = '/';
+          history.replaceState(null, '', basePath + redirect.slice(1));
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

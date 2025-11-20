@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/', // Set to '/' for custom domain (www.edencode.ai)
+  base: '/', // Organization site (edencodeinc.github.io)
   plugins: [react()],
   resolve: {
     alias: {

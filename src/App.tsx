@@ -12,13 +12,24 @@ import ResearchPage from "./pages/research";
 import BlogAIQuantumErrorCorrection from "./pages/blog-ai-quantum-error-correction";
 import { ContactPage } from "./components/ContactPage";
 
+// Get base path at module level
+const BASE_PATH = import.meta.env?.BASE_URL || '/';
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("/");
 
   useEffect(() => {
     // Simple client-side routing
     const handleNavigation = () => {
-      setCurrentPage(window.location.pathname);
+      // Remove base path to get the actual route
+      let path = window.location.pathname;
+      if (path.startsWith(BASE_PATH)) {
+        path = path.slice(BASE_PATH.length - 1); // Keep leading slash
+      }
+      if (!path.startsWith('/')) {
+        path = '/' + path;
+      }
+      setCurrentPage(path);
     };
 
     // Listen for popstate (back/forward navigation)
@@ -33,7 +44,17 @@ export default function App() {
       const link = target.closest("a");
       
       if (link && link.href && link.origin === window.location.origin) {
-        const path = new URL(link.href).pathname;
+        const url = new URL(link.href);
+        let path = url.pathname;
+        
+        // Remove base path to get the actual route
+        if (path.startsWith(BASE_PATH)) {
+          path = path.slice(BASE_PATH.length - 1); // Keep leading slash
+        }
+        if (!path.startsWith('/')) {
+          path = '/' + path;
+        }
+        
         const validPaths = ["/", "/demo", "/team", "/blogs", "/blog-ai-quantum-error-correction", "/contact"];
         if (validPaths.includes(path)) {
           e.preventDefault();
