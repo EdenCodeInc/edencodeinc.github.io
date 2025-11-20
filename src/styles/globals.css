@@ -10,32 +10,32 @@
   --card-foreground: #553128;
   --popover: oklch(1 0 0);
   --popover-foreground: #553128;
-  --primary: #EB612E;
+  --primary: #eb612e;
   --primary-foreground: #ffffff;
-  --secondary: #F4A135;
+  --secondary: #f4a135;
   --secondary-foreground: #553128;
-  --muted: #FFF9D0;
+  --muted: #fff9d0;
   --muted-foreground: #85493a;
-  --accent: #F4A135;
+  --accent: #f4a135;
   --accent-foreground: #553128;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
   --border: rgba(85, 49, 40, 0.1);
   --input: transparent;
-  --input-background: #FFF9D0;
+  --input-background: #fff9d0;
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #F4A135;
-  --chart-1: #F4A135;
-  --chart-2: #EB612E;
+  --ring: #f4a135;
+  --chart-1: #f4a135;
+  --chart-2: #eb612e;
   --chart-3: #553128;
-  --chart-4: #FFF9D0;
+  --chart-4: #fff9d0;
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: #553128;
-  --sidebar-primary: #EB612E;
+  --sidebar-primary: #eb612e;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -45,34 +45,34 @@
 
 .dark {
   --background: #553128;
-  --foreground: #FFF9D0;
+  --foreground: #fff9d0;
   --card: #553128;
-  --card-foreground: #FFF9D0;
+  --card-foreground: #fff9d0;
   --popover: #553128;
-  --popover-foreground: #FFF9D0;
-  --primary: #F4A135;
+  --popover-foreground: #fff9d0;
+  --primary: #f4a135;
   --primary-foreground: #553128;
-  --secondary: #EB612E;
-  --secondary-foreground: #FFF9D0;
+  --secondary: #eb612e;
+  --secondary-foreground: #fff9d0;
   --muted: rgba(244, 161, 53, 0.2);
-  --muted-foreground: #F4A135;
-  --accent: #EB612E;
-  --accent-foreground: #FFF9D0;
+  --muted-foreground: #f4a135;
+  --accent: #eb612e;
+  --accent-foreground: #fff9d0;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: rgba(244, 161, 53, 0.2);
   --input: rgba(244, 161, 53, 0.2);
-  --ring: #F4A135;
+  --ring: #f4a135;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --chart-1: #F4A135;
-  --chart-2: #EB612E;
-  --chart-3: #FFF9D0;
+  --chart-1: #f4a135;
+  --chart-2: #eb612e;
+  --chart-3: #fff9d0;
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: #F4A135;
+  --sidebar-primary: #f4a135;
   --sidebar-primary-foreground: #553128;
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
@@ -114,9 +114,13 @@
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary-foreground: var(
+    --sidebar-primary-foreground
+  );
   --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent-foreground: var(
+    --sidebar-accent-foreground
+  );
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
@@ -135,7 +139,9 @@
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */
 @layer base {
-  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+  :where(
+    :not(:has([class*=" text-"]), :not(:has([class^="text-"])))
+  ) {
     h1 {
       font-size: var(--text-2xl);
       font-weight: var(--font-weight-medium);

@@ -536,18 +536,16 @@ step_simulation(${params.decoderOn ? "True" : "False"})
         const hasCorrection = corrections[i][j] > 0;
 
         if (hasCorrection && hasSyndrome) {
-          // Purple - correction on syndrome
-          ctx.fillStyle = "rgba(128, 0, 255, 0.7)";
+          // Green - correction on syndrome (accurate)
+          ctx.fillStyle = "rgba(0, 153, 38, 0.7)";
           ctx.fillRect(x, y, cellSize, cellSize);
         } else if (hasCorrection) {
-          // Light blue - correction on no syndrome
-          ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
-          // Light blue - correction on no syndrome (lower opacity)
-          ctx.fillStyle = "rgba(0, 0, 255, 0.3)";
+          // Yellow - correction on no syndrome (misdiagnosis)
+          ctx.fillStyle = "rgba(255, 204, 0, 0.7)";
           ctx.fillRect(x, y, cellSize, cellSize);
         } else if (hasSyndrome) {
-          // Red - syndrome
-          ctx.fillStyle = "red";
+          // Orange-red - syndrome
+          ctx.fillStyle = "rgba(201, 51, 0, 1)";
           ctx.fillRect(x, y, cellSize, cellSize);
         }
       }
@@ -617,7 +615,7 @@ init_simulation(${params.gridSize}, ${params.timeWindow}, ${params.bitFlipRate},
           {/* Legend */}
           <div className="flex flex-wrap justify-center gap-4 pb-4 border-b border-[#F4A135]/10">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-red-500 rounded border border-gray-300"></div>
+              <div className="w-4 h-4 rounded border border-gray-300" style={{ backgroundColor: "rgba(201, 51, 0, 1)" }}></div>
               <span className="text-xs text-[#553128]/70">
                 Syndrome
               </span>
@@ -626,22 +624,22 @@ init_simulation(${params.gridSize}, ${params.timeWindow}, ${params.bitFlipRate},
               <div
                 className="w-4 h-4 rounded border border-gray-300"
                 style={{
-                  backgroundColor: "rgba(0, 0, 255, 0.3)",
+                  backgroundColor: "rgba(255, 204, 0, 0.7)",
                 }}
               ></div>
               <span className="text-xs text-[#553128]/70">
-                Correction (on no-syndrome)
+                Correction (misdiagnosis)
               </span>
             </div>
             <div className="flex items-center gap-2">
               <div
                 className="w-4 h-4 rounded border border-gray-300"
                 style={{
-                  backgroundColor: "rgba(128, 0, 255, 0.7)",
+                  backgroundColor: "rgba(0, 153, 38, 0.7)",
                 }}
               ></div>
               <span className="text-xs text-[#553128]/70">
-                Correction (on syndrome)
+                Correction (accurate)
               </span>
             </div>
           </div>
