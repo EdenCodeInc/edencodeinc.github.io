@@ -6,7 +6,7 @@ import path from 'path';
 export default defineConfig({
   base: '/', // Organization site (edencodeinc.github.io)
   build: {
-    outDir: 'dist',
+    outDir: 'build',
   },
   plugins: [react()],
   resolve: {
