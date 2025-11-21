@@ -56,14 +56,34 @@ export default function DemoPage() {
                 </strong>{" "}
                 The grid represents detector readouts (syndrome
                 measurements) in a quantum error-correcting
-                code. Orange-red cells indicate active syndromes (check
-                violations). When the decoder is active, it uses
-                a message-passing algorithm with
+                code. Orange-red cells indicate active syndromes
+                (check violations). When the decoder is active,
+                it uses a message-passing algorithm with
                 Manhattan-distance-based propagation to identify
                 likely error chains and propose corrections.
                 Green cells show accurate corrections applied to
-                syndromes, while yellow cells show
-                misdiagnosis corrections on non-syndrome locations.
+                syndromes, while yellow cells show misdiagnosis
+                corrections on non-syndrome locations.
+              </p>
+              <p className="text-xs italic text-[#553128]/70 mt-4">
+                For relevant details, please refer to:{" "}
+                <a
+                  href="https://arxiv.org/abs/2505.10162"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#EB612E] hover:text-[#EB612E]/80 underline"
+                >
+                  arXiv:2505.10162
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://arxiv.org/abs/2510.08056"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#EB612E] hover:text-[#EB612E]/80 underline"
+                >
+                  arXiv:2510.08056
+                </a>
               </p>
             </div>
           </div>
