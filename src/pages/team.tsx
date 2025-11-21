@@ -42,12 +42,15 @@ export default function TeamPage() {
       linkedin:
         "https://www.linkedin.com/in/hong-ye-hu-phd-a99b518b/",
       github: null,
-      homepage: "http://www.hongyehu.com/",
+      homepage: "https://hongyehu.scholars.harvard.edu/",
       image: drHuImage,
     },
+  ];
+
+  const advisors = [
     {
       name: "Prof. Xiao-Liang Qi",
-      role: "Co-Founder",
+      role: "Advisor",
       education: "Professor, Stanford Physics",
       email: "xlqi@stanford.edu",
       linkedin: null,
@@ -56,9 +59,6 @@ export default function TeamPage() {
         "https://profiles.stanford.edu/xiaoliang-qi?releaseVersion=11.5.1",
       image: profQiImage,
     },
-  ];
-
-  const advisors = [
     {
       name: "Prof. Ehud Altman",
       role: "Advisor",
