@@ -1,9 +1,7 @@
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
-import { ArrowLeft } from "lucide-react";
-import { User } from "lucide-react";
-import { Calendar } from "lucide-react";
-import { Clock } from "lucide-react";
+import { Calendar, User, ArrowLeft, Clock } from "lucide-react";
+import { Link } from "wouter";
 import phaseTaskImage from "figma:asset/40e0ea2a54d22826df8b2d403000bf0fa1ce140c.png";
 import phaseModelImage from "figma:asset/dd6f871572d620d13ddb787f18677d0f0e927751.png";
 import illustrationImage from "figma:asset/e395ef6f46cc3640b73afbc9489262797b5c330b.png";
