@@ -5,6 +5,23 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>EdenCode Website</title>
+      <!-- GitHub Pages SPA redirect handler -->
+      <script>
+        (function() {
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect !== location.pathname) {
+            history.replaceState(null, null, redirect);
+          }
+          
+          // Also check for redirect parameter in URL
+          var urlParams = new URLSearchParams(window.location.search);
+          var redirectParam = urlParams.get('redirect');
+          if (redirectParam) {
+            history.replaceState(null, null, redirectParam);
+          }
+        })();
+      </script>
     </head>
 
     <body>
