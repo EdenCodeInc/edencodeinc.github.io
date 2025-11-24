@@ -10,6 +10,7 @@ import DemoPage from "./pages/demo";
 import TeamPage from "./pages/team";
 import ResearchPage from "./pages/research";
 import BlogAIQuantumErrorCorrection from "./pages/blog-ai-quantum-error-correction";
+import BlogLLMAccuracy from "./pages/blog-llm-accuracy";
 import { ContactPage } from "./components/ContactPage";
 
 // Get base path at module level
@@ -55,7 +56,7 @@ export default function App() {
           path = '/' + path;
         }
         
-        const validPaths = ["/", "/demo", "/team", "/blogs", "/blog-ai-quantum-error-correction", "/contact"];
+        const validPaths = ["/", "/demo", "/team", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/contact"];
         if (validPaths.includes(path)) {
           e.preventDefault();
           window.history.pushState({}, "", link.href);
@@ -87,6 +88,10 @@ export default function App() {
 
   if (currentPage === "/blog-ai-quantum-error-correction") {
     return <BlogAIQuantumErrorCorrection />;
+  }
+
+  if (currentPage === "/blog-llm-accuracy") {
+    return <BlogLLMAccuracy />;
   }
 
   if (currentPage === "/contact") {
