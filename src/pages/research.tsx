@@ -17,7 +17,7 @@ export default function ResearchPage() {
         "How Focused Are LLMs? Understanding the Accuracy Cliff via Repetitive Deterministic Prediction Tasks",
       excerpt:
         "A quantitative study revealing why large language models fail at repetitive reasoning tasks and how statistical physics can explain—and mitigate—these failures through divide-and-conquer strategies.",
-      author: "Wanda Hou, et al.",
+      author: "EdenCode Research Team",
       date: "November 15, 2025",
       category: "AI/ML Research",
       readTime: "12 min read",

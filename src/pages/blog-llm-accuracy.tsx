@@ -1,5 +1,6 @@
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
+import { Badge } from "../components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import { User } from "lucide-react";
 import { Calendar } from "lucide-react";
@@ -11,6 +12,8 @@ import illustrationImage from "figma:asset/e395ef6f46cc3640b73afbc9489262797b5c3
 export default function BlogLLMAccuracy() {
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-[#FFF9D0] via-white to-[#FFF9D0]">
         <div className="absolute inset-0 overflow-hidden">
@@ -29,6 +32,10 @@ export default function BlogLLMAccuracy() {
             </a>
 
             <div className="space-y-4">
+              <Badge className="bg-[#EB612E] text-white hover:bg-[#EB612E]/90">
+                AI/ML Research
+              </Badge>
+
               <h1 className="text-4xl md:text-5xl text-[#553128]">
                 How Focused Are LLMs?
               </h1>
