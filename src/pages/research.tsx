@@ -1,6 +1,11 @@
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
@@ -8,8 +13,10 @@ import { Link } from "wouter";
 export default function ResearchPage() {
   const blogPosts = [
     {
-      title: "How Focused Are LLMs? Understanding the Accuracy Cliff via Repetitive Deterministic Prediction Tasks",
-      excerpt: "A quantitative study revealing why large language models fail at repetitive reasoning tasks and how statistical physics can explain—and mitigate—these failures through divide-and-conquer strategies.",
+      title:
+        "How Focused Are LLMs? Understanding the Accuracy Cliff via Repetitive Deterministic Prediction Tasks",
+      excerpt:
+        "A quantitative study revealing why large language models fail at repetitive reasoning tasks and how statistical physics can explain—and mitigate—these failures through divide-and-conquer strategies.",
       author: "Wanda Hou, et al.",
       date: "November 15, 2025",
       category: "AI/ML Research",
@@ -18,7 +25,8 @@ export default function ResearchPage() {
     },
     {
       title: "AI for Quantum Error Correction",
-      excerpt: "Explore the role of quantum error correction, the necessity of leveraging artificial intelligence for error detection and correction, and how these technologies collaboratively enhance the performance of quantum algorithms.",
+      excerpt:
+        "Explore the role of quantum error correction, the necessity of leveraging artificial intelligence for error detection and correction, and how these technologies collaboratively enhance the performance of quantum algorithms.",
       author: "Dr. Wanda Hou",
       date: "March 15, 2025",
       category: "Quantum Error Correction",
@@ -27,12 +35,21 @@ export default function ResearchPage() {
     },
   ];
 
-  const categories = ["All", "Research", "Tutorial", "Benchmarks", "Technical", "Industry", "AI/ML", "Vision"];
+  const categories = [
+    "All",
+    "Research",
+    "Tutorial",
+    "Benchmarks",
+    "Technical",
+    "Industry",
+    "AI/ML",
+    "Vision",
+  ];
 
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#FFF9D0] via-white to-[#FFF9D0]">
         <div className="absolute inset-0 overflow-hidden">
@@ -49,7 +66,8 @@ export default function ResearchPage() {
               </span>
             </h1>
             <p className="text-xl text-[#553128]/80">
-              Exploring the frontiers of quantum error correction and AI-powered decoding
+              Exploring the frontiers of quantum error
+              correction and AI-powered decoding
             </p>
           </div>
         </div>
@@ -76,14 +94,18 @@ export default function ResearchPage() {
                       <Badge className="bg-[#EB612E] text-white hover:bg-[#EB612E]/90">
                         {post.category}
                       </Badge>
-                      <span className="text-sm text-[#553128]/60">{post.readTime}</span>
+                      <span className="text-sm text-[#553128]/60">
+                        {post.readTime}
+                      </span>
                     </div>
                     <CardTitle className="text-[#553128] group-hover:text-[#EB612E] transition-colors">
                       {post.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-[#553128]/70">{post.excerpt}</p>
+                    <p className="text-[#553128]/70">
+                      {post.excerpt}
+                    </p>
                     <div className="flex items-center justify-between pt-4 border-t border-[#F4A135]/10">
                       <div className="space-y-1">
                         <div className="flex items-center gap-2 text-sm text-[#553128]/60">
@@ -109,9 +131,12 @@ export default function ResearchPage() {
       <section className="py-20 bg-gradient-to-br from-[#FFF9D0] to-white">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h2 className="text-4xl text-[#553128]">Stay Updated</h2>
+            <h2 className="text-4xl text-[#553128]">
+              Stay Updated
+            </h2>
             <p className="text-xl text-[#553128]/80">
-              Subscribe to our newsletter for the latest research updates and insights
+              Subscribe to our newsletter for the latest
+              research updates and insights
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
