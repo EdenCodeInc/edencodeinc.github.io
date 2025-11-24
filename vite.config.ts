@@ -27,6 +27,10 @@
         'figma:asset/4088fad955113e3f11357ea74e4cf45c3e39c4c2.png': path.resolve(__dirname, './src/assets/4088fad955113e3f11357ea74e4cf45c3e39c4c2.png'),
         'figma:asset/310b0be04ed19cb9cf7586265c5ec59204a0da5d.png': path.resolve(__dirname, './src/assets/310b0be04ed19cb9cf7586265c5ec59204a0da5d.png'),
         'figma:asset/01a94125fbbcadca36f8f7bfdd75754fcbc21d8f.png': path.resolve(__dirname, './src/assets/01a94125fbbcadca36f8f7bfdd75754fcbc21d8f.png'),
+        // Assets for blog-llm-accuracy page
+        'figma:asset/40e0ea2a54d22826df8b2d403000bf0fa1ce140c.png': path.resolve(__dirname, './src/assets/40e0ea2a54d22826df8b2d403000bf0fa1ce140c.png'),
+        'figma:asset/dd6f871572d620d13ddb787f18677d0f0e927751.png': path.resolve(__dirname, './src/assets/dd6f871572d620d13ddb787f18677d0f0e927751.png'),
+        'figma:asset/e395ef6f46cc3640b73afbc9489262797b5c330b.png': path.resolve(__dirname, './src/assets/e395ef6f46cc3640b73afbc9489262797b5c330b.png'),
         'embla-carousel-react@8.6.0': 'embla-carousel-react',
         'cmdk@1.1.1': 'cmdk',
         'class-variance-authority@0.7.1': 'class-variance-authority',
