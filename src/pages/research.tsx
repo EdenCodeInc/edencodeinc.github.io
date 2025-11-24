@@ -8,10 +8,19 @@ import { Link } from "wouter";
 export default function ResearchPage() {
   const blogPosts = [
     {
+      title: "How Focused Are LLMs? Understanding the Accuracy Cliff via Repetitive Deterministic Prediction Tasks",
+      excerpt: "A quantitative study revealing why large language models fail at repetitive reasoning tasks and how statistical physics can explain—and mitigate—these failures through divide-and-conquer strategies.",
+      author: "Wanda Hou, et al.",
+      date: "November 15, 2025",
+      category: "AI/ML Research",
+      readTime: "12 min read",
+      link: "/blog-llm-accuracy",
+    },
+    {
       title: "AI for Quantum Error Correction",
       excerpt: "Explore the role of quantum error correction, the necessity of leveraging artificial intelligence for error detection and correction, and how these technologies collaboratively enhance the performance of quantum algorithms.",
       author: "Dr. Wanda Hou",
-      date: "November 15, 2024",
+      date: "March 15, 2025",
       category: "Quantum Error Correction",
       readTime: "8 min read",
       link: "/blog-ai-quantum-error-correction",
