@@ -24,18 +24,37 @@ export function ContactPage() {
     setSubmitStatus("idle");
 
     try {
-      // TODO: Implement Supabase email sending
-      // For now, this is a placeholder
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: "",
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "aa046548-cc97-471f-9a7d-3611a93c7f71",
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: "EdenCode Contact Form",
+        }),
       });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
     } catch (error) {
       setSubmitStatus("error");
     } finally {

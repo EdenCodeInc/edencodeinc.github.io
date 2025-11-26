@@ -23,9 +23,12 @@ export function CTA() {
             <Button 
               size="lg" 
               className="bg-white text-[#EB612E] hover:bg-white/90 px-8 py-6"
+              asChild
             >
-              Request Demo
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <a href="/contact">
+                Request Demo
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
             </Button>
           </div>
         </div>
