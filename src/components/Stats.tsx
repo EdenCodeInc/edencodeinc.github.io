@@ -1,4 +1,4 @@
-import { TrendingUp, Users, Globe, Award } from "lucide-react";
+import { TrendingUp, Users, Zap, FlaskConical } from "lucide-react";
 
 export function Stats() {
   const stats = [
@@ -15,15 +15,15 @@ export function Stats() {
       color: "#EB612E"
     },
     {
-      icon: Globe,
-      value: "15",
-      label: "Countries Served",
+      icon: FlaskConical,
+      value: "8+",
+      label: "Partner Labs",
       color: "#F4A135"
     },
     {
-      icon: Award,
-      value: "99.9%",
-      label: "Uptime SLA",
+      icon: Zap,
+      value: "10K+",
+      label: "Simulations Run",
       color: "#EB612E"
     }
   ];

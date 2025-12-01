@@ -24,26 +24,36 @@ export function ContactPage() {
     setSubmitStatus("idle");
 
     try {
+      console.log("🚀 Submitting form with data:", formData);
+      
+      const payload = {
+        access_key: "aa046548-cc97-471f-9a7d-3611a93c7f71",
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        subject: formData.subject,
+        message: formData.message,
+        from_name: "EdenCode Contact Form",
+      };
+      
+      console.log("📦 Payload being sent:", payload);
+      
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          access_key: "aa046548-cc97-471f-9a7d-3611a93c7f71",
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          subject: formData.subject,
-          message: formData.message,
-          from_name: "EdenCode Contact Form",
-        }),
+        body: JSON.stringify(payload),
       });
 
+      console.log("📡 Response status:", response.status, response.statusText);
+      
       const data = await response.json();
+      console.log("📥 Response data:", data);
 
       if (data.success) {
+        console.log("✅ Form submitted successfully!");
         setSubmitStatus("success");
         setFormData({
           name: "",
@@ -53,9 +63,11 @@ export function ContactPage() {
           message: "",
         });
       } else {
+        console.error("❌ Submission failed:", data.message || "Unknown error");
         setSubmitStatus("error");
       }
     } catch (error) {
+      console.error("💥 Error submitting form:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
