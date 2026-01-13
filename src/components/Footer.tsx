@@ -30,8 +30,8 @@ export function Footer() {
             <ul className="space-y-2 text-white/70">
               <li><a href="/" className="hover:text-[#F4A135] transition-colors">About</a></li>
               <li><a href="/team" className="hover:text-[#F4A135] transition-colors">Team</a></li>
-              <li><a href="#" className="hover:text-[#F4A135] transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-[#F4A135] transition-colors">Contact</a></li>
+              <li><a href="/careers" className="hover:text-[#F4A135] transition-colors">Careers</a></li>
+              <li><a href="/contact" className="hover:text-[#F4A135] transition-colors">Contact</a></li>
             </ul>
           </div>
 

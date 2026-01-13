@@ -254,7 +254,7 @@ export function ContactPage() {
                         href="mailto:info@edencode.ai"
                         className="text-white/90 hover:text-white"
                       >
-                        info@edencode.ai
+                        Coming soon
                       </a>
                     </div>
                   </div>

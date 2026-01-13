@@ -363,9 +363,11 @@ export default function TeamPage() {
               We're always looking for talented individuals
               passionate about quantum computing and AI
             </p>
-            <button className="px-8 py-4 bg-[#EB612E] hover:bg-[#EB612E]/90 text-white rounded-lg transition-colors">
-              View Open Positions
-            </button>
+            <a href="/careers">
+              <button className="px-8 py-4 bg-[#EB612E] hover:bg-[#EB612E]/90 text-white rounded-lg transition-colors">
+                View Open Positions
+              </button>
+            </a>
           </div>
         </div>
       </section>

@@ -29,6 +29,9 @@ export function Navigation() {
             <a href="/blogs" className="text-[#553128] hover:text-[#EB612E] transition-colors">
               Blogs
             </a>
+            <a href="/careers" className="text-[#553128] hover:text-[#EB612E] transition-colors">
+              Careers
+            </a>
             <a href="/contact" className="text-[#553128] hover:text-[#EB612E] transition-colors">
               Contact
             </a>
@@ -63,6 +66,9 @@ export function Navigation() {
             </a>
             <a href="/blogs" className="block text-[#553128] hover:text-[#EB612E] transition-colors">
               Blogs
+            </a>
+            <a href="/careers" className="block text-[#553128] hover:text-[#EB612E] transition-colors">
+              Careers
             </a>
             <a href="/contact" className="block text-[#553128] hover:text-[#EB612E] transition-colors">
               Contact
