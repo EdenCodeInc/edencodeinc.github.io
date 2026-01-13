@@ -10,6 +10,7 @@ import drHuImage from "figma:asset/310b0be04ed19cb9cf7586265c5ec59204a0da5d.png"
 import profQiImage from "figma:asset/01a94125fbbcadca36f8f7bfdd75754fcbc21d8f.png";
 import profAltmanImage from "figma:asset/69c403245d02e381aee3642bc6657d7adc466846.png";
 import profChenImage from "figma:asset/77f9635fc1471e42c6cd3057fc6117722efc2e9b.png";
+import drLakeImage from "figma:asset/0043838077d7d43e243a796a264bd6f311b0eb43.png";
 
 export default function TeamPage() {
   const teamMembers = [
@@ -53,7 +54,7 @@ export default function TeamPage() {
       role: "Advisor",
       education: "Professor, Stanford Physics",
       email: "xlqi@stanford.edu",
-      linkedin: null,
+      linkedin: "https://www.linkedin.com/in/xiaoliang-qi-a5b9a615/",
       github: null,
       homepage:
         "https://profiles.stanford.edu/xiaoliang-qi?releaseVersion=11.5.1",
@@ -64,7 +65,7 @@ export default function TeamPage() {
       role: "Advisor",
       education: "Professor, UC Berkeley Physics",
       email: "ehud.altman@berkeley.edu",
-      linkedin: null,
+      linkedin: "https://www.linkedin.com/in/ehud-altman-49766453/",
       github: null,
       homepage: "https://physics.berkeley.edu/people/faculty/ehud-altman",
       image: profAltmanImage,
@@ -78,6 +79,16 @@ export default function TeamPage() {
       github: null,
       homepage: "https://yubeichen.com/",
       image: profChenImage,
+    },
+    {
+      name: "Dr. Ethan Lake",
+      role: "Advisor",
+      education: "UC Berkeley Physics",
+      email: "elake@berkeley.edu",
+      linkedin: "https://www.linkedin.com/in/ethan-lake-00a9b7133/",
+      github: null,
+      homepage: "https://ethanlake.github.io/",
+      image: drLakeImage,
     },
   ];
 
