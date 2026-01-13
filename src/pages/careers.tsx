@@ -74,7 +74,7 @@ export default function CareersPage() {
               <CardContent className="p-0">
                 {/* Position Header */}
                 <div className="p-8 bg-gradient-to-br from-[#FFF9D0]/50 to-white">
-                  <h3 className="text-2xl text-[#553128] mb-6">We're Hiring!</h3>
+                  <h3 className="text-2xl text-[#553128] mb-6">We're Hiring! For both internship and full-time positions of the following roles:</h3>
                   
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start gap-3">
