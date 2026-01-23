@@ -105,10 +105,6 @@ export default function CareersPage() {
                         <MapPin className="w-5 h-5 text-[#EB612E] flex-shrink-0" />
                         <span className="text-[#553128]/90">Palo Alto or San Jose, California</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <DollarSign className="w-5 h-5 text-[#EB612E] flex-shrink-0" />
-                        <span className="text-[#553128]/90">$80,000 – $130,000 USD + Equity</span>
-                      </div>
                     </div>
                   </div>
 
@@ -145,10 +141,6 @@ export default function CareersPage() {
                         <div>
                           <h4 className="text-lg text-[#553128] mb-3">Compensation & Benefits</h4>
                           <ul className="space-y-2 text-[#553128]/70">
-                            <li className="flex items-start gap-2">
-                              <Star className="w-4 h-4 text-[#EB612E] mt-1 flex-shrink-0" />
-                              <span><strong>Salary Range:</strong> $80,000 – $130,000 USD per year. Dependent on technical depth and marketing experience.</span>
-                            </li>
                             <li className="flex items-start gap-2">
                               <Star className="w-4 h-4 text-[#EB612E] mt-1 flex-shrink-0" />
                               <span><strong>Equity:</strong> Competitive stock option package.</span>
@@ -283,10 +275,6 @@ export default function CareersPage() {
                         <MapPin className="w-5 h-5 text-[#EB612E] flex-shrink-0" />
                         <span className="text-[#553128]/90">San Jose, California (On-site)</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <DollarSign className="w-5 h-5 text-[#EB612E] flex-shrink-0" />
-                        <span className="text-[#553128]/90">$100,000 – $160,000 USD + Equity</span>
-                      </div>
                     </div>
                   </div>
 
@@ -324,10 +312,6 @@ export default function CareersPage() {
                         <div>
                           <h4 className="text-lg text-[#553128] mb-3">Compensation & Benefits</h4>
                           <ul className="space-y-2 text-[#553128]/70">
-                            <li className="flex items-start gap-2">
-                              <Star className="w-4 h-4 text-[#EB612E] mt-1 flex-shrink-0" />
-                              <span><strong>Salary Range:</strong> $100,000 – $160,000 USD per year. Exact compensation may vary based on skills, experience, and location.</span>
-                            </li>
                             <li className="flex items-start gap-2">
                               <Star className="w-4 h-4 text-[#EB612E] mt-1 flex-shrink-0" />
                               <span><strong>Equity:</strong> Competitive stock option package (Early-stage equity).</span>
@@ -450,10 +434,6 @@ export default function CareersPage() {
                         <MapPin className="w-5 h-5 text-[#EB612E] flex-shrink-0" />
                         <span className="text-[#553128]/90">San Jose, California</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <DollarSign className="w-5 h-5 text-[#EB612E] flex-shrink-0" />
-                        <span className="text-[#553128]/90">$140,000 – $220,000 USD + Significant Equity</span>
-                      </div>
                     </div>
                   </div>
 
@@ -491,10 +471,6 @@ export default function CareersPage() {
                         <div>
                           <h4 className="text-lg text-[#553128] mb-3">Compensation & Benefits</h4>
                           <ul className="space-y-2 text-[#553128]/70">
-                            <li className="flex items-start gap-2">
-                              <Star className="w-4 h-4 text-[#EB612E] mt-1 flex-shrink-0" />
-                              <span><strong>Salary Range:</strong> $140,000 – $220,000 USD per year. Compensation commensurate with experience and leadership capabilities.</span>
-                            </li>
                             <li className="flex items-start gap-2">
                               <Star className="w-4 h-4 text-[#EB612E] mt-1 flex-shrink-0" />
                               <span><strong>Equity:</strong> Significant early-stage stock option package.</span>
