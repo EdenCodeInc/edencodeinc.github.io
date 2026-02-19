@@ -11,6 +11,7 @@ import profQiImage from "figma:asset/01a94125fbbcadca36f8f7bfdd75754fcbc21d8f.pn
 import profAltmanImage from "figma:asset/69c403245d02e381aee3642bc6657d7adc466846.png";
 import profChenImage from "figma:asset/77f9635fc1471e42c6cd3057fc6117722efc2e9b.png";
 import drLakeImage from "figma:asset/0043838077d7d43e243a796a264bd6f311b0eb43.png";
+import profXuImage from "figma:asset/7e6a96160ea3e35c35006dcfca1673355b5caca5.png";
 
 export default function TeamPage() {
   const teamMembers = [
@@ -89,6 +90,16 @@ export default function TeamPage() {
       github: null,
       homepage: "https://ethanlake.github.io/",
       image: drLakeImage,
+    },
+    {
+      name: "Prof. Wenchao Xu",
+      role: "Advisor",
+      education: "Professor, ETH Zürich Physics",
+      email: "wenchao.xu@phys.ethz.ch",
+      linkedin: "https://www.linkedin.com/in/wenchao-xu-23a89925/",
+      github: null,
+      homepage: "https://www.phys.ethz.ch/the-department/people/person-detail.wenchao-xu.html",
+      image: profXuImage,
     },
   ];
 
