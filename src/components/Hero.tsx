@@ -13,11 +13,8 @@ export function Hero() {
 
       <div className="container mx-auto px-6 py-24 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFF9D0] border border-[#F4A135] rounded-full">
-            <Sparkles className="w-4 h-4 text-[#EB612E]" />
-            🎉 We've closed a <span className="font-semibold text-[#EB612E]">$1.3M pre-seed round</span>
-          </div>
           
+                  
           <h1 className="text-5xl md:text-7xl tracking-tight text-[#553128]">
             Real-Time AI Decoder for{" "}
             <span className="bg-gradient-to-r from-[#F4A135] to-[#EB612E] bg-clip-text text-transparent">
