@@ -1,67 +1,69 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import logo from "figma:asset/424b43ad566f9cfdcdb898312921e75e3eb3e12c.png";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-[#553128] text-white py-16">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="EdenCode" className="w-10 h-10 rounded-lg" />
-              <span className="text-xl">EdenCode</span>
+    <footer className="relative bg-background border-t-2 border-[var(--terminal-primary)] text-[var(--terminal-primary)] py-12 scanlines transition-colors duration-300">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          {/* Logo & Description */}
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 border-2 border-[var(--terminal-primary)] p-1">
+                <img src={logo} alt="EdenCode" className="w-full h-full" />
+              </div>
+              <div>
+                <div className="text-[var(--terminal-primary)] text-xl font-bold tracking-wider">EDENCODE</div>
+                <div className="text-[var(--terminal-secondary)] text-[10px] tracking-widest">QUANTUM_LAB_V1.0</div>
+              </div>
             </div>
-            <p className="text-white/70">
-              Pioneering the future of fault-tolerant quantum computing through AI-powered error correction.
-            </p>
+            <div className="text-[var(--terminal-secondary)] text-sm font-mono space-y-1">
+              <p>$ cat ./mission.txt</p>
+              <p className="text-xs text-[var(--terminal-primary)]/70">
+                {'>'} Real-time AI-Decoder technology<br />
+                {'>'} for quantum error correction<br />
+                {'>'} ecosystems
+              </p>
+            </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4 className="mb-4">Product</h4>
-            <ul className="space-y-2 text-white/70">
-              <li><a href="/demo" className="hover:text-[#F4A135] transition-colors">Demo</a></li>
-              <li><a href="/blogs" className="hover:text-[#F4A135] transition-colors">Blogs</a></li>
-              <li><a href="#" className="hover:text-[#F4A135] transition-colors">Documentation</a></li>
-            </ul>
+            <div className="text-[var(--terminal-secondary)] font-bold mb-3 text-sm">[NAVIGATION]</div>
+            <div className="space-y-2 text-sm">
+              <a href="/" className="block hover:text-[var(--terminal-secondary)] transition-colors">{'>'} Home</a>
+              <a href="/blogs" className="block hover:text-[var(--terminal-secondary)] transition-colors">{'>'} System_Log</a>
+              <a href="/careers" className="block hover:text-[var(--terminal-secondary)] transition-colors">{'>'} Careers</a>
+            </div>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="mb-4">Company</h4>
-            <ul className="space-y-2 text-white/70">
-              <li><a href="/" className="hover:text-[#F4A135] transition-colors">About</a></li>
-              <li><a href="/team" className="hover:text-[#F4A135] transition-colors">Team</a></li>
-              <li><a href="/careers" className="hover:text-[#F4A135] transition-colors">Careers</a></li>
-              <li><a href="/contact" className="hover:text-[#F4A135] transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4">Connect</h4>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#F4A135] transition-colors flex items-center justify-center">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#F4A135] transition-colors flex items-center justify-center">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#F4A135] transition-colors flex items-center justify-center">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#F4A135] transition-colors flex items-center justify-center">
-                <Mail className="w-5 h-5" />
-              </a>
+            <div className="text-[var(--terminal-secondary)] font-bold mb-3 text-sm">[CONNECT]</div>
+            <div className="space-y-2 text-sm">
+              <a href="https://github.com/EdenCodeInc" target="_blank" rel="noopener noreferrer" className="block hover:text-[var(--terminal-secondary)] transition-colors">{'>'} GitHub</a>
+              <a href="https://www.linkedin.com/company/edencode-inc" target="_blank" rel="noopener noreferrer" className="block hover:text-[var(--terminal-secondary)] transition-colors">{'>'} LinkedIn</a>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/60">© 2025 EdenCode. All rights reserved.</p>
-          <div className="flex gap-6 text-white/60">
-            <a href="#" className="hover:text-[#F4A135] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#F4A135] transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-[#F4A135] transition-colors">Cookie Policy</a>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-[var(--terminal-primary)]/30">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--terminal-secondary)]">
+            <div className="font-mono">
+              © {currentYear} EDENCODE_INC. ALL_RIGHTS_RESERVED
+            </div>
+            <div className="flex gap-6">
+
+
+
+            </div>
           </div>
         </div>
+
+        {/* Terminal Line */}
+
       </div>
     </footer>
   );

@@ -53,7 +53,7 @@ export function PythonDemo() {
         if (!(window as any).loadPyodide) {
           const script = document.createElement("script");
           script.src =
-            "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js";
+            "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js";
           script.async = true;
 
           await new Promise<void>((resolve, reject) => {
@@ -69,7 +69,7 @@ export function PythonDemo() {
         // Load Pyodide from CDN
         const pyodide = await (window as any).loadPyodide({
           indexURL:
-            "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/",
+            "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/",
         });
 
         // Install numpy (required by the code)
@@ -120,7 +120,7 @@ class Environment:
     def update(self, corrections: Optional[np.ndarray] = None):
         bit_flip = np.zeros_like(self.state)
         num_dims = len(self.config.state_shape)
-        
+
         for i in range(num_dims):
             check_flip = np.random.binomial(1, self.config.bit_flip_rate, bit_flip.shape).astype(np.int64)
             if self.config.boundary_condition == 'open':
@@ -128,9 +128,9 @@ class Environment:
                 index[i + 1] = -1
                 check_flip[tuple(index)] = 0
             bit_flip ^= check_flip ^ np.roll(check_flip, 1, axis=i+1)
-        
+
         self.state ^= bit_flip
-        
+
         if corrections is not None:
             self.state ^= corrections
 
@@ -152,8 +152,8 @@ class Decoder:
         self.syndromes = np.zeros((self.config.num_instances, self.config.time_window, *self.config.state_shape), dtype=np.int64)
         self.last_readouts = np.zeros((self.config.num_instances, *self.config.state_shape), dtype=np.int64)
         num_dims = len(self.config.state_shape)
-        self.messages = np.full((self.config.num_instances, 2*(num_dims+1), self.config.time_window, *self.config.state_shape), 
-                               self.config.max_message_value, 
+        self.messages = np.full((self.config.num_instances, 2*(num_dims+1), self.config.time_window, *self.config.state_shape),
+                               self.config.max_message_value,
                                dtype=np.int64)
 
     def update_syndrome(self, readouts: Optional[np.ndarray] = None):
@@ -183,13 +183,13 @@ class Decoder:
         num_spatial_dims = len(spatial_dims)
         num_dims = num_spatial_dims + 1
         num_directions = 2 * num_dims
-        
+
         boundary_condition = self.config.boundary_condition
-        
+
         for dir_idx in range(num_directions):
             dim = dir_idx // 2
             shift_sign = 1 - 2 * (dir_idx % 2)
-            
+
             dir_messages = self.messages[:, dir_idx, :, ...]
             dim_idx = -num_dims + dim
             forward = np.roll(dir_messages, shift_sign, axis=dim_idx)
@@ -212,7 +212,7 @@ class Decoder:
                         side[tuple(idx_list)] = max_msg_val
                     side = np.clip(side + 1, 0, max_msg_val)
                     updated_messages[:, dir_idx, :, ...] = np.minimum(updated_messages[:, dir_idx, :, ...], side)
-        
+
         self.messages = updated_messages
 
     def infer_actions(self):
@@ -267,47 +267,47 @@ class Decoder:
     def get_corrections(self):
         if self.actions is None:
             return None
-        
+
         spatial_dims = self.config.state_shape
         num_spatial_dims = len(spatial_dims)
         num_dims = num_spatial_dims + 1
         boundary_condition = self.config.boundary_condition
-        
+
         defect_mask = (self.actions >= 0)
         if not defect_mask.any():
             return None
-        
+
         source_pos = np.argwhere(defect_mask)
         num_defects = source_pos.shape[0]
-        
+
         dir_idx = self.actions[defect_mask]
         dims = dir_idx // 2
         signs = dir_idx % 2
         offsets = -1 + 2 * signs
-        
+
         target_pos = source_pos.copy()
         for dim in range(num_dims):
             dim_mask = (dims == dim)
             if dim_mask.any():
                 target_pos[dim_mask, -num_dims + dim] += offsets[dim_mask]
-        
+
         if boundary_condition == 'periodic':
             for dim in range(num_spatial_dims):
                 dim_idx = -num_spatial_dims + dim
                 target_pos[:, dim_idx] = target_pos[:, dim_idx] % spatial_dims[dim]
-        
+
         time_window = self.config.time_window
         valid_time = (target_pos[:, 1] >= 0) & (target_pos[:, 1] < time_window)
         valid_spatial = np.ones(num_defects, dtype=bool)
         for dim in range(num_spatial_dims):
             dim_idx = -num_spatial_dims + dim
             valid_spatial &= (target_pos[:, dim_idx] >= 0) & (target_pos[:, dim_idx] < spatial_dims[dim])
-        
+
         valid_pairs = valid_time & valid_spatial
         if valid_pairs.any():
             source_pos = source_pos[valid_pairs]
             target_pos = target_pos[valid_pairs]
-        
+
         bit_pos = source_pos + target_pos
         uniq, inv = np.unique(bit_pos, axis=0, return_inverse=True)
         idx = np.arange(inv.size)
@@ -315,13 +315,13 @@ class Decoder:
         np.maximum.at(last_idx, inv, idx)
         source_pos = source_pos[last_idx]
         target_pos = target_pos[last_idx]
-        
+
         corrections = np.zeros(self.syndromes.shape, dtype=np.int64)
         active_pos = np.concatenate([source_pos, target_pos], axis=0)
-        
+
         for pos in active_pos:
             corrections[tuple(pos)] ^= 1
-        
+
         return corrections
 
     def flatten_corrections(self, corrections: np.ndarray):
@@ -331,11 +331,11 @@ class Decoder:
 
     def step(self, readouts: Optional[np.ndarray] = None):
         self.update_syndrome(readouts)
-        
+
         for _ in range(self.config.velocity):
             self.source_messages()
             self.propagate_messages()
-        
+
         self.infer_actions()
         corrections = self.get_corrections()
         if corrections is not None:
@@ -379,10 +379,10 @@ def step_simulation(decoder_on):
         readouts = env.step()
         dec.update_syndrome(readouts)
         corrections = None
-    
+
     state_np = env.state[0] if env.state.ndim > 2 else env.state
     corrections_np = corrections[0] if corrections is not None and corrections.ndim > 2 else (corrections if corrections is not None else np.zeros_like(state_np))
-    
+
     syndrome_count = np.count_nonzero(state_np)
     correction_count = np.count_nonzero(corrections_np) if corrections_np is not None else 0
     # Count only corrections that are on syndromes (correct corrections)
@@ -391,7 +391,7 @@ def step_simulation(decoder_on):
         correct_correction_count = np.count_nonzero(np.logical_and(state_np, corrections_np))
     total = state_np.size
     syndrome_percent = 100 * syndrome_count / total if total > 0 else 0
-    
+
     return {
         'state': state_np.tolist(),
         'corrections': corrections_np.tolist() if corrections_np is not None else [[0] * state_np.shape[1]] * state_np.shape[0],

@@ -1,83 +1,92 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: #553128;
-  --card: #ffffff;
-  --card-foreground: #553128;
-  --popover: oklch(1 0 0);
-  --popover-foreground: #553128;
-  --primary: #eb612e;
-  --primary-foreground: #ffffff;
-  --secondary: #f4a135;
-  --secondary-foreground: #553128;
-  --muted: #fff9d0;
-  --muted-foreground: #85493a;
-  --accent: #f4a135;
-  --accent-foreground: #553128;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(85, 49, 40, 0.1);
-  --input: transparent;
-  --input-background: #fff9d0;
-  --switch-background: #cbced4;
+  /* Terminal/Cyber Lab Theme - Dark Mode */
+  --background: #000000;
+  --foreground: #FFF9D0;
+  --card: #0D0D0D;
+  --card-foreground: #FFF9D0;
+  --popover: #0D0D0D;
+  --popover-foreground: #FFF9D0;
+  --primary: #F4A135;
+  --primary-foreground: #000000;
+  --secondary: #FFF9D0;
+  --secondary-foreground: #000000;
+  --muted: #1A1A1A;
+  --muted-foreground: #F4A135;
+  --accent: #F4A135;
+  --accent-foreground: #000000;
+  --destructive: #FF0000;
+  --destructive-foreground: #FFF9D0;
+  --border: rgba(255, 249, 208, 0.3);
+  --input: rgba(255, 249, 208, 0.2);
+  --input-background: #0D0D0D;
+  --switch-background: #1A1A1A;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #f4a135;
-  --chart-1: #f4a135;
-  --chart-2: #eb612e;
-  --chart-3: #553128;
-  --chart-4: #fff9d0;
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: #553128;
-  --sidebar-primary: #eb612e;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --ring: #F4A135;
+  --chart-1: #F4A135;
+  --chart-2: #FFF9D0;
+  --chart-3: #EB612E;
+  --chart-4: #F4A135;
+  --chart-5: #FFFF00;
+  --radius: 0;
+  --terminal-primary: #FFF9D0;
+  --terminal-secondary: #F4A135;
+}
+
+.light {
+  /* Terminal/Cyber Lab Theme - Light Mode - Elegant & Refined */
+  --background: #FEFCF3;
+  --foreground: #2D2416;
+  --card: #FFFFFF;
+  --card-foreground: #2D2416;
+  --popover: #FFFFFF;
+  --popover-foreground: #2D2416;
+  --primary: #F4A135;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2D2416;
+  --secondary-foreground: #FFF9D0;
+  --muted: #FFF9E6;
+  --muted-foreground: #8B7355;
+  --accent: #F4A135;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(45, 36, 22, 0.15);
+  --input: rgba(45, 36, 22, 0.1);
+  --input-background: #FFFFFF;
+  --switch-background: #F5F5F5;
+  --ring: #F4A135;
+  --terminal-primary: #2D2416;
+  --terminal-secondary: #F4A135;
 }
 
 .dark {
-  --background: #553128;
-  --foreground: #fff9d0;
-  --card: #553128;
-  --card-foreground: #fff9d0;
-  --popover: #553128;
-  --popover-foreground: #fff9d0;
-  --primary: #f4a135;
-  --primary-foreground: #553128;
-  --secondary: #eb612e;
-  --secondary-foreground: #fff9d0;
-  --muted: rgba(244, 161, 53, 0.2);
-  --muted-foreground: #f4a135;
-  --accent: #eb612e;
-  --accent-foreground: #fff9d0;
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: rgba(244, 161, 53, 0.2);
-  --input: rgba(244, 161, 53, 0.2);
-  --ring: #f4a135;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: #f4a135;
-  --chart-2: #eb612e;
-  --chart-3: #fff9d0;
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: #f4a135;
-  --sidebar-primary-foreground: #553128;
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: #000000;
+  --foreground: #FFF9D0;
+  --card: #0D0D0D;
+  --card-foreground: #FFF9D0;
+  --popover: #0D0D0D;
+  --popover-foreground: #FFF9D0;
+  --primary: #F4A135;
+  --primary-foreground: #000000;
+  --secondary: #FFF9D0;
+  --secondary-foreground: #000000;
+  --muted: #1A1A1A;
+  --muted-foreground: #F4A135;
+  --accent: #F4A135;
+  --accent-foreground: #000000;
+  --destructive: #FF0000;
+  --destructive-foreground: #FFF9D0;
+  --border: rgba(255, 249, 208, 0.3);
+  --input: rgba(255, 249, 208, 0.2);
+  --ring: #F4A135;
 }
 
 @theme inline {
@@ -107,22 +116,10 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(
-    --sidebar-primary-foreground
-  );
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(
-    --sidebar-accent-foreground
-  );
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
 }
 
 @layer base {
@@ -132,66 +129,306 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', 'Space Mono', monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body:not(.light) {
+    background-color: #000000;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255, 249, 208, 0.02) 0px, transparent 1px, transparent 2px, rgba(255, 249, 208, 0.02) 3px),
+      repeating-linear-gradient(90deg, rgba(255, 249, 208, 0.02) 0px, transparent 1px, transparent 2px, rgba(255, 249, 208, 0.02) 3px);
+    background-size: 4px 4px;
+  }
+
+  .light body {
+    background: linear-gradient(to bottom, #FEFCF3 0%, #FFF9E6 100%);
   }
 }
 
 /**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ * Base typography - Terminal style
  */
 @layer base {
-  :where(
-    :not(:has([class*=" text-"]), :not(:has([class^="text-"])))
-  ) {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
     h1 {
       font-size: var(--text-2xl);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
+      line-height: 1.2;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.02em;
     }
 
     h2 {
       font-size: var(--text-xl);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
+      line-height: 1.3;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     h3 {
       font-size: var(--text-lg);
       font-weight: var(--font-weight-medium);
-      line-height: 1.5;
+      line-height: 1.4;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     h4 {
       font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
       line-height: 1.5;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     p {
       font-size: var(--text-base);
       font-weight: var(--font-weight-normal);
-      line-height: 1.5;
+      line-height: 1.6;
+      font-family: 'Space Mono', monospace;
     }
 
     label {
       font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
       line-height: 1.5;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     button {
       font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
       line-height: 1.5;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     input {
       font-size: var(--text-base);
       font-weight: var(--font-weight-normal);
       line-height: 1.5;
+      font-family: 'JetBrains Mono', monospace;
     }
   }
 }
 
 html {
   font-size: var(--font-size);
+}
+
+/* Terminal/Cyber Lab Effects */
+@layer utilities {
+  .terminal-window {
+    border: 2px solid var(--terminal-primary);
+    box-shadow:
+      0 0 10px rgba(255, 249, 208, 0.3),
+      inset 0 0 20px rgba(255, 249, 208, 0.05);
+    position: relative;
+  }
+
+  .light .terminal-window {
+    box-shadow:
+      0 4px 20px rgba(45, 36, 22, 0.08),
+      0 0 1px rgba(45, 36, 22, 0.1);
+  }
+
+  .terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255, 249, 208, 0.1), transparent);
+    border-bottom: 1px solid rgba(255, 249, 208, 0.3);
+  }
+
+  .light .terminal-window::before {
+    background: linear-gradient(to bottom, rgba(45, 36, 22, 0.03), transparent);
+    border-bottom: 1px solid rgba(45, 36, 22, 0.1);
+  }
+
+  .scanlines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+  }
+
+  .light .scanlines::after {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(45, 36, 22, 0.02),
+      rgba(45, 36, 22, 0.02) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    opacity: 0.5;
+  }
+
+  .text-glow {
+    text-shadow:
+      0 0 10px rgba(255, 249, 208, 0.8),
+      0 0 20px rgba(255, 249, 208, 0.5),
+      0 0 30px rgba(255, 249, 208, 0.3);
+  }
+
+  .light .text-glow {
+    text-shadow: none;
+  }
+
+  .text-glow-orange {
+    text-shadow:
+      0 0 10px rgba(244, 161, 53, 0.8),
+      0 0 20px rgba(244, 161, 53, 0.5),
+      0 0 30px rgba(244, 161, 53, 0.3);
+  }
+
+  .light .text-glow-orange {
+    text-shadow: 0 2px 4px rgba(244, 161, 53, 0.2);
+  }
+
+  .border-glow {
+    box-shadow:
+      0 0 10px rgba(255, 249, 208, 0.5),
+      inset 0 0 10px rgba(255, 249, 208, 0.1);
+  }
+
+  .light .border-glow {
+    box-shadow:
+      0 2px 8px rgba(45, 36, 22, 0.08),
+      0 0 1px rgba(45, 36, 22, 0.1);
+  }
+
+  .border-glow-orange {
+    box-shadow:
+      0 0 10px rgba(244, 161, 53, 0.5),
+      inset 0 0 10px rgba(244, 161, 53, 0.1);
+  }
+
+  .light .border-glow-orange {
+    box-shadow:
+      0 2px 8px rgba(244, 161, 53, 0.15),
+      0 0 1px rgba(244, 161, 53, 0.2);
+  }
+
+  .crt-effect {
+    animation: flicker 0.15s infinite;
+  }
+
+  .light .crt-effect {
+    animation: none;
+  }
+
+  .matrix-bg {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 249, 208, 0.03) 2px,
+        rgba(255, 249, 208, 0.03) 4px
+      );
+  }
+
+  .light .matrix-bg {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(45, 36, 22, 0.01) 2px,
+        rgba(45, 36, 22, 0.01) 4px
+      );
+  }
+
+  .typing-cursor::after {
+    content: '▮';
+    animation: blink 1s step-end infinite;
+  }
+
+  .ascii-art {
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1;
+    white-space: pre;
+    font-size: 0.6rem;
+  }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes terminal-boot {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* CRT Screen curvature effect */
+.crt-screen {
+  position: relative;
+}
+
+.crt-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+}
+
+.light .crt-screen::before {
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.02) 100%);
 }

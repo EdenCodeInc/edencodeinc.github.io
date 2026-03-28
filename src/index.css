@@ -158,6 +158,8 @@
 
   body {
     line-height: inherit;
+    background-color: #09090B;
+    color: #FAFAFA;
   }
 
   hr {

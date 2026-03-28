@@ -1,23 +1,20 @@
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
-import { Technology } from "./components/Technology";
-import { Features } from "./components/Features";
-import { Stats } from "./components/Stats";
-import { CTA } from "./components/CTA";
+import { Timeline } from "./components/Timeline";
 import { Footer } from "./components/Footer";
+import { PrototypeShowcase } from "./components/PrototypeShowcase";
 import DemoPage from "./pages/demo";
-import TeamPage from "./pages/team";
 import ResearchPage from "./pages/research";
 import BlogAIQuantumErrorCorrection from "./pages/blog-ai-quantum-error-correction";
 import BlogLLMAccuracy from "./pages/blog-llm-accuracy";
 import CareersPage from "./pages/careers";
-import { ContactPage } from "./components/ContactPage";
 
 // Get base path at module level
 const BASE_PATH = import.meta.env?.BASE_URL || '/';
 
-export default function App() {
+function AppContent() {
   const [currentPage, setCurrentPage] = useState<string>("/");
 
   useEffect(() => {
@@ -36,7 +33,7 @@ export default function App() {
 
     // Listen for popstate (back/forward navigation)
     window.addEventListener("popstate", handleNavigation);
-    
+
     // Handle initial page load
     handleNavigation();
 
@@ -44,11 +41,11 @@ export default function App() {
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const link = target.closest("a");
-      
+
       if (link && link.href && link.origin === window.location.origin) {
         const url = new URL(link.href);
         let path = url.pathname;
-        
+
         // Remove base path to get the actual route
         if (path.startsWith(BASE_PATH)) {
           path = path.slice(BASE_PATH.length - 1); // Keep leading slash
@@ -56,8 +53,8 @@ export default function App() {
         if (!path.startsWith('/')) {
           path = '/' + path;
         }
-        
-        const validPaths = ["/", "/demo", "/team", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/contact", "/careers"];
+
+        const validPaths = ["/", "/demo", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/careers"];
         if (validPaths.includes(path)) {
           e.preventDefault();
           window.history.pushState({}, "", link.href);
@@ -79,10 +76,6 @@ export default function App() {
     return <DemoPage />;
   }
 
-  if (currentPage === "/team") {
-    return <TeamPage />;
-  }
-
   if (currentPage === "/blogs") {
     return <ResearchPage />;
   }
@@ -95,16 +88,6 @@ export default function App() {
     return <BlogLLMAccuracy />;
   }
 
-  if (currentPage === "/contact") {
-    return (
-      <div className="min-h-screen">
-        <Navigation />
-        <ContactPage />
-        <Footer />
-      </div>
-    );
-  }
-
   if (currentPage === "/careers") {
     return <CareersPage />;
   }
@@ -113,11 +96,16 @@ export default function App() {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
-      <Technology />
-      <Features />
-      <Stats />
-      <CTA />
+      <Timeline />
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }

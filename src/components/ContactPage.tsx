@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { Label } from "./ui/label";
 
 export function ContactPage() {
@@ -24,8 +24,6 @@ export function ContactPage() {
     setSubmitStatus("idle");
 
     try {
-      console.log("🚀 Submitting form with data:", formData);
-      
       const payload = {
         access_key: "aa046548-cc97-471f-9a7d-3611a93c7f71",
         name: formData.name,
@@ -35,9 +33,7 @@ export function ContactPage() {
         message: formData.message,
         from_name: "EdenCode Contact Form",
       };
-      
-      console.log("📦 Payload being sent:", payload);
-      
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -47,13 +43,9 @@ export function ContactPage() {
         body: JSON.stringify(payload),
       });
 
-      console.log("📡 Response status:", response.status, response.statusText);
-      
       const data = await response.json();
-      console.log("📥 Response data:", data);
 
       if (data.success) {
-        console.log("✅ Form submitted successfully!");
         setSubmitStatus("success");
         setFormData({
           name: "",
@@ -63,11 +55,9 @@ export function ContactPage() {
           message: "",
         });
       } else {
-        console.error("❌ Submission failed:", data.message || "Unknown error");
         setSubmitStatus("error");
       }
     } catch (error) {
-      console.error("💥 Error submitting form:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -75,9 +65,7 @@ export function ContactPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement
-    >,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -85,37 +73,37 @@ export function ContactPage() {
     });
   };
 
+  const inputClasses =
+    "border-[#27272A] bg-[#18181B] text-[#FAFAFA] placeholder-[#52525B] focus:border-[#F4A135]/50 focus:ring-0";
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#FFF9D0]/20">
+    <div className="min-h-screen bg-[#09090B]">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-4 mb-16">
-            <h1 className="text-5xl md:text-7xl bg-gradient-to-r from-[#EB612E] to-[#F4A135] bg-clip-text text-transparent">
-              Get in Touch
+            <h1 className="text-4xl md:text-5xl font-light text-[#FAFAFA]">
+              Get in{" "}
+              <span className="bg-gradient-to-r from-[#F4A135] to-[#EB612E] bg-clip-text text-transparent">
+                Touch
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-[#553128]/70 max-w-3xl mx-auto">
-              Have questions about our quantum error correction
-              technology? We'd love to hear from you.
+            <p className="text-[#A1A1AA] max-w-xl mx-auto">
+              Have questions about our quantum error correction technology?
+              We'd love to hear from you.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid md:grid-cols-2 gap-10 items-start">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#F4A135]/20">
-              <h2 className="text-3xl mb-6 text-[#553128]">
+            <div className="rounded-xl border border-[#27272A] bg-[#18181B]/50 p-8">
+              <h2 className="text-xl text-[#FAFAFA] mb-6">
                 Send us a message
               </h2>
 
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="space-y-2">
-                  <Label
-                    htmlFor="name"
-                    className="text-[#553128]"
-                  >
+                  <Label htmlFor="name" className="text-[#A1A1AA] text-sm">
                     Name *
                   </Label>
                   <Input
@@ -126,15 +114,12 @@ export function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder="Your full name"
-                    className="border-[#F4A135]/30 focus:border-[#EB612E]"
+                    className={inputClasses}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label
-                    htmlFor="email"
-                    className="text-[#553128]"
-                  >
+                  <Label htmlFor="email" className="text-[#A1A1AA] text-sm">
                     Email *
                   </Label>
                   <Input
@@ -145,15 +130,12 @@ export function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder="your.email@example.com"
-                    className="border-[#F4A135]/30 focus:border-[#EB612E]"
+                    className={inputClasses}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label
-                    htmlFor="company"
-                    className="text-[#553128]"
-                  >
+                  <Label htmlFor="company" className="text-[#A1A1AA] text-sm">
                     Company
                   </Label>
                   <Input
@@ -163,15 +145,12 @@ export function ContactPage() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Your organization"
-                    className="border-[#F4A135]/30 focus:border-[#EB612E]"
+                    className={inputClasses}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label
-                    htmlFor="subject"
-                    className="text-[#553128]"
-                  >
+                  <Label htmlFor="subject" className="text-[#A1A1AA] text-sm">
                     Subject *
                   </Label>
                   <Input
@@ -182,15 +161,12 @@ export function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder="How can we help?"
-                    className="border-[#F4A135]/30 focus:border-[#EB612E]"
+                    className={inputClasses}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label
-                    htmlFor="message"
-                    className="text-[#553128]"
-                  >
+                  <Label htmlFor="message" className="text-[#A1A1AA] text-sm">
                     Message *
                   </Label>
                   <Textarea
@@ -200,37 +176,35 @@ export function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder="Tell us more about your inquiry..."
-                    rows={6}
-                    className="border-[#F4A135]/30 focus:border-[#EB612E] resize-none"
+                    rows={5}
+                    className={`${inputClasses} resize-none`}
                   />
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-[#EB612E] to-[#F4A135] hover:opacity-90 text-white py-6"
+                  className="w-full bg-[#EB612E] hover:bg-[#EB612E]/90 text-white py-5"
                 >
                   {isSubmitting ? (
                     "Sending..."
                   ) : (
                     <>
                       Send Message
-                      <Send className="ml-2 w-5 h-5" />
+                      <Send className="ml-2 w-4 h-4" />
                     </>
                   )}
                 </Button>
 
                 {submitStatus === "success" && (
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-                    Thank you! Your message has been sent
-                    successfully. We'll get back to you soon.
+                  <div className="p-4 rounded-lg border border-green-500/20 bg-green-500/10 text-green-400 text-sm">
+                    Thank you! Your message has been sent successfully.
                   </div>
                 )}
 
                 {submitStatus === "error" && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
-                    Sorry, there was an error sending your
-                    message. Please try again or email us
+                  <div className="p-4 rounded-lg border border-red-500/20 bg-red-500/10 text-red-400 text-sm">
+                    Sorry, there was an error. Please try again or email us
                     directly.
                   </div>
                 )}
@@ -238,70 +212,49 @@ export function ContactPage() {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="bg-gradient-to-br from-[#EB612E] to-[#F4A135] rounded-2xl shadow-xl p-8 md:p-10 text-white">
-                <h2 className="text-3xl mb-6">
+            <div className="space-y-6">
+              <div className="rounded-xl border border-[#27272A] bg-[#18181B]/50 p-8">
+                <h2 className="text-xl text-[#FAFAFA] mb-6">
                   Contact Information
                 </h2>
-                <div className="space-y-6">
+                <div className="space-y-5">
                   <div className="flex items-start gap-4">
-                    <div className="bg-white/20 p-3 rounded-lg">
-                      <Mail className="w-6 h-6" />
+                    <div className="p-2.5 rounded-lg bg-[#F4A135]/10 border border-[#F4A135]/20">
+                      <Mail className="w-5 h-5 text-[#F4A135]" />
                     </div>
                     <div>
-                      <h3 className="text-lg mb-1">Email</h3>
+                      <h3 className="text-sm text-[#FAFAFA] mb-1">Email</h3>
                       <a
-                        href="mailto:info@edencode.ai"
-                        className="text-white/90 hover:text-white"
+                        href="mailto:hwanda@edencode.ai"
+                        className="text-sm text-[#A1A1AA] hover:text-[#F4A135] transition-colors"
                       >
-                        Coming soon
+                        hwanda@edencode.ai
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="bg-white/20 p-3 rounded-lg">
-                      <Phone className="w-6 h-6" />
+                    <div className="p-2.5 rounded-lg bg-[#F4A135]/10 border border-[#F4A135]/20">
+                      <MapPin className="w-5 h-5 text-[#F4A135]" />
                     </div>
                     <div>
-                      <h3 className="text-lg mb-1">Phone</h3>
-                      <p className="text-white/90">
-                        Coming soon
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="bg-white/20 p-3 rounded-lg">
-                      <MapPin className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg mb-1">Location</h3>
-                      <p className="text-white/90">
-                        Palo Alto California, USA
+                      <h3 className="text-sm text-[#FAFAFA] mb-1">Location</h3>
+                      <p className="text-sm text-[#A1A1AA]">
+                        Palo Alto, California, USA
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Additional Info */}
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#F4A135]/20">
-                <h3 className="text-2xl mb-4 text-[#553128]">
-                  Office Hours
-                </h3>
-                <div className="space-y-2 text-[#553128]/70">
-                  <p>
-                    <strong>Monday - Friday:</strong> 9:00 AM -
-                    6:00 PM PST
-                  </p>
-                  <p>
-                    <strong>Saturday - Sunday:</strong> Closed
-                  </p>
+              <div className="rounded-xl border border-[#27272A] bg-[#18181B]/50 p-8">
+                <h3 className="text-lg text-[#FAFAFA] mb-3">Office Hours</h3>
+                <div className="space-y-2 text-sm text-[#A1A1AA]">
+                  <p>Monday – Friday: 9:00 AM – 6:00 PM PST</p>
+                  <p>Saturday – Sunday: Closed</p>
                 </div>
-                <p className="mt-4 text-[#553128]/60">
-                  We typically respond to all inquiries within
-                  24 hours during business days.
+                <p className="mt-4 text-xs text-[#52525B]">
+                  We typically respond within 24 hours on business days.
                 </p>
               </div>
             </div>
