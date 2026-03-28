@@ -62,11 +62,11 @@ export default function ResearchPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             {/* Terminal Window */}
-            <div className="terminal-window bg-background p-4 sm:p-8">
-              <div className="space-y-4">
-                <div className="text-[var(--terminal-primary)] text-sm font-mono space-y-1">
-                  <p>$ cd /system_log</p>
-                  <p>$ tail -f updates.log</p>
+            <div className="terminal-window bg-background p-8 sm:p-10 md:p-12">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="text-[var(--terminal-primary)] text-xs sm:text-sm font-mono space-y-1 break-words">
+                  <p className="break-all">$ cd /system_log</p>
+                  <p className="break-all">$ tail -f updates.log</p>
                   <p className="text-[var(--terminal-secondary)]">---</p>
                 </div>
 

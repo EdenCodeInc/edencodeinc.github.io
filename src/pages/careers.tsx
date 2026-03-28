@@ -116,11 +116,11 @@ export default function CareersPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             {/* Terminal Window */}
-            <div className="terminal-window bg-background p-4 sm:p-8">
-              <div className="space-y-4">
-                <div className="text-[var(--terminal-primary)] text-sm font-mono space-y-1">
-                  <p>$ cd /careers</p>
-                  <p>$ ./search_openings.sh --location=all</p>
+            <div className="terminal-window bg-background p-8 sm:p-10 md:p-12">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="text-[var(--terminal-primary)] text-xs sm:text-sm font-mono space-y-1 break-words">
+                  <p className="break-all">$ cd /careers</p>
+                  <p className="break-all">$ ./search_openings.sh --location=all</p>
                   <p className="text-[var(--terminal-secondary)]">---</p>
                 </div>
 
@@ -131,21 +131,6 @@ export default function CareersPage() {
                 <p className="text-[var(--terminal-primary)] text-sm">
                   [INFO] {jobs.length} positions available
                 </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                  <div className="border border-[var(--terminal-primary)]/30 p-3 bg-card">
-                    <div className="text-[var(--terminal-secondary)] text-xs mb-1">[FOCUS]</div>
-                    <div className="text-[var(--terminal-primary)] text-sm font-bold">Quantum AI</div>
-                  </div>
-                  <div className="border border-[var(--terminal-primary)]/30 p-3 bg-card">
-                    <div className="text-[var(--terminal-secondary)] text-xs mb-1">[TYPE]</div>
-                    <div className="text-[var(--terminal-primary)] text-sm font-bold">Deep Tech</div>
-                  </div>
-                  <div className="border border-[var(--terminal-primary)]/30 p-3 bg-card">
-                    <div className="text-[var(--terminal-secondary)] text-xs mb-1">[LOCATION]</div>
-                    <div className="text-[var(--terminal-primary)] text-sm font-bold">Bay Area</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -191,7 +176,7 @@ export default function CareersPage() {
                 {/* Expanded Details */}
                 {expandedJob === job.id && (
                   <div className="border-t border-[var(--terminal-primary)]/30 animate-[terminal-boot_0.3s_ease-out]">
-                    <div className="p-4 sm:p-6 space-y-6">
+                    <div className="p-6 space-y-6">
                       {/* Description */}
                       <div>
                         <div className="text-[var(--terminal-secondary)] text-sm font-bold font-mono mb-2">
