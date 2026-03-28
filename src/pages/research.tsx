@@ -62,7 +62,7 @@ export default function ResearchPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             {/* Terminal Window */}
-            <div className="terminal-window bg-background p-8">
+            <div className="terminal-window bg-background p-4 sm:p-8">
               <div className="space-y-4">
                 <div className="text-[var(--terminal-primary)] text-sm font-mono space-y-1">
                   <p>$ cd /system_log</p>
@@ -70,7 +70,7 @@ export default function ResearchPage() {
                   <p className="text-[var(--terminal-secondary)]">---</p>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl text-[var(--terminal-secondary)] font-bold font-mono text-glow-orange">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--terminal-secondary)] font-bold font-mono text-glow-orange break-words">
                   {'>'} SYSTEM_LOG
                 </h1>
 
@@ -95,13 +95,13 @@ export default function ResearchPage() {
                 onMouseLeave={() => setSelectedPost(null)}
               >
                 {/* File Header */}
-                <div className="border-b border-[var(--terminal-primary)]/30 px-6 py-3 bg-muted/50">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <div className="flex items-center gap-4">
+                <div className="border-b border-[var(--terminal-primary)]/30 px-3 sm:px-6 py-3 bg-muted/50">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono">
+                    <div className="flex items-center gap-2 sm:gap-4">
                       <span className="text-[var(--terminal-secondary)]">[{post.category}]</span>
-                      <span className="text-[var(--terminal-primary)]">{post.fileType}</span>
+                      <span className="text-[var(--terminal-primary)] text-[10px] sm:text-xs">{post.fileType}</span>
                     </div>
-                    <div className="flex items-center gap-4 text-[var(--terminal-secondary)]">
+                    <div className="flex items-center gap-2 sm:gap-4 text-[var(--terminal-secondary)] text-[10px] sm:text-xs">
                       <span>{post.readTime}min</span>
                       <span>{post.date}</span>
                     </div>
@@ -109,7 +109,7 @@ export default function ResearchPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-4">
+                <div className="p-4 sm:p-6 space-y-4">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <h2 className="text-xl md:text-2xl text-[var(--terminal-primary)] font-bold font-mono mb-2 group-hover:text-glow transition-all">

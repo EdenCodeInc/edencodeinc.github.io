@@ -81,7 +81,7 @@ export default function BlogAIQuantumErrorCorrection() {
       <article className="py-12 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="border-2 border-[var(--terminal-primary)]/30 bg-card p-8">
+            <div className="border-2 border-[var(--terminal-primary)]/30 bg-card p-4 sm:p-8">
               <div className="text-muted-foreground space-y-6 text-sm leading-relaxed font-mono">
                 <p>
                   Quantum computing is rapidly evolving, promising
@@ -103,7 +103,7 @@ export default function BlogAIQuantumErrorCorrection() {
                 </p>
 
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [1] What is Quantum Error Correction (QEC)?
                   </h2>
 
@@ -142,7 +142,7 @@ export default function BlogAIQuantumErrorCorrection() {
                 </div>
 
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [2] Why Do We Need AI for Quantum Error Detection?
                   </h2>
 
@@ -188,7 +188,7 @@ export default function BlogAIQuantumErrorCorrection() {
                 </div>
 
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [3] How Does AI-Powered QEC Work?
                   </h2>
 
@@ -254,7 +254,7 @@ export default function BlogAIQuantumErrorCorrection() {
                 </div>
 
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [4] Conclusion
                   </h2>
 

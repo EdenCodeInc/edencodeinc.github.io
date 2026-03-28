@@ -25,7 +25,7 @@ export default function DemoPage() {
               </a>
               <div className="h-6 w-px bg-border"></div>
               <div>
-                <h1 className="text-2xl text-foreground">
+                <h1 className="text-xl sm:text-2xl text-foreground">
                   Interactive Demo on Topological Code
                 </h1>
                 <p className="text-sm text-muted-foreground">
@@ -41,7 +41,7 @@ export default function DemoPage() {
       <main className="container mx-auto px-6 py-8">
         <div className="max-w-7xl mx-auto space-y-6">
           {/* Description */}
-          <div className="bg-card p-6 border border-border">
+          <div className="bg-card p-4 sm:p-6 border border-border">
             <h2 className="text-xl text-foreground mb-3">
               About This Demo
             </h2>
@@ -96,7 +96,7 @@ export default function DemoPage() {
           <PythonDemo />
 
           {/* Technical Details */}
-          <div className="bg-card border-2 border-primary/30 p-8 text-foreground">
+          <div className="bg-card border-2 border-primary/30 p-4 sm:p-8 text-foreground">
             <h2 className="text-2xl mb-4">Technical Details</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

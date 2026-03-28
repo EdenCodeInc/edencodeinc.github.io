@@ -82,11 +82,11 @@ export default function BlogLLMAccuracy() {
       <article className="py-12 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="border-2 border-[var(--terminal-primary)]/30 bg-card p-8">
+            <div className="border-2 border-[var(--terminal-primary)]/30 bg-card p-4 sm:p-8">
               <div className="text-muted-foreground space-y-6 text-sm leading-relaxed font-mono">
                 {/* Introduction */}
                 <div>
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [1] The Reliability Problem in LLMs
                   </h2>
 
@@ -133,7 +133,7 @@ export default function BlogLLMAccuracy() {
 
                 {/* The Accuracy Cliff */}
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [2] Discovering the Accuracy Cliff
                   </h2>
 
@@ -195,7 +195,7 @@ export default function BlogLLMAccuracy() {
 
                 {/* Experimental Results */}
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [3] Mapping LLM Performance
                   </h2>
 
@@ -243,7 +243,7 @@ export default function BlogLLMAccuracy() {
 
                 {/* Statistical Physics Model */}
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [4] A Statistical Physics Explanation
                   </h2>
 
@@ -298,7 +298,7 @@ export default function BlogLLMAccuracy() {
 
                 {/* Practical Solution */}
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [5] Beating the Accuracy Cliff: Divide-and-Conquer
                   </h2>
 
@@ -343,7 +343,7 @@ export default function BlogLLMAccuracy() {
 
                 {/* Implications */}
                 <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <h2 className="text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
+                  <h2 className="text-xl sm:text-2xl text-[var(--terminal-secondary)] mb-4 font-bold">
                     [6] Implications and Future Directions
                   </h2>
 

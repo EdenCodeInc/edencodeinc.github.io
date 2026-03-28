@@ -116,7 +116,7 @@ export default function CareersPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             {/* Terminal Window */}
-            <div className="terminal-window bg-background p-8">
+            <div className="terminal-window bg-background p-4 sm:p-8">
               <div className="space-y-4">
                 <div className="text-[var(--terminal-primary)] text-sm font-mono space-y-1">
                   <p>$ cd /careers</p>
@@ -124,7 +124,7 @@ export default function CareersPage() {
                   <p className="text-[var(--terminal-secondary)]">---</p>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl text-[var(--terminal-secondary)] font-bold font-mono text-glow-orange">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--terminal-secondary)] font-bold font-mono text-glow-orange break-words">
                   {'>'} JOIN_THE_QUANTUM_TEAM
                 </h1>
 
@@ -167,10 +167,10 @@ export default function CareersPage() {
                   onClick={() => toggleJob(job.id)}
                 >
                   {/* File Info Bar */}
-                  <div className="border-b border-[var(--terminal-primary)]/30 px-6 py-3 bg-muted/50 flex items-center justify-between">
-                    <div className="flex items-center gap-4 text-xs font-mono">
+                  <div className="border-b border-[var(--terminal-primary)]/30 px-3 sm:px-6 py-3 bg-muted/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs font-mono">
                       <span className="text-[var(--terminal-secondary)]">[{job.type}]</span>
-                      <span className="text-[var(--terminal-secondary)]">{job.location}</span>
+                      <span className="text-[var(--terminal-secondary)] text-[10px] sm:text-xs">{job.location}</span>
                     </div>
                     <div className="text-[var(--terminal-primary)] text-xs font-mono">
                       {expandedJob === job.id ? "[-] COLLAPSE" : "[+] EXPAND"}
@@ -178,8 +178,8 @@ export default function CareersPage() {
                   </div>
 
                   {/* Job Title */}
-                  <div className="p-6 hover:bg-[var(--terminal-primary)]/5 transition-colors">
-                    <h2 className="text-2xl text-[var(--terminal-primary)] font-bold font-mono mb-2">
+                  <div className="p-4 sm:p-6 hover:bg-[var(--terminal-primary)]/5 transition-colors">
+                    <h2 className="text-lg sm:text-xl md:text-2xl text-[var(--terminal-primary)] font-bold font-mono mb-2">
                       {job.title}
                     </h2>
                     <p className="text-[var(--terminal-secondary)] text-sm font-mono">
@@ -191,7 +191,7 @@ export default function CareersPage() {
                 {/* Expanded Details */}
                 {expandedJob === job.id && (
                   <div className="border-t border-[var(--terminal-primary)]/30 animate-[terminal-boot_0.3s_ease-out]">
-                    <div className="p-6 space-y-6">
+                    <div className="p-4 sm:p-6 space-y-6">
                       {/* Description */}
                       <div>
                         <div className="text-[var(--terminal-secondary)] text-sm font-bold font-mono mb-2">
