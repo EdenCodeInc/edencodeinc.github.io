@@ -10,7 +10,7 @@ export default function ResearchPage() {
       id: 0,
       title: "How Focused Are LLMs? Understanding the Accuracy Cliff via Repetitive Deterministic Prediction Tasks",
       excerpt: "A quantitative study revealing why large language models fail at repetitive reasoning tasks and how statistical physics can explain—and mitigate—these failures through divide-and-conquer strategies.",
-      author: "EdenCode Research Team",
+      author: "EdenCode Research",
       date: "2025-11-15",
       category: "RESEARCH",
       readTime: "12",

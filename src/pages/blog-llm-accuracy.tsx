@@ -60,7 +60,7 @@ export default function BlogLLMAccuracy() {
                   <div className="flex flex-wrap items-center gap-4 text-xs text-[var(--terminal-secondary)] font-mono">
                     <div className="flex items-center gap-2">
                       <User className="w-3 h-3" />
-                      <span>EdenCode Research Team</span>
+                      <span>EdenCode Research</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-3 h-3" />
@@ -395,7 +395,7 @@ export default function BlogLLMAccuracy() {
                   <div className="text-xs text-[var(--terminal-secondary)]">
                     <p>$ cat article_metadata.txt</p>
                     <p className="text-muted-foreground mt-2">
-                      AUTHOR: EdenCode Research Team<br />
+                      AUTHOR: EdenCode Research<br />
                       DATE: 2025-11-15<br />
                       CATEGORY: AI/ML Research<br />
                       STATUS: Published
