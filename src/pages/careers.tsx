@@ -89,58 +89,28 @@ export default function CareersPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 overflow-hidden bg-background crt-screen">
-        {/* Matrix background */}
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-[var(--terminal-primary)] text-xs font-mono"
-              style={{
-                left: `${i * 7}%`,
-                animation: `matrix-fall ${12 + Math.random() * 8}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
-            >
-              {[...Array(25)].map((_, j) => (
-                <div key={j}>
-                  {String.fromCharCode(33 + Math.floor(Math.random() * 94))}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+      <section className="relative pt-28 sm:pt-32 pb-6 overflow-hidden bg-background">
+        <div className="absolute inset-0 scanlines pointer-events-none opacity-20"></div>
 
-        <div className="absolute inset-0 scanlines pointer-events-none"></div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            {/* Terminal Window */}
-            <div className="terminal-window bg-background p-8 sm:p-10 md:p-12">
-              <div className="space-y-6 sm:space-y-8">
-                <div className="text-[var(--terminal-primary)] text-xs sm:text-sm font-mono space-y-1 break-words">
-                  <p className="break-all">$ cd /careers</p>
-                  <p className="break-all">$ ./search_openings.sh --location=all</p>
-                  <p className="text-[var(--terminal-secondary)]">---</p>
-                </div>
-
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--terminal-secondary)] font-bold font-mono text-glow-orange break-words">
-                  {'>'} JOIN_THE_QUANTUM_TEAM
-                </h1>
-
-                <p className="text-[var(--terminal-primary)] text-sm">
-                  [INFO] {jobs.length} positions available
-                </p>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="bg-background p-4 sm:p-6 border-l-4 border-[var(--terminal-secondary)] relative">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <div className="text-[var(--terminal-secondary)] text-xs font-mono">
+                $ cat open_positions/
               </div>
+              <div className="text-[var(--terminal-primary)] text-xs hidden sm:block">│</div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl text-[var(--terminal-primary)] font-bold font-mono text-glow">
+                CAREERS
+              </h1>
             </div>
           </div>
         </div>
       </section>
 
       {/* Job Listings */}
-      <section className="py-12 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-6">
+      <section className="pt-6 pb-16 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="space-y-6">
             {jobs.map((job) => (
               <div
                 key={job.id}
@@ -219,9 +189,6 @@ export default function CareersPage() {
 
                       {/* Apply Button */}
                       <div className="pt-4 border-t border-[var(--terminal-primary)]/30">
-                        <div className="text-[var(--terminal-secondary)] text-xs font-mono mb-3">
-                          $ ./apply.sh --email={job.email}
-                        </div>
                         <a
                           href={`mailto:${job.email}?subject=Application: ${job.title}`}
                           className="inline-flex items-center gap-2 px-6 py-3 bg-primary border-2 border-primary text-primary-foreground font-bold font-mono hover:bg-accent transition-all"
@@ -235,14 +202,6 @@ export default function CareersPage() {
                 )}
               </div>
             ))}
-          </div>
-
-          {/* Terminal Status */}
-          <div className="max-w-4xl mx-auto mt-8 border border-[var(--terminal-primary)]/30 bg-background p-4">
-            <div className="flex justify-between items-center text-xs text-[var(--terminal-secondary)] font-mono">
-              <span>[STATUS] End of job listings</span>
-              <span>POSITIONS: {jobs.length} | STATUS: HIRING</span>
-            </div>
           </div>
         </div>
       </section>

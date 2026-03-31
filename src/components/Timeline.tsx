@@ -44,34 +44,26 @@ export function Timeline() {
       case "RESEARCH":
         return "text-[var(--terminal-primary)]";
       case "PRODUCT":
-        return "text-[var(--terminal-secondary)]";
+        return "text-[var(--terminal-primary)]";
       case "ANNOUNCEMENT":
-        return "text-[#EB612E]";
+        return "text-[var(--terminal-primary)]";
       case "MILESTONE":
         return "text-[var(--terminal-primary)]";
       case "NEWS":
-        return "text-[var(--terminal-secondary)]";
+        return "text-[var(--terminal-primary)]";
       default:
         return "text-[var(--terminal-primary)]";
     }
   };
 
   return (
-    <section className="relative py-24 bg-[var(--card)] overflow-hidden transition-colors duration-300">
-      {/* Gradient removed from here - now handled in Hero component */}
-
+    <section className="relative pt-8 pb-24 bg-background overflow-hidden transition-colors duration-300">
       {/* Scanlines overlay */}
       <div className="absolute inset-0 scanlines opacity-10 pointer-events-none"></div>
 
-      {/* Corner brackets decoration */}
-
-
-
-
-
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="max-w-4xl mx-auto mb-16">
+        <div className="mb-10">
           <div className="bg-background p-4 sm:p-6 border-l-4 border-[var(--terminal-secondary)] relative">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
               <div className="text-[var(--terminal-secondary)] text-xs font-mono">
@@ -91,7 +83,7 @@ export function Timeline() {
             {/* Vertical line with glow effect */}
             <div className="absolute left-5 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--terminal-primary)]/0 via-[var(--terminal-primary)]/50 to-[var(--terminal-primary)]/0"></div>
 
-            {/* Timeline events - from oldest (bottom) to newest (top) */}
+            {/* Timeline events */}
             <div className="space-y-10">
               {timelineEvents.map((event, index) => (
                 <div key={index} className="relative pl-12 sm:pl-20 group">
@@ -104,11 +96,13 @@ export function Timeline() {
                     <div className="absolute inset-0 border-2 border-[var(--terminal-primary)] opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500"></div>
                   </div>
 
-                  {/* Event card with enhanced styling */}
+                  {/* Event card */}
                   <div className="border-2 border-[var(--terminal-primary)]/30 bg-background p-4 sm:p-6 hover:border-[var(--terminal-primary)] transition-all hover:shadow-lg hover:shadow-[var(--terminal-primary)]/20 relative">
                     {/* Card corner accents */}
                     <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--terminal-secondary)]/50"></div>
                     <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--terminal-secondary)]/50"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--terminal-secondary)]/50"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--terminal-secondary)]/50"></div>
 
                     {/* Date & Category */}
                     <div className="flex items-center gap-3 mb-3 text-xs font-mono">
@@ -133,20 +127,20 @@ export function Timeline() {
                         href={event.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[var(--terminal-secondary)] text-sm font-mono hover:text-[var(--terminal-primary)] transition-colors border-b border-[var(--terminal-secondary)]/30 hover:border-[var(--terminal-primary)] pb-1"
+                        className="inline-flex items-center gap-2 text-[var(--terminal-primary)] text-sm font-mono transition-all"
                       >
                         {'>'} READ_MORE
                         <span className="group-hover:translate-x-1 transition-transform">▶</span>
                       </a>
                     )}
-                    {/* Multiple links (e.g., multiple sessions) */}
+                    {/* Multiple links */}
                     {event.link && event.link2 && (
                       <div className="flex flex-wrap gap-4">
                         <a
                           href={event.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-[var(--terminal-secondary)] text-sm font-mono hover:text-[var(--terminal-primary)] transition-colors border-b border-[var(--terminal-secondary)]/30 hover:border-[var(--terminal-primary)] pb-1"
+                          className="inline-flex items-center gap-2 text-[var(--terminal-primary)] text-sm font-mono hover:text-[var(--terminal-primary)] transition-colors"
                         >
                           {'>'} SESSION_1
                           <span className="group-hover:translate-x-1 transition-transform">▶</span>
@@ -155,7 +149,7 @@ export function Timeline() {
                           href={event.link2}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-[var(--terminal-secondary)] text-sm font-mono hover:text-[var(--terminal-primary)] transition-colors border-b border-[var(--terminal-secondary)]/30 hover:border-[var(--terminal-primary)] pb-1"
+                          className="inline-flex items-center gap-2 text-[var(--terminal-primary)] text-sm font-mono hover:text-[var(--terminal-primary)] transition-colors"
                         >
                           {'>'} SESSION_2
                           <span className="group-hover:translate-x-1 transition-transform">▶</span>
@@ -168,11 +162,9 @@ export function Timeline() {
             </div>
           </div>
 
-          {/* Terminal Status - Enhanced */}
+          {/* Terminal Status */}
           <div className="mt-12 border-2 border-[var(--terminal-primary)]/50 bg-background p-5 relative">
-            {/* Top decorative bar */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--terminal-primary)]/50 to-transparent"></div>
-
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 text-xs text-[var(--terminal-secondary)] font-mono">
               <div className="flex items-center gap-2">
                 <span className="text-[var(--terminal-primary)]">▶</span>
@@ -182,8 +174,6 @@ export function Timeline() {
                 <span>EVENTS: {timelineEvents.length}</span>
                 <span className="text-[var(--terminal-primary)]">│</span>
                 <span>ACTIVE: TRUE</span>
-
-
               </div>
             </div>
           </div>
