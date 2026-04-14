@@ -4,11 +4,11 @@ import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { Timeline } from "./components/Timeline";
 import { Footer } from "./components/Footer";
-import { PrototypeShowcase } from "./components/PrototypeShowcase";
-import DemoPage from "./pages/demo";
 import ResearchPage from "./pages/research";
 import BlogAIQuantumErrorCorrection from "./pages/blog-ai-quantum-error-correction";
 import BlogLLMAccuracy from "./pages/blog-llm-accuracy";
+import BlogNvidiaIsing from "./pages/blog-nvidia-ising";
+import BlogGraphTransformer from "./pages/blog-graph-transformer";
 import CareersPage from "./pages/careers";
 
 // Get base path at module level
@@ -54,7 +54,7 @@ function AppContent() {
           path = '/' + path;
         }
 
-        const validPaths = ["/", "/demo", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/careers"];
+        const validPaths = ["/", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/careers"];
         if (validPaths.includes(path)) {
           e.preventDefault();
           window.history.pushState({}, "", link.href);
@@ -72,10 +72,6 @@ function AppContent() {
     };
   }, []);
 
-  if (currentPage === "/demo") {
-    return <DemoPage />;
-  }
-
   if (currentPage === "/blogs") {
     return <ResearchPage />;
   }
@@ -86,6 +82,14 @@ function AppContent() {
 
   if (currentPage === "/blog-llm-accuracy") {
     return <BlogLLMAccuracy />;
+  }
+
+  if (currentPage === "/blog-nvidia-ising") {
+    return <BlogNvidiaIsing />;
+  }
+
+  if (currentPage === "/blog-graph-transformer") {
+    return <BlogGraphTransformer />;
   }
 
   if (currentPage === "/careers") {

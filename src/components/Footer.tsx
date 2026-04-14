@@ -1,7 +1,15 @@
+import { useState } from "react";
 import logo from "figma:asset/424b43ad566f9cfdcdb898312921e75e3eb3e12c.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("hwanda@edencode.ai");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <footer className="relative bg-background border-t-2 border-[var(--terminal-primary)] text-[var(--terminal-primary)] py-12 scanlines transition-colors duration-300">
@@ -44,6 +52,12 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <a href="https://github.com/EdenCodeInc" target="_blank" rel="noopener noreferrer" className="block hover:text-[var(--terminal-secondary)] transition-colors">{'>'} GitHub</a>
               <a href="https://www.linkedin.com/company/edencode-inc" target="_blank" rel="noopener noreferrer" className="block hover:text-[var(--terminal-secondary)] transition-colors">{'>'} LinkedIn</a>
+              <button
+                onClick={handleCopyEmail}
+                className="block hover:text-[var(--terminal-secondary)] transition-colors text-left cursor-pointer"
+              >
+                {'>'} {copied ? 'Copied: hwanda@edencode.ai ✓' : 'Email'}
+              </button>
             </div>
           </div>
         </div>

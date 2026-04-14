@@ -38,6 +38,11 @@
   --radius: 0;
   --terminal-primary: #FFF9D0;
   --terminal-secondary: #F4A135;
+  /* NVIDIA green — bright for dark backgrounds */
+  --nvidia-green: #88D600;
+  --nvidia-green-2: #9AE600;
+  --nvidia-green-3: #AAEF22;
+  --nvidia-on-green: #000000;
 }
 
 .light {
@@ -65,6 +70,11 @@
   --ring: #F4A135;
   --terminal-primary: #2D2416;
   --terminal-secondary: #F4A135;
+  /* NVIDIA green — darker for light backgrounds */
+  --nvidia-green: #2d7a00;
+  --nvidia-green-2: #3d8b00;
+  --nvidia-green-3: #4d9a00;
+  --nvidia-on-green: #ffffff;
 }
 
 .dark {
@@ -288,7 +298,10 @@ html {
   }
 
   .light .text-glow {
-    text-shadow: none;
+    text-shadow:
+      0 0 10px rgba(244, 161, 53, 0.4),
+      0 0 20px rgba(244, 161, 53, 0.2),
+      0 0 30px rgba(244, 161, 53, 0.1);
   }
 
   .text-glow-orange {

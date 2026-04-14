@@ -10,28 +10,7 @@ export default function BlogAIQuantumErrorCorrection() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 overflow-hidden bg-background crt-screen">
-        {/* Matrix background */}
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-[var(--terminal-primary)] text-xs font-mono"
-              style={{
-                left: `${i * 7}%`,
-                animation: `matrix-fall ${12 + Math.random() * 8}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
-            >
-              {[...Array(25)].map((_, j) => (
-                <div key={j}>
-                  {String.fromCharCode(33 + Math.floor(Math.random() * 94))}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-
+      <section className="relative pt-24 pb-12 overflow-hidden bg-background crt-screen">
         <div className="absolute inset-0 scanlines pointer-events-none"></div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -82,7 +61,7 @@ export default function BlogAIQuantumErrorCorrection() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="border-2 border-[var(--terminal-primary)]/30 bg-card p-4 sm:p-8">
-              <div className="text-muted-foreground space-y-6 text-sm leading-relaxed font-mono">
+              <div className="text-foreground space-y-6 text-base leading-relaxed font-mono">
                 <p>
                   Quantum computing is rapidly evolving, promising
                   exponential speed-ups for tasks ranging from
@@ -287,17 +266,6 @@ export default function BlogAIQuantumErrorCorrection() {
                 </div>
 
                 {/* Terminal Footer */}
-                <div className="pt-8 mt-8 border-t border-[var(--terminal-primary)]/20">
-                  <div className="text-xs text-[var(--terminal-secondary)]">
-                    <p>$ cat article_metadata.txt</p>
-                    <p className="text-muted-foreground mt-2">
-                      AUTHOR: Dr. Wanda Hou<br />
-                      DATE: 2025-03-15<br />
-                      CATEGORY: Quantum Error Correction<br />
-                      STATUS: Published
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -305,7 +273,7 @@ export default function BlogAIQuantumErrorCorrection() {
             <div className="mt-8 flex justify-between items-center">
               <a
                 href="/blogs"
-                className="px-4 py-2 border-2 border-[var(--terminal-primary)] text-[var(--terminal-primary)] font-bold font-mono text-sm hover:bg-[var(--terminal-primary)]/10 transition-all inline-flex items-center gap-2"
+                className="px-4 py-2 border-2 border-[var(--terminal-primary)] text-[var(--terminal-primary)] font-bold font-mono text-sm hover:bg-[var(--terminal-primary)]/10 hover:drop-shadow-[0_0_8px_var(--terminal-secondary)] transition-all inline-flex items-center gap-2"
               >
                 <ArrowLeft className="w-4 h-4" />
                 {'<'} BACK_TO_SYSTEM_LOG

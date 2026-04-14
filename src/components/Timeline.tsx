@@ -1,6 +1,27 @@
 export function Timeline() {
-  // Timeline events from newest to oldest (displayed top to bottom)
   const timelineEvents = [
+    {
+      date: "2026-04-14",
+      title: "Graph Transformer Decoder Released on World Quantum Day",
+      description: "EdenCode publicly releases the Graph Transformer Decoder — an attention-based neural network approaching the theoretically optimal error threshold on surface codes and demonstrating the first neural scaling laws in quantum error correction. A single foundational model generalizes across code distances d = 3 to 21 without retraining.",
+      category: "MODEL_RELEASE",
+      link: "/blog-graph-transformer",
+      linkLabel: "READ_MORE",
+      link2: "https://github.com/EdenCodeInc/transformer-decoder",
+      link2Label: "GITHUB",
+      isHighlight: true,
+    },
+    {
+      date: "2026-04-14",
+      title: "World Quantum Day: EdenCode Featured in NVIDIA Ising Launch",
+      description: "EdenCode obtained early access to NVIDIA's Ising Decoding framework and applied it to quantum error correction beyond its original design. Using the Ising CNN on H200 GPUs, we demonstrated that the architecture successfully generalizes to repetition code Tanner graphs with up to 2× LER improvement and 7× PyMatching speedup, validating a universal AI decoder framework across code families.",
+      category: "NVIDIA_COLLAB",
+      link: "/blog-nvidia-ising",
+      linkLabel: "READ_MORE",
+      link2: "https://nvidianews.nvidia.com/news/nvidia-launches-ising-the-worlds-first-open-ai-models-to-accelerate-the-path-to-useful-quantum-computers",
+      link2Label: "NVIDIA_ISING",
+      isSpecial: true,
+    },
     {
       date: "2026-03-20",
       title: "EdenCode Sponsors Stanford Qfarm Workshop, CTO Panelist",
@@ -14,7 +35,9 @@ export function Timeline() {
       description: "EdenCode founders chaired key sessions on 'Neural Network Quantum States and Learning Quantum Many-Body Systems' and 'Quantum Information and Simulation with Neutral Atoms'",
       category: "NEWS",
       link: "https://summit.aps.org/events/MAR-G42",
+      linkLabel: "SESSION_1",
       link2: "https://summit.aps.org/events/MAR-G28",
+      link2Label: "SESSION_2",
     },
     {
       date: "2026-01-24",
@@ -41,6 +64,10 @@ export function Timeline() {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
+      case "NVIDIA_COLLAB":
+        return "text-[var(--nvidia-green)]";
+      case "MODEL_RELEASE":
+        return "text-[var(--terminal-secondary)]";
       case "RESEARCH":
         return "text-[var(--terminal-primary)]";
       case "PRODUCT":
@@ -58,7 +85,6 @@ export function Timeline() {
 
   return (
     <section className="relative pt-8 pb-24 bg-background overflow-hidden transition-colors duration-300">
-      {/* Scanlines overlay */}
       <div className="absolute inset-0 scanlines opacity-10 pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
@@ -80,54 +106,51 @@ export function Timeline() {
         {/* Timeline */}
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            {/* Vertical line with glow effect */}
             <div className="absolute left-5 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--terminal-primary)]/0 via-[var(--terminal-primary)]/50 to-[var(--terminal-primary)]/0"></div>
 
-            {/* Timeline events */}
             <div className="space-y-10">
               {timelineEvents.map((event, index) => (
                 <div key={index} className="relative pl-12 sm:pl-20 group">
-                  {/* Timeline dot with pulse effect */}
-                  <div className="absolute left-3 sm:left-6 top-2 w-5 h-5 border-2 border-[var(--terminal-primary)] bg-background group-hover:bg-[var(--terminal-primary)] transition-all">
-                    <div className="absolute inset-0 flex items-center justify-center text-[var(--terminal-primary)] text-xs group-hover:text-background">
+                  {/* Timeline dot */}
+                  <div className={`absolute left-3 sm:left-6 top-2 w-5 h-5 border-2 ${event.isSpecial ? 'border-[var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)]' : 'border-[var(--terminal-primary)]'} bg-background ${event.isSpecial ? 'group-hover:bg-[var(--nvidia-green)]' : event.isHighlight ? 'group-hover:bg-[var(--terminal-secondary)]' : 'group-hover:bg-[var(--terminal-primary)]'} transition-all ${event.isSpecial ? 'shadow-[0_0_10px_var(--nvidia-green)]' : event.isHighlight ? 'shadow-[0_0_10px_var(--terminal-secondary)]' : ''}`}>
+                    <div className={`absolute inset-0 flex items-center justify-center ${event.isSpecial ? 'text-[var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} text-xs group-hover:text-background`}>
                       ▶
                     </div>
-                    {/* Pulse ring on hover */}
-                    <div className="absolute inset-0 border-2 border-[var(--terminal-primary)] opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500"></div>
+                    <div className={`absolute inset-0 border-2 ${event.isSpecial ? 'border-[var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)]' : 'border-[var(--terminal-primary)]'} opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500`}></div>
                   </div>
 
                   {/* Event card */}
-                  <div className="border-2 border-[var(--terminal-primary)]/30 bg-background p-4 sm:p-6 hover:border-[var(--terminal-primary)] transition-all hover:shadow-lg hover:shadow-[var(--terminal-primary)]/20 relative">
-                    {/* Card corner accents */}
-                    <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--terminal-secondary)]/50"></div>
-                    <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--terminal-secondary)]/50"></div>
-                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--terminal-secondary)]/50"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--terminal-secondary)]/50"></div>
+                  <div className={`border-2 ${event.isSpecial ? 'border-[var(--nvidia-green)]/60 hover:border-[var(--nvidia-green)] shadow-lg shadow-[var(--nvidia-green)]/20 hover:shadow-2xl hover:shadow-[var(--nvidia-green)]/40' : event.isHighlight ? 'border-[var(--terminal-secondary)]/60 hover:border-[var(--terminal-secondary)] shadow-lg shadow-[var(--terminal-secondary)]/20 hover:shadow-2xl hover:shadow-[var(--terminal-secondary)]/40' : 'border-[var(--terminal-primary)]/30 hover:border-[var(--terminal-primary)] hover:shadow-lg hover:shadow-[var(--terminal-primary)]/20'} bg-background p-4 sm:p-6 transition-all relative`}>
+                    {/* Corner accents */}
+                    <div className={`absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 ${event.isSpecial ? 'border-[var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)]' : 'border-[var(--terminal-secondary)]/50'}`}></div>
+                    <div className={`absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 ${event.isSpecial ? 'border-[var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)]' : 'border-[var(--terminal-secondary)]/50'}`}></div>
+                    <div className={`absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 ${event.isSpecial ? 'border-[var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)]' : 'border-[var(--terminal-secondary)]/50'}`}></div>
+                    <div className={`absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 ${event.isSpecial ? 'border-[var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)]' : 'border-[var(--terminal-secondary)]/50'}`}></div>
 
                     {/* Date & Category */}
                     <div className="flex items-center gap-3 mb-3 text-xs font-mono">
-                      <span className="text-[var(--terminal-secondary)]">{event.date}</span>
+                      <span className={event.isSpecial ? 'text-[var(--nvidia-green-2)]' : 'text-[var(--terminal-secondary)]'}>{event.date}</span>
                       <span className="text-[var(--terminal-primary)]">│</span>
-                      <span className={`${getCategoryColor(event.category)} border border-current px-2 py-0.5`}>[{event.category}]</span>
+                      <span className={`${getCategoryColor(event.category)} border border-current px-2 py-0.5 ${event.isSpecial ? 'shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'shadow-[0_0_8px_var(--terminal-secondary)]' : ''} ${event.isSpecial || event.isHighlight ? 'font-bold' : ''}`}>[{event.category}]</span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg text-[var(--terminal-primary)] font-bold font-mono mb-3 group-hover:text-[var(--terminal-secondary)] transition-colors">
+                    <h3 className={`text-lg ${event.isSpecial ? 'text-[var(--nvidia-green)] drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)] drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} font-bold font-mono mb-3 ${event.isSpecial ? 'group-hover:drop-shadow-[0_0_12px_var(--nvidia-green)]' : event.isHighlight ? 'group-hover:drop-shadow-[0_0_12px_var(--terminal-secondary)]' : 'group-hover:text-[var(--terminal-secondary)]'} transition-colors`}>
                       {'>'} {event.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    <p className={`${event.isSpecial ? 'text-[var(--nvidia-green-2)]' : event.isHighlight ? 'text-[var(--terminal-secondary)]/80' : 'text-muted-foreground'} text-sm mb-4 leading-relaxed`}>
                       {event.description}
                     </p>
 
-                    {/* Link if available */}
+                    {/* Single link */}
                     {event.link && !event.link2 && (
                       <a
                         href={event.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[var(--terminal-primary)] text-sm font-mono transition-all"
+                        target={event.link.startsWith('http') ? '_blank' : undefined}
+                        rel={event.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className={`inline-flex items-center gap-2 ${event.isSpecial ? 'text-[var(--nvidia-green)] hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)] hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} text-sm font-mono transition-all`}
                       >
                         {'>'} READ_MORE
                         <span className="group-hover:translate-x-1 transition-transform">▶</span>
@@ -138,20 +161,20 @@ export function Timeline() {
                       <div className="flex flex-wrap gap-4">
                         <a
                           href={event.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-[var(--terminal-primary)] text-sm font-mono hover:text-[var(--terminal-primary)] transition-colors"
+                          target={event.link.startsWith('http') ? '_blank' : undefined}
+                          rel={event.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          className={`inline-flex items-center gap-2 ${event.isSpecial ? 'text-[var(--nvidia-green)] hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)] hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} text-sm font-mono transition-all`}
                         >
-                          {'>'} SESSION_1
+                          {'>'} {event.linkLabel || 'READ_MORE'}
                           <span className="group-hover:translate-x-1 transition-transform">▶</span>
                         </a>
                         <a
                           href={event.link2}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-[var(--terminal-primary)] text-sm font-mono hover:text-[var(--terminal-primary)] transition-colors"
+                          className={`inline-flex items-center gap-2 ${event.isSpecial ? 'text-[var(--nvidia-green)] hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)] hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} text-sm font-mono transition-all`}
                         >
-                          {'>'} SESSION_2
+                          {'>'} {event.link2Label || 'LINK_2'}
                           <span className="group-hover:translate-x-1 transition-transform">▶</span>
                         </a>
                       </div>
