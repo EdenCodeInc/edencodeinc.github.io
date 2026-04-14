@@ -73,6 +73,18 @@ export default function BlogNvidiaIsing() {
                   </p>
                 </div>
 
+                {/* NVIDIA Ising Ecosystem */}
+                <div className="my-8 border-2 border-[var(--nvidia-green)]/30 p-4">
+                  <img
+                    src="/fig-nvidia-ising-ecosystem.jpg"
+                    alt="NVIDIA Ising ecosystem partners including EdenCode, featured in NVIDIA Quantum Special Address"
+                    className="w-full h-auto"
+                  />
+                  <p className="text-xs text-[var(--nvidia-green-3)] mt-4 leading-relaxed italic">
+                    NVIDIA Ising ecosystem: Announcing the world's first open AI models to accelerate the path to useful quantum computers. EdenCode featured under Ising Decoding.
+                  </p>
+                </div>
+
                 {/* What NVIDIA Ising Decoding Provides */}
                 <div>
                   <h2 className="text-2xl text-[var(--nvidia-green)] mb-4 font-bold drop-shadow-[0_0_8px_var(--nvidia-green)]">
