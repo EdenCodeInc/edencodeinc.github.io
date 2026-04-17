@@ -144,39 +144,29 @@ export function Timeline() {
                       {event.description}
                     </p>
 
-                    {/* Single link */}
-                    {event.link && !event.link2 && (
-                      <a
-                        href={event.link}
-                        target={event.link.startsWith('http') ? '_blank' : undefined}
-                        rel={event.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className={`inline-flex items-center gap-2 ${event.isSpecial ? 'text-[var(--nvidia-green)] hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)] hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} text-sm font-mono transition-all`}
-                      >
-                        {'>'} READ_MORE
-                        <span className="group-hover:translate-x-1 transition-transform">▶</span>
-                      </a>
-                    )}
-                    {/* Multiple links */}
-                    {event.link && event.link2 && (
-                      <div className="flex flex-wrap gap-4">
+                    {/* Buttons */}
+                    {event.link && (
+                      <div className="flex flex-wrap gap-3">
                         <a
                           href={event.link}
                           target={event.link.startsWith('http') ? '_blank' : undefined}
                           rel={event.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className={`inline-flex items-center gap-2 ${event.isSpecial ? 'text-[var(--nvidia-green)] hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)] hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} text-sm font-mono transition-all`}
+                          className={`px-3 py-1.5 border-2 font-bold font-mono text-xs transition-all inline-flex items-center gap-2 ${event.isSpecial ? 'border-[var(--nvidia-green)] text-[var(--nvidia-green)] hover:bg-[var(--nvidia-green)]/10 hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)] text-[var(--terminal-secondary)] hover:bg-[var(--terminal-secondary)]/10 hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'border-[var(--terminal-primary)] text-[var(--terminal-primary)] hover:bg-[var(--terminal-primary)]/10'}`}
                         >
                           {'>'} {event.linkLabel || 'READ_MORE'}
                           <span className="group-hover:translate-x-1 transition-transform">▶</span>
                         </a>
-                        <a
-                          href={event.link2}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 ${event.isSpecial ? 'text-[var(--nvidia-green)] hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'text-[var(--terminal-secondary)] hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'text-[var(--terminal-primary)]'} text-sm font-mono transition-all`}
-                        >
-                          {'>'} {event.link2Label || 'LINK_2'}
-                          <span className="group-hover:translate-x-1 transition-transform">▶</span>
-                        </a>
+                        {event.link2 && (
+                          <a
+                            href={event.link2}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`px-3 py-1.5 border-2 font-bold font-mono text-xs transition-all inline-flex items-center gap-2 ${event.isSpecial ? 'border-[var(--nvidia-green)] text-[var(--nvidia-green)] hover:bg-[var(--nvidia-green)]/10 hover:drop-shadow-[0_0_8px_var(--nvidia-green)]' : event.isHighlight ? 'border-[var(--terminal-secondary)] text-[var(--terminal-secondary)] hover:bg-[var(--terminal-secondary)]/10 hover:drop-shadow-[0_0_8px_var(--terminal-secondary)]' : 'border-[var(--terminal-primary)] text-[var(--terminal-primary)] hover:bg-[var(--terminal-primary)]/10'}`}
+                          >
+                            {'>'} {event.link2Label || 'LINK_2'}
+                            <span className="group-hover:translate-x-1 transition-transform">▶</span>
+                          </a>
+                        )}
                       </div>
                     )}
                   </div>
