@@ -61,7 +61,7 @@ export default function CareersPage() {
       location: "San Jose, CA",
       type: "FULL_TIME",
       remote: false,
-      description: "Own the hardware-software interface between EdenCode's AI decoders and the real-time FPGA control stack running our quantum computers. Deploy our ML models onto modern RFSoC-class control platforms, drive the feedforward loop down to the microsecond scale, and help make fault-tolerant quantum error correction feasible at the speed of physics. A deeply technical IC role spanning AI deployment, FPGA fabric, and the RF/analog chain behind quantum gate operations.",
+      description: "Own the hardware-software interface between EdenCode's AI decoders and the real-time FPGA control stacks running modern quantum computers. Deploy our ML models onto modern RFSoC-class control platforms, drive the feedforward loop down to the microsecond scale, and help make fault-tolerant quantum error correction feasible at the speed of physics. A deeply technical IC role spanning AI deployment, FPGA fabric, and the RF/analog chain behind quantum gate operations.",
       responsibilities: [
         "Deploy EdenCode's QEC decoders onto FPGA fabric and tightly-coupled accelerators with deterministic, low-latency links",
         "Architect high-bandwidth data paths from instrumentation into the FPGA — removing the PC from the real-time control loop",
