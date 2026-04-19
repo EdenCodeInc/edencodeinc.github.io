@@ -56,25 +56,29 @@ export default function CareersPage() {
     },
     {
       id: 2,
-      title: "Head of Quantum Hardware Architecture",
-      tagline: "Lead hardware-software co-design at the speed of physics",
+      title: "Principal FPGA Engineer – Quantum Control",
+      tagline: "Integrate AI onto the FPGA fabric driving real-time quantum control",
       location: "San Jose, CA",
       type: "FULL_TIME",
       remote: false,
-      description: "Lead the design and implementation of high-throughput, low-latency hardware accelerators for real-time quantum error correction. Own the hardware roadmap and collaborate with AI researchers to co-design algorithms optimized for deployment.",
+      description: "Own the hardware-software interface between EdenCode's AI decoders and the real-time FPGA control stack running our quantum computers. Deploy our ML models onto modern RFSoC-class control platforms, drive the feedforward loop down to the microsecond scale, and help make fault-tolerant quantum error correction feasible at the speed of physics. A deeply technical IC role spanning AI deployment, FPGA fabric, and the RF/analog chain behind quantum gate operations.",
       responsibilities: [
-        "Design FPGA/ASIC architectures for real-time QEC decoding",
-        "Optimize hardware for sub-microsecond latency requirements",
-        "Co-design ML algorithms with hardware constraints in mind",
-        "Lead hardware architecture roadmap and team",
-        "Interface with quantum hardware partners",
+        "Deploy EdenCode's QEC decoders onto FPGA fabric and tightly-coupled accelerators with deterministic, low-latency links",
+        "Architect high-bandwidth data paths from instrumentation into the FPGA — removing the PC from the real-time control loop",
+        "Design hardware-accelerated signal and image processing pipelines for massively parallel qubit arrays",
+        "Implement real-time control algorithms on FPGA and drive low-jitter RF waveform synthesis for gate and qubit-transport operations",
+        "Build the mid-circuit measurement feedforward chain from measurement to conditional gate within a deterministic microsecond-scale budget",
+        "Extend RF and analog control capabilities, including multi-board synchronization at sub-microsecond latency",
+        "Partner with quantum hardware teams to co-design the control system against real experimental constraints",
       ],
       qualifications: [
-        "Ph.D. or Master's in Electrical Engineering, Computer Engineering, or Physics",
-        "Extensive experience with FPGA/ASIC design and verification",
-        "Proficiency in Verilog/VHDL, SystemVerilog, and hardware simulation tools",
-        "Understanding of quantum error correction schemes",
-        "Experience with real-time systems and low-latency design",
+        "B.S., M.S., or Ph.D. in Electrical Engineering, Computer Engineering, Physics, or related field — with senior experience in low-latency RF/FPGA design",
+        "Deep expertise with RFSoC-class FPGA platforms; fluent in Verilog / SystemVerilog and modern FPGA toolchains (Vivado, HLS)",
+        "Proven track record building low-latency, low-jitter RF systems: DDS, chirp / spline modulation, phase-noise-aware design",
+        "Multi-FPGA synchronization experience at sub-microsecond latency",
+        "Familiarity with quantum or atomic-physics control ecosystems preferred; background in quantum optics or atomic physics a plus",
+        "Experience deploying ML inference on FPGA or on FPGA-to-accelerator links a strong plus",
+        "Systems mindset: comfortable owning a latency budget end-to-end",
       ],
       email: "hwanda@edencode.ai",
     },
@@ -196,6 +200,9 @@ export default function CareersPage() {
                           {'>'} SEND_APPLICATION
                           <span>▶</span>
                         </a>
+                        <div className="mt-3 text-xs font-mono text-muted-foreground">
+                          # or email {job.email}
+                        </div>
                       </div>
                     </div>
                   </div>
