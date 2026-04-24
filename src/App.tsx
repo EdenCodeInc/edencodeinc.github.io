@@ -19,16 +19,25 @@ function AppContent() {
 
   useEffect(() => {
     // Simple client-side routing
+    const normalizePath = (raw: string) => {
+      let p = raw;
+      if (p.startsWith(BASE_PATH)) {
+        p = p.slice(BASE_PATH.length - 1); // Keep leading slash
+      }
+      if (!p.startsWith('/')) {
+        p = '/' + p;
+      }
+      // Strip trailing slash (except for root) so "/blog-foo/" and "/blog-foo"
+      // both match. GitHub Pages 301-redirects extensionless paths that
+      // resolve to a directory onto the trailing-slash form.
+      if (p.length > 1 && p.endsWith('/')) {
+        p = p.slice(0, -1);
+      }
+      return p;
+    };
+
     const handleNavigation = () => {
-      // Remove base path to get the actual route
-      let path = window.location.pathname;
-      if (path.startsWith(BASE_PATH)) {
-        path = path.slice(BASE_PATH.length - 1); // Keep leading slash
-      }
-      if (!path.startsWith('/')) {
-        path = '/' + path;
-      }
-      setCurrentPage(path);
+      setCurrentPage(normalizePath(window.location.pathname));
     };
 
     // Listen for popstate (back/forward navigation)
@@ -44,15 +53,7 @@ function AppContent() {
 
       if (link && link.href && link.origin === window.location.origin) {
         const url = new URL(link.href);
-        let path = url.pathname;
-
-        // Remove base path to get the actual route
-        if (path.startsWith(BASE_PATH)) {
-          path = path.slice(BASE_PATH.length - 1); // Keep leading slash
-        }
-        if (!path.startsWith('/')) {
-          path = '/' + path;
-        }
+        const path = normalizePath(url.pathname);
 
         const validPaths = ["/", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/careers"];
         if (validPaths.includes(path)) {

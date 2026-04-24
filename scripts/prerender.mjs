@@ -118,14 +118,25 @@ let written = 0;
 for (const [route, meta] of Object.entries(routes)) {
   const head = buildHead(route, meta);
   const html = indexHtml.replace(/<title>[\s\S]*?<\/title>/, head);
+  const routeName = route.replace(/^\//, '');
 
-  // Write to build/<route>/index.html so GitHub Pages serves it for both
-  // /<route> and /<route>/ requests.
-  const outDir = path.join(BUILD_DIR, route.replace(/^\//, ''));
-  fs.mkdirSync(outDir, { recursive: true });
-  const outPath = path.join(outDir, 'index.html');
-  fs.writeFileSync(outPath, html, 'utf-8');
-  console.log(`prerender: ${route} → ${path.relative(ROOT, outPath)}`);
+  // 1. Flat file at build/<route>.html — lets GitHub Pages serve /<route>
+  //    directly with HTTP 200 (no 301 to trailing slash). This keeps the
+  //    URL the user shared stable and avoids a redirect hop that breaks
+  //    some OG fetchers and strips query strings.
+  const flatPath = path.join(BUILD_DIR, `${routeName}.html`);
+  fs.writeFileSync(flatPath, html, 'utf-8');
+
+  // 2. Also write build/<route>/index.html so /<route>/ (trailing slash)
+  //    works too, e.g. when links get normalized by clients.
+  const subDir = path.join(BUILD_DIR, routeName);
+  fs.mkdirSync(subDir, { recursive: true });
+  const subPath = path.join(subDir, 'index.html');
+  fs.writeFileSync(subPath, html, 'utf-8');
+
+  console.log(
+    `prerender: ${route} → ${path.relative(ROOT, flatPath)} + ${path.relative(ROOT, subPath)}`,
+  );
   written += 1;
 }
 
