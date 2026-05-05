@@ -1,6 +1,15 @@
 export function Timeline() {
   const timelineEvents = [
     {
+      date: "2026-05-04",
+      title: "EdenCode Benchmarks Quantum Error Detection on 74-Qubit IBM Hardware",
+      description: "New EdenCode research paper benchmarks quantum error detection on IBM superconducting hardware at up to 74 physical qubits, and maps the practical pseudothreshold for near-term devices. Two bottlenecks emerge: exponential sample overhead and exponential classical decoding cost. AI-accelerated decoding offers a complementary path through these constraints, and addressing them is a central focus of EdenCode's technology.",
+      category: "RESEARCH",
+      link: "https://arxiv.org/abs/2605.02861",
+      linkLabel: "READ_PAPER",
+      isHighlight: true,
+    },
+    {
       date: "2026-04-14",
       title: "Graph Transformer Decoder Released on World Quantum Day",
       description: "EdenCode publicly releases the Graph Transformer Decoder — an attention-based neural network approaching the theoretically optimal error threshold on surface codes and demonstrating the first neural scaling laws in quantum error correction. A single foundational model generalizes across code distances d = 3 to 21 without retraining.",
