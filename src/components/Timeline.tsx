@@ -55,20 +55,6 @@ export function Timeline() {
       category: "ANNOUNCEMENT",
       link: "https://thequantuminsider.com/2026/01/24/edencode-emerges-from-stealth-with-real-time-ai-decoder-for-quantum-error-correction/",
     },
-    {
-      date: "2025-11-15",
-      title: "Research Paper Published on LLM Accuracy",
-      description: "Published paper 'How Focused Are LLMs? Understanding the Accuracy Cliff via Repetitive Deterministic Prediction Tasks'",
-      category: "RESEARCH",
-      link: "/blog-llm-accuracy",
-    },
-    {
-      date: "2025-06-01",
-      title: "Company Founded",
-      description: "EdenCode Inc. founded to begin quantum AI technology development",
-      category: "MILESTONE",
-      link: null,
-    },
   ];
 
   const getCategoryColor = (category: string) => {
