@@ -1,6 +1,15 @@
 export function Timeline() {
   const timelineEvents = [
     {
+      date: "2026-07-22",
+      title: "EdenCode Wins DOE Genesis Mission Award with UC San Diego & Berkeley Lab",
+      description: "EdenCode, UC San Diego, and Lawrence Berkeley National Laboratory were awarded a $740K+ U.S. Department of Energy Genesis Mission project to advance AI-accelerated quantum computing. Selected from more than 5,000 applications, only 278 projects were funded (<6%), in one of DOE's most competitive calls to date. The collaboration unites academia, national labs, and industry to build AI-driven technologies for practical quantum computing.",
+      category: "DOE_AWARD",
+      link: "https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate",
+      linkLabel: "DOE_ANNOUNCEMENT",
+      isHighlight: true,
+    },
+    {
       date: "2026-05-04",
       title: "EdenCode Benchmarks Quantum Error Detection on 74-Qubit IBM Hardware",
       description: "New EdenCode research paper benchmarks quantum error detection on IBM superconducting hardware at up to 74 physical qubits, and maps the practical pseudothreshold for near-term devices. Two bottlenecks emerge: exponential sample overhead and exponential classical decoding cost. AI-accelerated decoding offers a complementary path through these constraints, and addressing them is a central focus of EdenCode's technology.",
@@ -61,6 +70,8 @@ export function Timeline() {
     switch (category) {
       case "NVIDIA_COLLAB":
         return "text-[var(--nvidia-green)]";
+      case "DOE_AWARD":
+        return "text-[var(--terminal-secondary)]";
       case "MODEL_RELEASE":
         return "text-[var(--terminal-secondary)]";
       case "RESEARCH":
