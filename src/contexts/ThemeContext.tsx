@@ -10,15 +10,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    // Load theme from localStorage on mount
-    const savedTheme = localStorage.getItem('edencode-theme') as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('light', savedTheme === 'light');
-    }
+    // Load saved theme on mount; default to light when no preference is stored.
+    const savedTheme = localStorage.getItem('edencode-theme') as Theme | null;
+    const initial: Theme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light';
+    setTheme(initial);
+    document.documentElement.classList.toggle('light', initial === 'light');
   }, []);
 
   const toggleTheme = () => {
