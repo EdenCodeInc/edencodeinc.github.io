@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "figma:asset/424b43ad566f9cfdcdb898312921e75e3eb3e12c.png";
+import { Logo } from "./Logo";
 import { useTheme } from "../contexts/ThemeContext";
 
 export function Navigation() {
@@ -26,8 +26,8 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
           <a href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 border-2 border-[var(--terminal-primary)] p-1 transition-all hover:border-glow">
-              <img src={logo} alt="EdenCode" className="w-full h-full" />
+            <div className="w-10 h-10 transition-all group-hover:border-glow">
+              <Logo className="w-full h-full" />
             </div>
             <div className="flex flex-col">
               <span className="text-[var(--terminal-primary)] text-base sm:text-lg font-bold tracking-wider">EDENCODE</span>

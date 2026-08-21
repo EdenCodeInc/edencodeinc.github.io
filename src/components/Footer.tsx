@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "figma:asset/424b43ad566f9cfdcdb898312921e75e3eb3e12c.png";
+import { Logo } from "./Logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,8 +18,8 @@ export function Footer() {
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 border-2 border-[var(--terminal-primary)] p-1">
-                <img src={logo} alt="EdenCode" className="w-full h-full" />
+              <div className="w-12 h-12">
+                <Logo className="w-full h-full" />
               </div>
               <div>
                 <div className="text-[var(--terminal-primary)] text-xl font-bold tracking-wider">EDENCODE</div>
