@@ -30,6 +30,14 @@ const routes = {
       "EdenCode's research blog on AI-powered quantum error correction, decoder architectures, and the path to fault-tolerant quantum computing.",
     image: '/favicon.png',
   },
+  '/blog-decoder-factory': {
+    title:
+      'An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes',
+    description:
+      "Presented at KITP: a self-improving loop in which EdenCode's GraphMP neural decoder trains on its own device-verified search trajectories. Taught on three quantum LDPC codes and tested on twelve, it matches or surpasses BP+OSD and Relay-BP almost everywhere — and re-adapts when the noise drifts.",
+    image: '/fig-factory-benchmark.jpg',
+    type: 'article',
+  },
   '/blog-graph-transformer': {
     title:
       'One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder',

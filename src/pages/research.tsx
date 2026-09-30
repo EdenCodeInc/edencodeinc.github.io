@@ -6,6 +6,18 @@ export default function ResearchPage() {
   const blogPosts = [
     {
       id: 0,
+      title: "An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes",
+      excerpt: "Presented at KITP's 'Artificial Intelligence at the Quantum Frontier' conference: a self-improving loop in which the GraphMP neural decoder trains on its own device-verified search trajectories. Taught on three quantum LDPC codes and tested on twelve, the third-generation decoder matches or surpasses BP+OSD and Relay-BP almost everywhere — and re-adapts when the noise drifts.",
+      author: "Yi-Zhuang You",
+      date: "2026-09-28",
+      category: "KITP_TALK",
+      readTime: "10",
+      link: "/blog-decoder-factory",
+      fileType: "kitp_talk.md",
+      isHighlight: true,
+    },
+    {
+      id: 1,
       title: "One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder",
       excerpt: "EdenCode publicly releases the Graph Transformer Decoder — an attention-based neural network approaching the theoretically optimal error threshold on surface codes and demonstrating the first neural scaling laws in quantum error correction. A single foundational model generalizes across code distances d = 3 to 21 without retraining.",
       author: "EdenCode Research",
@@ -17,7 +29,7 @@ export default function ResearchPage() {
       isHighlight: true,
     },
     {
-      id: 1,
+      id: 2,
       title: "Scaling AI-Powered Quantum Error Correction with NVIDIA Ising and GPU Compute",
       excerpt: "EdenCode obtained early access to NVIDIA's Ising Decoding framework and applied it to quantum error correction beyond its original design. Using the Ising CNN on H200 GPUs, we demonstrated that the architecture successfully generalizes to repetition code Tanner graphs with up to 2× LER improvement and 7× PyMatching speedup, validating a universal AI decoder framework across code families.",
       author: "EdenCode Research",
@@ -29,7 +41,7 @@ export default function ResearchPage() {
       isSpecial: true,
     },
     {
-      id: 2,
+      id: 3,
       title: "How Focused Are LLMs? Understanding the Accuracy Cliff via Repetitive Deterministic Prediction Tasks",
       excerpt: "A quantitative study revealing why large language models fail at repetitive reasoning tasks and how statistical physics can explain—and mitigate—these failures through divide-and-conquer strategies.",
       author: "EdenCode Research",
@@ -40,7 +52,7 @@ export default function ResearchPage() {
       fileType: "research_paper.pdf",
     },
     {
-      id: 3,
+      id: 4,
       title: "AI for Quantum Error Correction",
       excerpt: "Explore the role of quantum error correction, the necessity of leveraging artificial intelligence for error detection and correction, and how these technologies collaboratively enhance the performance of quantum algorithms.",
       author: "Dr. Wanda Hou",
