@@ -1,6 +1,27 @@
 export function Timeline() {
   const timelineEvents = [
     {
+      date: "2026-09-28",
+      title: "EdenCode Presents the AI Decoder Factory for Quantum LDPC Codes at KITP",
+      description: "At KITP's 'Artificial Intelligence at the Quantum Frontier' conference, EdenCode co-founder and CTO Yi-Zhuang You presented the AI Decoder Factory: a self-improving loop in which the GraphMP neural decoder trains on its own device-verified search trajectories. Taught on three codes and tested on twelve, the third-generation decoder matches or surpasses BP+OSD and Relay-BP almost everywhere — and re-adapts when the noise drifts.",
+      category: "KITP_TALK",
+      link: "/blog-decoder-factory",
+      linkLabel: "READ_MORE",
+      link2: "https://online.kitp.ucsb.edu/online/aiqmatter-c26/you/",
+      link2Label: "WATCH_TALK",
+      isHighlight: true,
+    },
+    {
+      date: "2026-07-27",
+      title: "Co-Founder Yi-Zhuang You Coordinates KITP 'AI for Quantum Matter' Program",
+      description: "EdenCode co-founder and CTO Yi-Zhuang You is a coordinator of the Kavli Institute for Theoretical Physics program 'AI for Quantum Matter' (July 27 – October 8, 2026) and its conference 'Artificial Intelligence at the Quantum Frontier' (September 28 – October 1), bringing together researchers across machine learning, quantum many-body physics, and quantum information at UC Santa Barbara.",
+      category: "NEWS",
+      link: "https://www.kitp.ucsb.edu/activities/aiqmatter26",
+      linkLabel: "KITP_PROGRAM",
+      link2: "https://www.kitp.ucsb.edu/activities/aiqmatter-c26",
+      link2Label: "CONFERENCE",
+    },
+    {
       date: "2026-07-22",
       title: "EdenCode Wins DOE Genesis Mission Award with UC San Diego & Berkeley Lab",
       description: "EdenCode, UC San Diego, and Lawrence Berkeley National Laboratory were awarded a $740K+ U.S. Department of Energy Genesis Mission project to advance AI-accelerated quantum computing. Selected from more than 5,000 applications, only 278 projects were funded (<6%), in one of DOE's most competitive calls to date. The collaboration unites academia, national labs, and industry to build AI-driven technologies for practical quantum computing.",
@@ -48,16 +69,6 @@ export function Timeline() {
       link: "https://qfarm.stanford.edu/events/conference-workshop/2026-cal-bay-quantum-school",
     },
     {
-      date: "2026-03-05",
-      title: "Founders Chair Sessions at 2026 APS March Meeting Global Physics Summit",
-      description: "EdenCode founders chaired key sessions on 'Neural Network Quantum States and Learning Quantum Many-Body Systems' and 'Quantum Information and Simulation with Neutral Atoms'",
-      category: "NEWS",
-      link: "https://summit.aps.org/events/MAR-G42",
-      linkLabel: "SESSION_1",
-      link2: "https://summit.aps.org/events/MAR-G28",
-      link2Label: "SESSION_2",
-    },
-    {
       date: "2026-01-24",
       title: "EdenCode Emerges from Stealth with Pre-Seed Funding",
       description: "EdenCode officially launched operations after closing pre-seed funding round. The Quantum Insider featured the company's emergence from stealth with real-time AI decoder technology for quantum error correction ecosystems",
@@ -71,6 +82,8 @@ export function Timeline() {
       case "NVIDIA_COLLAB":
         return "text-[var(--nvidia-green)]";
       case "DOE_AWARD":
+        return "text-[var(--terminal-secondary)]";
+      case "KITP_TALK":
         return "text-[var(--terminal-secondary)]";
       case "MODEL_RELEASE":
         return "text-[var(--terminal-secondary)]";

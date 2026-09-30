@@ -9,6 +9,7 @@ import BlogAIQuantumErrorCorrection from "./pages/blog-ai-quantum-error-correcti
 import BlogLLMAccuracy from "./pages/blog-llm-accuracy";
 import BlogNvidiaIsing from "./pages/blog-nvidia-ising";
 import BlogGraphTransformer from "./pages/blog-graph-transformer";
+import BlogDecoderFactory from "./pages/blog-decoder-factory";
 import CareersPage from "./pages/careers";
 
 // Get base path at module level
@@ -55,7 +56,7 @@ function AppContent() {
         const url = new URL(link.href);
         const path = normalizePath(url.pathname);
 
-        const validPaths = ["/", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/careers"];
+        const validPaths = ["/", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/blog-decoder-factory", "/careers"];
         if (validPaths.includes(path)) {
           e.preventDefault();
           window.history.pushState({}, "", link.href);
@@ -91,6 +92,10 @@ function AppContent() {
 
   if (currentPage === "/blog-graph-transformer") {
     return <BlogGraphTransformer />;
+  }
+
+  if (currentPage === "/blog-decoder-factory") {
+    return <BlogDecoderFactory />;
   }
 
   if (currentPage === "/careers") {
