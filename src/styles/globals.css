@@ -426,12 +426,39 @@
     transition: stroke 0.6s ease, stroke-opacity 0.6s ease, stroke-width 0.6s ease;
   }
 
-  /* Hero decoding-loop panel */
-  .loop-panel {
-    background: color-mix(in srgb, var(--paper-3) 72%, transparent);
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    padding: 1rem 1.1rem 0.9rem;
+  /* Hero decoding loop: an open, lit field rather than a boxed card.
+     ::before paints a pool of lighter paper with a fine dot grid, feathered
+     out by a radial mask; ::after is a soft amber ambient light. */
+  .loop-field {
+    position: relative;
+    isolation: isolate;
+    padding: 1.5rem 1.25rem 1.25rem 1.5rem;
+  }
+  .loop-field::before {
+    content: "";
+    position: absolute;
+    inset: -6% -4%;
+    z-index: -1;
+    background-color: var(--paper-3);
+    background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 12%, transparent) 1px, transparent 1.4px);
+    background-size: 16px 16px;
+    background-position: 8px 8px;
+    -webkit-mask-image: radial-gradient(ellipse 68% 64% at 50% 50%, #000 38%, transparent 80%);
+    mask-image: radial-gradient(ellipse 68% 64% at 50% 50%, #000 38%, transparent 80%);
+    pointer-events: none;
+  }
+  .loop-field::after {
+    content: "";
+    position: absolute;
+    top: -12%;
+    right: -6%;
+    width: 58%;
+    aspect-ratio: 1;
+    z-index: -2;
+    border-radius: 999px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--brand) 34%, transparent) 0%, transparent 68%);
+    filter: blur(28px);
+    pointer-events: none;
   }
   .loop-dot {
     width: 6px;
@@ -442,7 +469,7 @@
   /* Row labels beside the graph, aligned to each row (positions set inline) */
   .loop-axis {
     position: relative;
-    width: 5.5rem;
+    width: 6.25rem;
   }
   .loop-axis-item {
     position: absolute;
@@ -457,13 +484,13 @@
   .loop-axis-var {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 22px;
+    font-size: 27px;
     color: var(--ink);
   }
   .loop-axis-name {
-    margin-top: 4px;
+    margin-top: 5px;
     font-family: var(--font-mono);
-    font-size: 9.5px;
+    font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-2);
@@ -471,7 +498,7 @@
   .loop-axis-sub {
     margin-top: 3px;
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 9.5px;
     letter-spacing: 0.06em;
     color: var(--ink-3);
   }
@@ -713,7 +740,7 @@
 }
 
 @media (max-width: 640px) {
-  .loop-panel { padding: 0.9rem 0.9rem 0.8rem; }
+  .loop-field { padding: 1rem 0.5rem 0.75rem; }
   .loop-axis { width: 4.25rem; }
   .loop-axis-var { font-size: 18px; }
   .loop-axis-name { font-size: 8.5px; letter-spacing: 0.1em; }

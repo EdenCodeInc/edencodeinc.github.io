@@ -6,15 +6,15 @@ const rise = (ms: number) => ({ "--rise-delay": `${ms}ms` } as CSSProperties);
 
 export function Hero() {
   return (
-    <section className="pt-36 md:pt-44 pb-20 md:pb-28">
+    <section className="pt-36 md:pt-44 pb-20 md:pb-28 overflow-x-clip">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-5">
           <div className="rise" style={rise(0)}>
             <span className="accent-rule" />
             <p className="eyebrow">AI-native quantum error correction</p>
           </div>
           <h1
-            className="rise mt-6 font-display text-[clamp(2.75rem,7vw,5.5rem)] font-semibold tracking-[-0.03em] leading-[0.98] text-ink"
+            className="rise mt-6 font-display text-[clamp(2.75rem,6.4vw,5.25rem)] font-semibold tracking-[-0.03em] leading-[0.98] text-ink"
             style={rise(90)}
           >
             Unlock <em className="accent-serif">quantum</em>
@@ -38,7 +38,7 @@ export function Hero() {
             </a>
           </div>
         </div>
-        <div className="rise lg:col-span-5 lg:pl-6 w-full max-w-2xl lg:max-w-none" style={rise(240)}>
+        <div className="rise lg:col-span-7 w-full max-w-2xl lg:max-w-none xl:-mr-16 2xl:-mr-40" style={rise(240)}>
           <DecodingLoop />
         </div>
       </div>

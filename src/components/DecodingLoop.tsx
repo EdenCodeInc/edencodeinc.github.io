@@ -77,8 +77,8 @@ export function DecodingLoop() {
   const key = `${step}-${phase}`;
 
   return (
-    <div className="loop-panel">
-      <div className="flex items-center justify-between font-mono text-[10.5px] tracking-[0.16em] uppercase text-ink-3">
+    <div className="loop-field">
+      <div className="flex items-center justify-between font-mono text-[10.5px] tracking-[0.18em] uppercase text-ink-3">
         <span>Detector error model</span>
         <span className="inline-flex items-center gap-2">
           <span className="loop-dot pulse-slow" />
@@ -86,7 +86,7 @@ export function DecodingLoop() {
         </span>
       </div>
 
-      <div className="mt-4 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 items-stretch">
+      <div className="mt-6 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 items-stretch">
         <div className="loop-axis" aria-hidden="true">
           {AXIS.map((a) => (
             <div key={a.v} className="loop-axis-item" style={{ top: `${(a.y / VB_H) * 100}%` }}>
@@ -249,7 +249,7 @@ export function DecodingLoop() {
       </svg>
       </div>
 
-      <ol className="mt-4 grid grid-cols-4 gap-3" style={{ "--phase-ms": `${PHASE_MS}ms` } as CSSProperties}>
+      <ol className="mt-6 grid grid-cols-4 gap-3" style={{ "--phase-ms": `${PHASE_MS}ms` } as CSSProperties}>
         {PHASES.map((label, i) => (
           <li key={`${label}-${phase === i ? tick : "idle"}`} className={`phase ${phase === i ? "is-active" : ""}`}>
             {label}
