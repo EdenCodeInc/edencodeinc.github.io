@@ -3,6 +3,20 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { useTheme } from "../contexts/ThemeContext";
 
+// Trace the mark once per session, on the home page only. Decided at module
+// load so the first paint already carries the class (no flicker).
+const LOGO_INTRO_KEY = "ec-logo-intro";
+const shouldPlayLogoIntro = (() => {
+  try {
+    if (window.location.pathname.replace(/\/$/, "") !== "") return false;
+    if (sessionStorage.getItem(LOGO_INTRO_KEY)) return false;
+    sessionStorage.setItem(LOGO_INTRO_KEY, "1");
+    return true;
+  } catch {
+    return false;
+  }
+})();
+
 const navLinks = [
   { path: "/blogs", label: "Research" },
   { path: "/careers", label: "Careers" },
@@ -32,10 +46,10 @@ export function Navigation() {
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 bg-paper/85 backdrop-blur-md border-b border-rule transition-colors duration-300 ${scrolled ? "nav-scrolled" : ""}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3">
-          <Logo className="w-7 h-7" />
-          <span className="font-display font-semibold text-[17px] tracking-tight text-ink">
-            Eden<span className="text-rust">Code</span>
+        <a href="/" className="logo-hover flex items-center gap-3">
+          <Logo className="w-8 h-8 relative -top-px" intro={shouldPlayLogoIntro} />
+          <span className="font-display font-bold text-[18px] tracking-[-0.02em] text-ink">
+            Eden<span className="logo-word-accent">Code</span>
           </span>
         </a>
 

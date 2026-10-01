@@ -1,13 +1,22 @@
 import { useId } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 
+type Props = {
+  className?: string;
+  /** Play the one-time draw-in (arc traced, dot pops) — see Navigation. */
+  intro?: boolean;
+};
+
 /**
  * EdenCode brand mark: a rounded-square app icon with an orange-gradient "C"
  * and a solid orange dot. Background adapts to the active theme
  * (dark brown in dark mode, cream in light mode); the "C" and dot are identical
  * in both, using the brand orange gradient (#EB612E -> #F4A135).
+ *
+ * Wrap it in an element with the `logo-hover` class to let the dot orbit the
+ * inside of the C on hover.
  */
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({ className = "", intro = false }: Props) {
   const { theme } = useTheme();
   const gradId = useId();
   const background = theme === "light" ? "#FAF5EC" : "#3A2A20";
@@ -15,7 +24,7 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 512 512"
-      className={className}
+      className={`${className} ${intro ? "logo-intro" : ""}`}
       role="img"
       aria-label="EdenCode"
       xmlns="http://www.w3.org/2000/svg"
@@ -26,15 +35,19 @@ export function Logo({ className = "" }: { className?: string }) {
           <stop offset="1" stopColor="#F4A135" />
         </linearGradient>
       </defs>
-      <rect x="0" y="0" width="512" height="512" rx="115" fill={background} />
+      <rect className="logo-tile" x="0" y="0" width="512" height="512" rx="115" fill={background} />
       <path
+        className="logo-arc"
+        pathLength={1}
         d="M356.4 148 A148 148 0 1 0 356.4 364"
         fill="none"
         stroke={`url(#${gradId})`}
         strokeWidth="72"
         strokeLinecap="round"
       />
-      <circle cx="352" cy="256" r="35" fill="#EB612E" />
+      <g className="logo-pop">
+        <circle className="logo-dot" cx="352" cy="256" r="35" fill="#EB612E" />
+      </g>
     </svg>
   );
 }

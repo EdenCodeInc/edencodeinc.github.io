@@ -114,19 +114,19 @@ export default function CareersPage() {
                   <button
                     onClick={() => toggleJob(job.id)}
                     aria-expanded={open}
-                    className="w-full text-left py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8 group"
+                    className="relative w-full text-left py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8 group"
                   >
                     <div className="md:col-span-2 font-mono text-[12px] tracking-wide text-ink-2 md:pt-1.5 space-y-1">
                       <div>{job.type}</div>
                       <div className="text-ink-3">{job.location}</div>
                     </div>
-                    <div className="md:col-span-9 max-w-3xl">
+                    <div className="md:col-span-9 max-w-3xl pr-9 md:pr-0">
                       <h2 className="font-display text-2xl md:text-[1.75rem] font-semibold tracking-tight leading-snug text-ink group-hover:text-rust transition-colors">
                         {job.title}
                       </h2>
                       <p className="mt-2 text-[15px] md:text-base text-ink-2">{job.tagline}</p>
                     </div>
-                    <div className="hidden md:flex md:col-span-1 justify-end md:pt-1 text-ink-2 group-hover:text-ink transition-colors">
+                    <div className="absolute right-0 top-8 md:static md:col-span-1 flex justify-end md:pt-1 text-ink-2 group-hover:text-ink transition-colors">
                       {open ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                     </div>
                   </button>
