@@ -18,16 +18,20 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-6">
-            <a href="/" className="flex items-center gap-3">
-              <Logo className="w-7 h-7" />
-              <span className="font-display font-semibold text-[17px] tracking-tight text-ink">
-                Eden<span className="text-rust">Code</span>
-              </span>
-            </a>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-ink-2">
-              Real-time AI decoder technology for quantum error correction
-              ecosystems.
-            </p>
+            <div className="flex items-start gap-4">
+              <a href="/" className="logo-hover shrink-0" aria-label="EdenCode home">
+                <Logo className="w-10 h-10" />
+              </a>
+              <div>
+                <a href="/" className="inline-block mt-1.5 font-display font-semibold text-[20px] tracking-[-0.02em] leading-none text-ink">
+                  Eden<span className="text-rust">Code</span>
+                </a>
+                <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-ink-2">
+                  Real-time AI decoder technology for quantum error correction
+                  ecosystems.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="md:col-span-3">

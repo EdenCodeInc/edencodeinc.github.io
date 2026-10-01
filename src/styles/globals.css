@@ -382,6 +382,29 @@
     animation-delay: var(--rise-delay, 0ms);
   }
 
+  /* Brand mark: theme crossfade, hover orbit, one-time intro */
+  .logo-tile {
+    transition: fill 0.3s ease;
+  }
+  .logo-dot {
+    transform-box: view-box;
+    transform-origin: 256px 256px;
+  }
+  .logo-hover:hover .logo-dot {
+    animation: logo-orbit 0.9s cubic-bezier(0.45, 0, 0.2, 1);
+  }
+  .logo-intro .logo-arc {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: logo-draw 0.5s var(--ease-out) 0.05s forwards;
+  }
+  .logo-intro .logo-pop {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    animation: logo-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+  }
+
   .tg-node {
     transition: fill 0.6s ease, stroke 0.6s ease;
   }
@@ -611,6 +634,21 @@
   to { width: 100%; }
 }
 
+@keyframes logo-orbit {
+  0% { transform: rotate(0deg) translateX(0); }
+  15% { transform: rotate(54deg) translateX(-18px); }
+  85% { transform: rotate(306deg) translateX(-18px); }
+  100% { transform: rotate(360deg) translateX(0); }
+}
+
+@keyframes logo-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes logo-pop {
+  to { transform: scale(1); }
+}
+
 @keyframes ripple {
   from { transform: scale(1); opacity: 0.75; }
   to { transform: scale(2.8); opacity: 0; }
@@ -629,6 +667,9 @@
   .rise { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .ripple, .draw-fwd, .draw-rev, .phase.is-active::after { animation: none; }
+  .logo-hover:hover .logo-dot { animation: none; }
+  .logo-intro .logo-arc { animation: none; stroke-dashoffset: 0; }
+  .logo-intro .logo-pop { animation: none; transform: none; }
   .btn:hover, .btn:active { transform: none; }
   html { scroll-behavior: auto; }
 }
