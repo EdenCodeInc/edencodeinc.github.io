@@ -17,7 +17,7 @@ export function Hero() {
             className="rise mt-6 font-display text-[clamp(2.75rem,7vw,5.5rem)] font-semibold tracking-[-0.03em] leading-[0.98] text-ink"
             style={rise(90)}
           >
-            Unlock quantum
+            Unlock <em className="accent-serif">quantum</em>
             <br />
             with AI.
           </h1>

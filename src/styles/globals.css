@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @custom-variant dark (&:is(:root:not(.light) *));
 
@@ -125,8 +125,9 @@
   --color-brand: var(--brand);
   --color-nvidia: var(--nvidia-green);
 
-  --font-display: "Inter Tight", "Inter", system-ui, -apple-system, sans-serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  --font-sans: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --radius-sm: 4px;
@@ -151,16 +152,24 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
-    font-feature-settings: "cv11", "ss01";
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
     text-wrap: balance;
+  }
+
+  /* Serif italic accent: one word in a headline, pull quotes — nowhere else */
+  .accent-serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.06em;
+    letter-spacing: -0.01em;
   }
 
   p {
@@ -449,8 +458,8 @@
 
 /* Long-form article typography */
 .prose-ec {
-  font-size: 17px;
-  line-height: 1.75;
+  font-size: 17.5px;
+  line-height: 1.72;
   color: var(--ink);
 }
 .prose-ec > * + * { margin-top: 1.25rem; }
@@ -550,12 +559,14 @@
   border-left: 2px solid var(--rust);
 }
 .prose-ec blockquote p {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  line-height: 1.35;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.85rem;
+  line-height: 1.28;
+  font-weight: 400;
+  letter-spacing: -0.005em;
   color: var(--ink);
+  text-wrap: balance;
 }
 .prose-ec blockquote cite {
   display: block;
