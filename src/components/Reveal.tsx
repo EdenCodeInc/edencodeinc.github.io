@@ -34,7 +34,13 @@ export function Reveal({ children, delay = 0, className = "", as = "div" }: Prop
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Safety net: never leave content hidden if the observer is starved
+    // (background tabs, print, odd embeds).
+    const fallback = window.setTimeout(() => setVisible(true), 1500);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   const Tag = as as "div";
