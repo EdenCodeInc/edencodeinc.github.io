@@ -401,6 +401,7 @@
     filter: drop-shadow(0 0 7px color-mix(in srgb, var(--brand) 55%, transparent));
   }
   .logo-word-accent {
+    color: var(--rust);
     transition: color 0.3s ease;
   }
   .logo-hover:hover .logo-word-accent {

@@ -49,7 +49,7 @@ export function Navigation() {
         <a href="/" className="logo-hover flex items-center gap-3">
           <Logo className="w-8 h-8 relative -top-px" intro={shouldPlayLogoIntro} />
           <span className="font-display font-bold text-[18px] tracking-[-0.02em] text-ink">
-            Eden<span className="logo-word-accent text-rust">Code</span>
+            Eden<span className="logo-word-accent">Code</span>
           </span>
         </a>
 
