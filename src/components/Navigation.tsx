@@ -1,102 +1,88 @@
 import { useState, useEffect } from "react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { useTheme } from "../contexts/ThemeContext";
 
+const navLinks = [
+  { path: "/blogs", label: "Research" },
+  { path: "/careers", label: "Careers" },
+];
+
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState("");
+  const [currentPath, setCurrentPath] = useState("/");
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    setCurrentPath(window.location.pathname);
+    setCurrentPath(window.location.pathname.replace(/\/$/, "") || "/");
   }, []);
 
-  const navLinks = [
-    { path: "/", label: "HOME" },
-    { path: "/blogs", label: "SYSTEM_LOG" },
-    { path: "/careers", label: "CAREERS" },
-  ];
+  // Blog posts live under /blog-*, so they count as "Research".
+  const isActive = (path: string) =>
+    currentPath === path || (path === "/blogs" && currentPath.startsWith("/blog-"));
+
+  const ThemeIcon = theme === "dark" ? Sun : Moon;
+  const themeLabel = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
   return (
-    <nav className="fixed top-0 w-full bg-background border-b-2 border-[var(--terminal-primary)] z-50 scanlines transition-colors duration-300">
-      <div className="container mx-auto px-6 py-3">
-        {/* Terminal Header Bar */}
+    <nav className="fixed top-0 inset-x-0 z-50 bg-paper/85 backdrop-blur-md border-b border-rule transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" className="flex items-center gap-3">
+          <Logo className="w-7 h-7" />
+          <span className="font-display font-semibold text-[17px] tracking-tight text-ink">
+            Eden<span className="text-rust">Code</span>
+          </span>
+        </a>
 
-
-        <div className="flex items-center justify-between">
-          {/* Logo/Brand */}
-          <a href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 transition-all group-hover:border-glow">
-              <Logo className="w-full h-full" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[var(--terminal-primary)] text-base sm:text-lg font-bold tracking-wider">EDENCODE</span>
-              <span className="text-[var(--terminal-secondary)] text-[9px] sm:text-[10px] tracking-widest">QUANTUM_LAB_V1.0</span>
-            </div>
-          </a>
-
-          {/* Desktop Navigation - Command Line Style */}
-          <div className="hidden md:flex items-center gap-1 text-sm">
-            {navLinks.map((link) => (
-              <a
-                key={link.path}
-                href={link.path}
-                className={`px-4 py-2 border border-[var(--terminal-primary)]/30 transition-all hover:bg-[var(--terminal-primary)]/10 hover:border-[var(--terminal-primary)] ${
-                  currentPath === link.path
-                    ? "bg-[var(--terminal-primary)]/20 border-[var(--terminal-primary)] text-[var(--terminal-primary)]"
-                    : "text-[var(--terminal-secondary)]"
-                }`}
-              >
-                [ {link.label} ]
-              </a>
-            ))}
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="px-4 py-2 border border-[var(--terminal-secondary)] text-[var(--terminal-secondary)] hover:bg-[var(--terminal-secondary)]/10 transition-all ml-2"
-              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.path}
+              href={link.path}
+              className={`nav-link ${isActive(link.path) ? "is-active" : ""}`}
             >
-              [ {theme === 'dark' ? '○' : '●'} ]
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
+              {link.label}
+            </a>
+          ))}
           <button
-            className="md:hidden text-[var(--terminal-primary)] border border-[var(--terminal-primary)] px-3 py-1 hover:bg-[var(--terminal-primary)]/10"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleTheme}
+            aria-label={themeLabel}
+            title={themeLabel}
+            className="p-2 -mr-2 text-ink-2 hover:text-ink transition-colors"
           >
-            [MENU]
+            <ThemeIcon className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 space-y-2 border-t border-[var(--terminal-primary)]/30 pt-4 animate-[terminal-boot_0.3s_ease-out]">
-            {navLinks.map((link) => (
-              <a
-                key={link.path}
-                href={link.path}
-                className={`block px-4 py-2 border border-[var(--terminal-primary)]/30 hover:bg-[var(--terminal-primary)]/10 ${
-                  currentPath === link.path
-                    ? "bg-[var(--terminal-primary)]/20 border-[var(--terminal-primary)] text-[var(--terminal-primary)]"
-                    : "text-[var(--terminal-secondary)]"
-                }`}
-              >
-                [ {link.label} ]
-              </a>
-            ))}
-
-            {/* Theme Toggle Mobile */}
-            <button
-              onClick={toggleTheme}
-              className="block w-full text-left px-4 py-2 border border-[var(--terminal-secondary)] text-[var(--terminal-secondary)] hover:bg-[var(--terminal-secondary)]/10"
-            >
-              [ {theme === 'dark' ? '○' : '●'} ]
-            </button>
-          </div>
-        )}
+        <button
+          className="md:hidden p-2 -mr-2 text-ink"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-rule bg-paper px-6 py-5 flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.path}
+              href={link.path}
+              className={`nav-link ${isActive(link.path) ? "is-active" : ""} self-start`}
+            >
+              {link.label}
+            </a>
+          ))}
+          <button
+            onClick={toggleTheme}
+            className="nav-link self-start inline-flex items-center gap-2"
+          >
+            <ThemeIcon className="w-4 h-4" />
+            {theme === "dark" ? "Light mode" : "Dark mode"}
+          </button>
+        </div>
+      )}
     </nav>
   );
 }

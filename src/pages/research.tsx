@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 
@@ -13,7 +14,6 @@ export default function ResearchPage() {
       category: "KITP_TALK",
       readTime: "10",
       link: "/blog-decoder-factory",
-      fileType: "kitp_talk.md",
       isHighlight: true,
     },
     {
@@ -25,7 +25,6 @@ export default function ResearchPage() {
       category: "MODEL_RELEASE",
       readTime: "12",
       link: "/blog-graph-transformer",
-      fileType: "model_release.md",
       isHighlight: true,
     },
     {
@@ -37,7 +36,6 @@ export default function ResearchPage() {
       category: "NVIDIA_COLLAB",
       readTime: "10",
       link: "/blog-nvidia-ising",
-      fileType: "nvidia_collab.md",
       isSpecial: true,
     },
     {
@@ -49,7 +47,6 @@ export default function ResearchPage() {
       category: "RESEARCH",
       readTime: "12",
       link: "/blog-llm-accuracy",
-      fileType: "research_paper.pdf",
     },
     {
       id: 4,
@@ -60,129 +57,59 @@ export default function ResearchPage() {
       category: "RESEARCH",
       readTime: "8",
       link: "/blog-ai-quantum-error-correction",
-      fileType: "tech_report.md",
     },
   ];
 
+  const tagTone = (post: { isSpecial?: boolean; isHighlight?: boolean }) =>
+    post.isSpecial ? "tag-nvidia" : post.isHighlight ? "tag-rust" : "tag-amber";
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-paper">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-28 sm:pt-32 pb-6 overflow-hidden bg-background">
-        <div className="absolute inset-0 scanlines pointer-events-none opacity-20"></div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="bg-background p-4 sm:p-6 border-l-4 border-[var(--terminal-secondary)] relative">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-              <div className="text-[var(--terminal-secondary)] text-xs font-mono">
-                $ ls system_log/
-              </div>
-              <div className="text-[var(--terminal-primary)] text-xs hidden sm:block">│</div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl text-[var(--terminal-primary)] font-bold font-mono text-glow">
-                SYSTEM_LOG
-              </h1>
-            </div>
-          </div>
+      <header className="pt-36 pb-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="eyebrow mb-4">Research</p>
+          <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-ink">
+            Research
+          </h1>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-2">
+            Papers, model releases and notes from the EdenCode lab.
+          </p>
         </div>
-      </section>
+      </header>
 
-      {/* Blog Posts List */}
-      <section className="pt-6 pb-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="space-y-6">
+      <section className="pb-24 md:pb-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <ol>
             {blogPosts.map((post) => (
-              <div
-                key={post.id}
-                className={`border-2 ${
-                  post.isSpecial
-                    ? 'border-[var(--nvidia-green)]/60 hover:border-[var(--nvidia-green)] shadow-lg shadow-[var(--nvidia-green)]/20 hover:shadow-2xl hover:shadow-[var(--nvidia-green)]/40'
-                    : post.isHighlight
-                    ? 'border-[var(--terminal-secondary)]/60 hover:border-[var(--terminal-secondary)] shadow-lg shadow-[var(--terminal-secondary)]/20 hover:shadow-2xl hover:shadow-[var(--terminal-secondary)]/40'
-                    : 'border-[var(--terminal-primary)]/30 hover:border-[var(--terminal-primary)]'
-                } bg-card transition-all group`}
-              >
-                {/* File Header */}
-                <div className={`border-b ${
-                  post.isSpecial ? 'border-[var(--nvidia-green)]/30'
-                  : post.isHighlight ? 'border-[var(--terminal-secondary)]/30'
-                  : 'border-[var(--terminal-primary)]/30'
-                } px-3 sm:px-6 py-3 bg-muted/50`}>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono">
-                    <div className="flex items-center gap-2 sm:gap-4">
-                      <span className={`${
-                        post.isSpecial
-                          ? 'text-[var(--nvidia-green)] border border-current px-2 py-0.5 shadow-[0_0_8px_var(--nvidia-green)] font-bold'
-                          : post.isHighlight
-                          ? 'text-[var(--terminal-secondary)] border border-current px-2 py-0.5 shadow-[0_0_8px_var(--terminal-secondary)] font-bold'
-                          : 'text-[var(--terminal-secondary)]'
-                      }`}>[{post.category}]</span>
-                      <span className={`${
-                        post.isSpecial ? 'text-[var(--nvidia-green-2)]'
-                        : post.isHighlight ? 'text-[var(--terminal-secondary)]'
-                        : 'text-[var(--terminal-primary)]'
-                      } text-[10px] sm:text-xs`}>{post.fileType}</span>
-                    </div>
-                    <div className={`flex items-center gap-2 sm:gap-4 ${
-                      post.isSpecial ? 'text-[var(--nvidia-green-2)]' : 'text-[var(--terminal-secondary)]'
-                    } text-[10px] sm:text-xs`}>
-                      <span>{post.readTime}min</span>
-                      <span>{post.date}</span>
-                    </div>
-                  </div>
+              <li key={post.id} className="hairline py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8">
+                <div className="md:col-span-2 font-mono text-[13px] tracking-wide text-ink-2 md:pt-1">
+                  {post.date}
                 </div>
-
-                {/* Content */}
-                <div className="p-4 sm:p-6 space-y-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <h2 className={`text-xl md:text-2xl ${
-                        post.isSpecial
-                          ? 'text-[var(--nvidia-green)] drop-shadow-[0_0_8px_var(--nvidia-green)] group-hover:drop-shadow-[0_0_12px_var(--nvidia-green)]'
-                          : post.isHighlight
-                          ? 'text-[var(--terminal-secondary)] drop-shadow-[0_0_8px_var(--terminal-secondary)] group-hover:drop-shadow-[0_0_12px_var(--terminal-secondary)]'
-                          : 'text-[var(--terminal-primary)] group-hover:text-glow'
-                      } font-bold font-mono mb-2 transition-all`}>
-                        {post.title}
-                      </h2>
-                      <p className={`${
-                        post.isSpecial ? 'text-[var(--nvidia-green-3)]'
-                        : post.isHighlight ? 'text-[var(--terminal-secondary)]/80'
-                        : 'text-muted-foreground'
-                      } text-sm leading-relaxed`}>
-                        {post.excerpt}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className={`flex items-center justify-between pt-4 border-t ${
-                    post.isSpecial ? 'border-[var(--nvidia-green)]/20'
-                    : post.isHighlight ? 'border-[var(--terminal-secondary)]/20'
-                    : 'border-[var(--terminal-primary)]/20'
-                  }`}>
-                    <div className={`text-xs ${
-                      post.isSpecial ? 'text-[var(--nvidia-green-2)]' : 'text-[var(--terminal-secondary)]'
-                    } font-mono`}>
-                      <span>AUTHOR: {post.author}</span>
-                    </div>
-                    <a
-                      href={post.link}
-                      className={`px-4 py-2 ${
-                        post.isSpecial
-                          ? 'bg-[var(--nvidia-green)] border-[var(--nvidia-green)] text-primary-foreground hover:shadow-[0_0_12px_var(--nvidia-green)]'
-                          : post.isHighlight
-                          ? 'bg-[var(--terminal-secondary)] border-[var(--terminal-secondary)] text-primary-foreground hover:shadow-[0_0_12px_var(--terminal-secondary)]'
-                          : 'bg-primary border-primary text-primary-foreground hover:bg-accent'
-                      } border font-bold text-sm font-mono transition-all inline-flex items-center gap-2`}
-                    >
-                      {'>'} READ_ENTRY
-                      <span className="group-hover:translate-x-1 transition-transform">▶</span>
+                <div className="md:col-span-10 max-w-3xl">
+                  <span className={`tag ${tagTone(post)}`}>{post.category.replace(/_/g, " ")}</span>
+                  <h2 className="mt-4 font-display text-2xl md:text-[1.75rem] font-semibold tracking-tight leading-snug text-ink">
+                    <a href={post.link} className="hover:text-rust transition-colors">
+                      {post.title}
+                    </a>
+                  </h2>
+                  <p className="mt-3 text-[15px] md:text-base leading-relaxed text-ink-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <span className="font-mono text-[12px] tracking-wide text-ink-3">
+                      {post.author} · {post.readTime} min read
+                    </span>
+                    <a href={post.link} className="link-arrow">
+                      Read the post
+                      <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 

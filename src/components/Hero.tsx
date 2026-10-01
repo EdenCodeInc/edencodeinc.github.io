@@ -1,87 +1,115 @@
-import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
+
+// A Tanner graph: fault nodes (circles) above, syndrome checks (squares) below.
+// Two faults have fired, lighting up the checks that touch them.
+const FAULTS = [40, 104, 168, 232, 296, 360, 424, 488];
+const CHECKS = [72, 168, 264, 360, 456];
+const EDGES: Array<[number, number]> = [
+  [0, 0], [0, 1], [0, 2],
+  [1, 1], [1, 2], [1, 3], [1, 4],
+  [2, 3], [2, 4], [2, 5],
+  [3, 4], [3, 5], [3, 6],
+  [4, 5], [4, 6], [4, 7],
+];
+const FAULTY = new Set([3, 6]);
+const FIRED = new Set([1, 2, 3, 4]);
+
+function TannerGraph() {
+  return (
+    <svg
+      viewBox="0 0 528 300"
+      className="w-full h-auto"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <text x="40" y="34" className="font-mono" fontSize="11" letterSpacing="0.12em" fill="var(--ink-3)">
+        e · FAULTS · HIDDEN
+      </text>
+      <text x="40" y="284" className="font-mono" fontSize="11" letterSpacing="0.12em" fill="var(--ink-3)">
+        s · SYNDROME · OBSERVED
+      </text>
+
+      {EDGES.map(([c, f]) => {
+        const hot = FAULTY.has(f) && FIRED.has(c);
+        return (
+          <line
+            key={`${c}-${f}`}
+            x1={FAULTS[f]}
+            y1={72}
+            x2={CHECKS[c]}
+            y2={228}
+            stroke={hot ? "var(--rust)" : "var(--ink)"}
+            strokeOpacity={hot ? 0.9 : 0.18}
+            strokeWidth={hot ? 1.6 : 1.1}
+          />
+        );
+      })}
+
+      {FAULTS.map((x, i) => (
+        <circle
+          key={`f${i}`}
+          cx={x}
+          cy={72}
+          r={9}
+          fill={FAULTY.has(i) ? "var(--rust)" : "var(--paper-3)"}
+          stroke={FAULTY.has(i) ? "var(--rust)" : "var(--ink-2)"}
+          strokeWidth={1.4}
+        />
+      ))}
+
+      {CHECKS.map((x, i) => (
+        <rect
+          key={`c${i}`}
+          x={x - 9}
+          y={219}
+          width={18}
+          height={18}
+          rx={2}
+          fill={FIRED.has(i) ? "var(--rust)" : "var(--paper-3)"}
+          stroke={FIRED.has(i) ? "var(--rust)" : "var(--ink-2)"}
+          strokeWidth={1.4}
+          className={FIRED.has(i) ? "pulse-slow" : undefined}
+        />
+      ))}
+    </svg>
+  );
+}
 
 export function Hero() {
-  const [displayedText, setDisplayedText] = useState("");
-  const [cursorVisible, setCursorVisible] = useState(true);
-  const fullText = "UNLOCK QUANTUM WITH AI";
-
-  useEffect(() => {
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setDisplayedText(fullText.slice(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 80);
-
-    const cursorInterval = setInterval(() => {
-      setCursorVisible((prev) => !prev);
-    }, 500);
-
-    return () => {
-      clearInterval(typingInterval);
-      clearInterval(cursorInterval);
-    };
-  }, []);
-
   return (
-    <section className="relative pt-28 sm:pt-32 pb-12 sm:pb-16 bg-background crt-screen transition-colors duration-300 overflow-hidden">
-      {/* Scanlines effect */}
-      <div className="absolute inset-0 scanlines pointer-events-none opacity-20"></div>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-        {/* Terminal Window */}
-        <div className="terminal-window bg-card matrix-bg transition-colors duration-300 relative">
-          {/* Terminal header bar */}
-          <div className="h-8 flex items-center gap-2 px-4 border-b border-[var(--terminal-primary)]/30">
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 border border-[var(--terminal-secondary)]"></div>
-              <div className="w-3 h-3 border border-[var(--terminal-primary)]"></div>
-              <div className="w-3 h-3 border border-[var(--terminal-primary)]/50"></div>
-            </div>
-            <span className="text-[var(--terminal-primary)] text-[10px] sm:text-xs font-mono ml-2 truncate">root@edencode:~/quantum_ai</span>
+    <section className="pt-36 md:pt-44 pb-16 md:pb-20">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 md:gap-8 items-center">
+        <div className="md:col-span-7">
+          <p className="eyebrow mb-6">AI-native quantum error correction</p>
+          <h1 className="font-display text-[2.75rem] sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-ink">
+            Unlock quantum
+            <br />
+            with AI.
+          </h1>
+          <p className="mt-7 text-lg md:text-xl leading-relaxed text-ink-2 max-w-xl">
+            EdenCode builds real-time AI decoder technology for quantum error
+            correction ecosystems — across all quantum hardware modalities.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a href="/blogs" className="btn btn-primary">
+              Read the research
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a href="/careers" className="btn btn-secondary">
+              Join the team
+            </a>
           </div>
+        </div>
+        <div className="md:col-span-5 md:pl-6">
+          <TannerGraph />
+        </div>
+      </div>
 
-          {/* Terminal body */}
-          <div className="p-4 sm:p-6 space-y-5">
-            {/* Main Heading with Typing Effect */}
-            <div>
-              <div className="text-3xl md:text-5xl lg:text-6xl font-bold text-[var(--terminal-secondary)] text-glow-orange font-mono tracking-wider">
-                {'>'} {displayedText}
-                <span className={`${cursorVisible ? 'opacity-100' : 'opacity-0'} transition-opacity`}>▮</span>
-              </div>
-              <p className="mt-3 text-foreground text-xs sm:text-sm font-mono">
-                <span>root@edencode:~$ </span>
-                <span className={`${cursorVisible ? 'opacity-100' : 'opacity-0'} transition-opacity`}>▮</span>
-              </p>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="/blogs"
-                className="group px-6 py-3 bg-primary border-2 border-primary text-primary-foreground font-bold hover:bg-accent transition-all inline-flex items-center gap-2"
-              >
-                {'>'} READ_SYSTEM_LOG
-                <span className="group-hover:translate-x-1 transition-transform">▶</span>
-              </a>
-              <a
-                href="/careers"
-                className="px-6 py-3 border-2 border-[var(--terminal-primary)] text-[var(--terminal-primary)] font-bold hover:bg-[var(--terminal-primary)]/10 transition-all inline-flex items-center gap-2"
-              >
-                {'>'} JOIN_TEAM.txt
-              </a>
-            </div>
-
-            {/* Inline status */}
-            <div className="flex flex-wrap gap-4 text-[var(--terminal-secondary)] text-xs font-mono pt-1 border-t border-[var(--terminal-primary)]/20">
-              <span>[QUANTUM] ACTIVE</span>
-              <span>[AI-DECODER] READY</span>
-              <span className="ml-auto hidden sm:inline">edencode.ai</span>
-            </div>
-          </div>
+      <div className="max-w-6xl mx-auto px-6 mt-16 md:mt-24">
+        <div className="hairline pt-5 flex flex-wrap gap-x-10 gap-y-2 font-mono text-[11px] tracking-[0.14em] uppercase text-ink-3">
+          <span>DOE Genesis Mission awardee</span>
+          <span>NVIDIA Ising ecosystem</span>
+          <span>KITP · AI for Quantum Matter 2026</span>
         </div>
       </div>
     </section>
