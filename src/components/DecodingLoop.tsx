@@ -12,6 +12,12 @@ const CHECKS = [72, 168, 264, 360, 456];
 const Y_LOGICAL = 34;
 const Y_FAULT = 138;
 const Y_CHECK = 240;
+const VB_H = 270;
+const AXIS = [
+  { y: Y_LOGICAL, v: "ℓ", name: "Logical", sub: "to predict" },
+  { y: Y_FAULT, v: "e", name: "Faults", sub: "hidden" },
+  { y: Y_CHECK, v: "s", name: "Syndrome", sub: "observed" },
+];
 
 const LOGICAL_EDGES: Array<[number, number]> = [
   [0, 0], [0, 3],
@@ -80,7 +86,17 @@ export function DecodingLoop() {
         </span>
       </div>
 
-      <svg viewBox="0 0 528 270" className="w-full h-auto mt-4" aria-hidden="true" focusable="false">
+      <div className="mt-4 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 items-stretch">
+        <div className="loop-axis" aria-hidden="true">
+          {AXIS.map((a) => (
+            <div key={a.v} className="loop-axis-item" style={{ top: `${(a.y / VB_H) * 100}%` }}>
+              <span className="loop-axis-var">{a.v}</span>
+              <span className="loop-axis-name">{a.name}</span>
+              <span className="loop-axis-sub">{a.sub}</span>
+            </div>
+          ))}
+        </div>
+      <svg viewBox="0 0 528 270" className="w-full h-auto" aria-hidden="true" focusable="false">
 
         {LOGICAL_EDGES.map(([l, f]) => (
           <path
@@ -231,21 +247,7 @@ export function DecodingLoop() {
           );
         })}
       </svg>
-
-      <ul className="loop-legend" aria-hidden="true">
-        <li>
-          <svg viewBox="0 0 12 12" className="loop-glyph"><path d="M6 1.6 L11 10.4 L1 10.4 Z" /></svg>
-          <span><i className="loop-var">ℓ</i> · Logical</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 12 12" className="loop-glyph"><circle cx="6" cy="6" r="4.6" /></svg>
-          <span><i className="loop-var">e</i> · Faults · hidden</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 12 12" className="loop-glyph"><rect x="1.5" y="1.5" width="9" height="9" rx="1.5" /></svg>
-          <span><i className="loop-var">s</i> · Syndrome · observed</span>
-        </li>
-      </ul>
+      </div>
 
       <ol className="mt-4 grid grid-cols-4 gap-3" style={{ "--phase-ms": `${PHASE_MS}ms` } as CSSProperties}>
         {PHASES.map((label, i) => (
