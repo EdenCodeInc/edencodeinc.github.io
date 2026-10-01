@@ -34,13 +34,11 @@ export function BlogLayout({ tag, tone = "rust", title, author, date, readTime, 
           <h1 className="mt-5 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.08] text-ink">
             {title}
           </h1>
-          <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] tracking-wide text-ink-2">
-            <span>{author}</span>
-            <span className="text-ink-3">·</span>
-            <span>{date}</span>
-            <span className="text-ink-3">·</span>
-            <span>{readTime} min read</span>
-          </div>
+          <ul className="meta-row mt-6 flex flex-wrap items-center gap-y-1 font-mono text-[12px] tracking-wide text-ink-2">
+            <li>{author}</li>
+            <li>{date}</li>
+            <li>{readTime} min read</li>
+          </ul>
         </div>
       </header>
 

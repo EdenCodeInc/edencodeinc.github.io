@@ -263,6 +263,13 @@
   .pulse-slow {
     animation: pulse-slow 3.2s ease-in-out infinite;
   }
+
+  /* Inline metadata: separators travel with the item so wrapped lines never start with a dot */
+  .meta-row > li + li::before {
+    content: "·";
+    color: var(--ink-3);
+    margin: 0 0.75rem;
+  }
 }
 
 /* Long-form article typography */
