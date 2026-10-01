@@ -91,10 +91,10 @@ export default function CareersPage() {
     <div className="min-h-screen bg-paper">
       <Navigation />
 
+      <main id="main">
       <header className="pt-36 pb-12">
         <div className="max-w-6xl mx-auto px-6">
           <span className="accent-rule" />
-          <p className="eyebrow mb-4">Careers</p>
           <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold tracking-[-0.025em] text-ink">
             Careers
           </h1>
@@ -173,6 +173,7 @@ export default function CareersPage() {
           </ol>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

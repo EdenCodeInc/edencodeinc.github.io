@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 @custom-variant dark (&:is(:root:not(.light) *));
 
 /*
@@ -10,6 +8,7 @@
  * .light class (see ThemeContext / index.html boot script).
  */
 :root {
+  color-scheme: light;
   --font-size: 16px;
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 
@@ -66,6 +65,7 @@
 }
 
 :root:not(.light) {
+  color-scheme: dark;
   --paper: #16110C;
   --paper-2: #1F1812;
   --paper-3: #1B1510;
@@ -179,9 +179,41 @@
   ::selection {
     background: color-mix(in srgb, var(--brand) 35%, transparent);
   }
+
+  a, button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--brand) 20%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--rust);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h2, h3 {
+    scroll-margin-top: 5rem;
+  }
 }
 
 @layer components {
+  .skip-link {
+    position: absolute;
+    left: 1.5rem;
+    top: -3rem;
+    z-index: 100;
+    padding: 0.6rem 0.9rem;
+    border-radius: var(--radius);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 14px;
+    font-weight: 500;
+    transition: top 0.2s var(--ease-out);
+  }
+  .skip-link:focus-visible {
+    top: 1rem;
+  }
+
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -243,7 +275,9 @@
     background: var(--rust);
     border-color: var(--rust);
     color: #FFFFFF;
-    box-shadow: 0 12px 28px -14px color-mix(in srgb, var(--rust) 70%, transparent);
+    box-shadow:
+      0 1px 2px color-mix(in srgb, var(--ink) 14%, transparent),
+      0 12px 28px -14px color-mix(in srgb, var(--rust) 70%, transparent);
   }
   .btn-secondary {
     background: transparent;
@@ -369,8 +403,8 @@
   /* Scroll reveal (see Reveal.tsx) and load-in rise */
   .reveal {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    transform: translateY(8px);
+    transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
     transition-delay: var(--reveal-delay, 0ms);
   }
   .reveal.is-visible {
@@ -740,6 +774,7 @@
 }
 
 @media (max-width: 640px) {
+  .nav-link { padding: 0.8rem 0; }
   .loop-field { padding: 1rem 0.5rem 0.75rem; }
   .loop-axis { width: 4.25rem; }
   .loop-axis-var { font-size: 18px; }

@@ -1,8 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { BlogLayout } from "../components/BlogLayout";
-import phaseTaskImage from "figma:asset/40e0ea2a54d22826df8b2d403000bf0fa1ce140c.png";
-import phaseModelImage from "figma:asset/dd6f871572d620d13ddb787f18677d0f0e927751.png";
-import illustrationImage from "figma:asset/e395ef6f46cc3640b73afbc9489262797b5c330b.png";
 
 export default function BlogLLMAccuracy() {
   return (
@@ -34,7 +31,7 @@ export default function BlogLLMAccuracy() {
       <section>
         <h2>Discovering the Accuracy Cliff</h2>
         <figure className="figure">
-          <img src={illustrationImage} alt="Illustration of LLM accuracy cliff phenomenon" />
+          <img src="/fig-llm-cliff.webp" alt="Illustration of LLM accuracy cliff phenomenon"  width={2000} height={782} loading="lazy" decoding="async" />
           <figcaption>
             The accuracy cliff phenomenon—LLMs maintain high accuracy for short sequences, then experience a sharp drop beyond a characteristic length N*.
           </figcaption>
@@ -43,12 +40,12 @@ export default function BlogLLMAccuracy() {
           We evaluated leading LLMs (GPT-5, Gemini-2.5-Pro, Gemini-2.5-Flash, Grok-4, and Claude-4-Sonnet) on three carefully designed benchmarks:
         </p>
         <ul>
-          <li><strong>Cyclic Letter Replacement:</strong> Apply a simple transformation rule (e.g., A→B, B→C, ..., Z→A) to each character in a string</li>
+          <li><strong>Cyclic Letter Replacement:</strong> Apply a simple transformation rule (e.g., A→B, B→C, …, Z→A) to each character in a string</li>
           <li><strong>Integer Addition:</strong> Add two multi-digit numbers, testing carry propagation</li>
           <li><strong>Pauli String Multiplication:</strong> Multiply quantum operators following precise algebraic rules with phase tracking</li>
         </ul>
         <p>
-          What we discovered was striking: instead of the expected exponential decay in accuracy, LLMs exhibit a <strong>sharp double-exponential drop</strong> beyond a characteristic length scale—an "accuracy cliff" marking a transition from reliable to unstable generation.
+          What we discovered was striking: instead of the expected exponential decay in accuracy, LLMs exhibit a <strong>sharp double-exponential drop</strong> beyond a characteristic length scale—an “accuracy cliff” marking a transition from reliable to unstable generation.
         </p>
         <aside className="callout">
           <p className="callout-title">Key finding</p>
@@ -61,7 +58,7 @@ export default function BlogLLMAccuracy() {
       <section>
         <h2>Mapping LLM Performance</h2>
         <figure className="figure">
-          <img src={phaseTaskImage} alt="Correlation-error phase diagrams grouped by task" />
+          <img src="/fig-llm-phase-task.webp" alt="Correlation-error phase diagrams grouped by task"  width={2000} height={2188} loading="lazy" decoding="async" />
           <figcaption>
             Performance of different LLMs on various tasks, mapped by correlation level (log α) and error level (log β₀). Each task reveals different characteristic patterns.
           </figcaption>
@@ -74,7 +71,7 @@ export default function BlogLLMAccuracy() {
           <li><strong>α</strong> — Error accumulation factor: How quickly errors compound across the sequence (when α {'>'} 1, errors amplify exponentially)</li>
         </ul>
         <figure className="figure">
-          <img src={phaseModelImage} alt="Correlation-error phase diagrams grouped by model" />
+          <img src="/fig-llm-phase-model.webp" alt="Correlation-error phase diagrams grouped by model"  width={2000} height={1469} loading="lazy" decoding="async" />
           <figcaption>
             Different LLMs exhibit varying levels of attention focus and intrinsic accuracy across tasks, with each model showing characteristic patterns in the correlation-error parameter space.
           </figcaption>
@@ -94,7 +91,7 @@ export default function BlogLLMAccuracy() {
           <p>The energy of a token sequence is:</p>
           <p className="formula">E[s] = -∑(i{'<'}j) J_ij s_i s_j - h ∑i s_i</p>
           <p>
-            Random couplings J_ij capture noisy all-to-all dependencies introduced by self-attention. When the correlation energy (scaling as N²) dominates over the external conditioning (scaling as N), the system crosses into a "spin-glass" regime where the fully correct sequence is no longer favored—the accuracy cliff.
+            Random couplings J_ij capture noisy all-to-all dependencies introduced by self-attention. When the correlation energy (scaling as N²) dominates over the external conditioning (scaling as N), the system crosses into a “spin-glass” regime where the fully correct sequence is no longer favored—the accuracy cliff.
           </p>
         </aside>
         <p>
@@ -108,7 +105,7 @@ export default function BlogLLMAccuracy() {
           Our model doesn't just explain the problem—it suggests a solution. When α {'>'} 1, the reliability of long-sequence generation can be dramatically improved by adopting a <strong>divide-and-conquer strategy</strong>: breaking the task into k smaller sub-tasks and processing them separately.
         </p>
         <p>
-          This works because it "cuts the correlation loops"—preventing the catastrophic error accumulation that occurs when all tokens interact through attention. Our experiments confirm this prediction: dividing a task into k parts extends the reliable length scale approximately linearly with k.
+          This works because it “cuts the correlation loops”—preventing the catastrophic error accumulation that occurs when all tokens interact through attention. Our experiments confirm this prediction: dividing a task into k parts extends the reliable length scale approximately linearly with k.
         </p>
         <aside className="callout">
           <p className="callout-title">Theorem — when divide-and-conquer helps</p>

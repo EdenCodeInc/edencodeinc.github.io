@@ -15,8 +15,25 @@ import CareersPage from "./pages/careers";
 // Get base path at module level
 const BASE_PATH = import.meta.env?.BASE_URL || '/';
 
+// Client-side navigation must keep the tab title in step (the prerendered
+// shells only cover the first load). Mirrors scripts/prerender.mjs.
+const TITLES: Record<string, string> = {
+  "/": "EdenCode - Unlock Quantum with AI",
+  "/blogs": "Research — EdenCode",
+  "/blog-decoder-factory": "An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes",
+  "/blog-graph-transformer": "One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder",
+  "/blog-nvidia-ising": "Scaling AI-Powered Quantum Error Correction with NVIDIA Ising and GPU Compute",
+  "/blog-llm-accuracy": "How Focused Are LLMs? — EdenCode Research",
+  "/blog-ai-quantum-error-correction": "AI for Quantum Error Correction — EdenCode Research",
+  "/careers": "Careers — EdenCode",
+};
+
 function AppContent() {
   const [currentPage, setCurrentPage] = useState<string>("/");
+
+  useEffect(() => {
+    document.title = TITLES[currentPage] ?? TITLES["/"];
+  }, [currentPage]);
 
   useEffect(() => {
     // Simple client-side routing
@@ -105,8 +122,10 @@ function AppContent() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <Hero />
-      <Timeline />
+      <main id="main">
+        <Hero />
+        <Timeline />
+      </main>
       <Footer />
     </div>
   );

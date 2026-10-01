@@ -24,7 +24,7 @@ export default function BlogNvidiaIsing() {
           <img
             src="/fig-nvidia-ising-ecosystem.jpg"
             alt="NVIDIA Ising ecosystem partners including EdenCode, featured in NVIDIA Quantum Special Address"
-          />
+           width={2685} height={1532} loading="lazy" decoding="async" />
           <figcaption>
             NVIDIA Ising ecosystem: Announcing the world's first open AI models to accelerate the path to useful quantum computers. EdenCode featured under Ising Decoding.
           </figcaption>
@@ -62,7 +62,7 @@ export default function BlogNvidiaIsing() {
         <p>
           Using the NVIDIA training recipe on an{" "}
           <a href="https://www.nvidia.com/en-us/data-center/h200/" target="_blank" rel="noopener noreferrer">NVIDIA H200 GPU</a>
-          , we trained six CNN architectures spanning a range from 50K to 7.1M parameters, each evaluated across code distances d = 3, 5, 7, and 9 with 262,144 shots per data point.
+          , we trained six CNN architectures spanning a range from 50K to 7.1M parameters, each evaluated across code distances d&nbsp;=&nbsp;3, 5, 7, and 9 with 262,144 shots per data point.
         </p>
       </section>
 
@@ -70,7 +70,7 @@ export default function BlogNvidiaIsing() {
         <h2>What We Found</h2>
         <h3>The Ising CNN works on repetition code Tanner graphs</h3>
         <p>
-          Across all six architectures, the CNN pre-decoder consistently reduced logical error rates on repetition codes, a code family the Ising architecture was never originally trained on. At physical error rates of p = 0.01–0.05, the best models achieved <strong>1.7–2.0× LER reduction</strong> compared to PyMatching alone, with <strong>up to 7× PyMatching speedup</strong> from the sparser residual syndromes.
+          Across all six architectures, the CNN pre-decoder consistently reduced logical error rates on repetition codes, a code family the Ising architecture was never originally trained on. At physical error rates of p&nbsp;=&nbsp;0.01–0.05, the best models achieved <strong>1.7–2.0× LER reduction</strong> compared to PyMatching alone, with <strong>up to 7× PyMatching speedup</strong> from the sparser residual syndromes.
         </p>
         <p>
           Under correlated noise (CNOT hook errors with correlation strength 0.3–0.5), the CNN continued to provide LER improvement at small to moderate code distances without any architectural modification. The Tanner graph representation captured the noise correlations, and the CNN learned to exploit them. At larger distances, the correlated noise experiments showed diminishing returns, suggesting that correlated noise demands either larger models or longer training to handle effectively. This is an active area of investigation, and notably, correlated noise is precisely where conventional minimum-weight matching decoders also struggle most, making it a high-value target for AI-assisted decoding.
@@ -81,7 +81,7 @@ export default function BlogNvidiaIsing() {
 
         <h3>Larger codes require larger decoders</h3>
         <p>
-          Every model we tested provided strong improvement at small distances (d = 3, d = 5). But as code distance grew, smaller models degraded faster while larger models maintained their advantage for longer. This reveals a <strong>co-scaling requirement</strong>: the AI decoder must grow alongside the code distance to sustain its error correction benefit.
+          Every model we tested provided strong improvement at small distances (d&nbsp;=&nbsp;3, d&nbsp;=&nbsp;5). But as code distance grew, smaller models degraded faster while larger models maintained their advantage for longer. This reveals a <strong>co-scaling requirement</strong>: the AI decoder must grow alongside the code distance to sustain its error correction benefit.
         </p>
         <p>
           We tested six model sizes and found a clear pattern: <strong>small models fail quickly as code distance grows, while larger models continue to help.</strong>
@@ -90,13 +90,13 @@ export default function BlogNvidiaIsing() {
           <img
             src="/fig-nvidia-cnn-scaling.png"
             alt="Error threshold plots showing CNN model scaling across code distances"
-          />
+           width={2500} height={991} loading="lazy" decoding="async" />
           <figcaption>
-            <strong>Figure 1.</strong> Error threshold plots for three CNN model sizes (Small: 50K params; Medium: 4.2M params; Large: 7.1M params). Each panel shows Logical Error Rate vs. Physical Error Rate for code distances d = 3, 5, 7, 9. Dashed lines = MWPM baseline; solid lines = CNN + MWPM (Ising-style AI decoder); shaded regions = AI improvement. In the Small panel, the d = 9 solid line crosses above the dashed — the small model fails at large distance. In the Large panel, solid lines remain well below dashed even at d = 9 — larger models scale further. All models trained with 20K steps on NVIDIA H200 GPU, evaluated with 262,144 shots per data point.
+            <strong>Figure 1.</strong> Error threshold plots for three CNN model sizes (Small: 50K params; Medium: 4.2M params; Large: 7.1M params). Each panel shows Logical Error Rate vs. Physical Error Rate for code distances d&nbsp;=&nbsp;3, 5, 7, 9. Dashed lines = MWPM baseline; solid lines = CNN + MWPM (Ising-style AI decoder); shaded regions = AI improvement. In the Small panel, the d&nbsp;=&nbsp;9 solid line crosses above the dashed — the small model fails at large distance. In the Large panel, solid lines remain well below dashed even at d&nbsp;=&nbsp;9 — larger models scale further. All models trained with 20K steps on NVIDIA H200 GPU, evaluated with 262,144 shots per data point.
           </figcaption>
         </figure>
         <p>
-          The smallest model (50K parameters) delivered strong improvement at d = 3 (1.8× LER reduction) but actively degraded performance at d = 9 (ratio below 1.0). The largest models (4.2M–7.1M parameters) maintained positive improvement across all distances tested, achieving up to 2.0× LER reduction even at d = 9. The implication is that as quantum hardware scales to larger code distances, the decoding challenge can be met by scaling up the AI decoder, given sufficient GPU compute for training and inference.
+          The smallest model (50K parameters) delivered strong improvement at d&nbsp;=&nbsp;3 (1.8× LER reduction) but actively degraded performance at d&nbsp;=&nbsp;9 (ratio below 1.0). The largest models (4.2M–7.1M parameters) maintained positive improvement across all distances tested, achieving up to 2.0× LER reduction even at d&nbsp;=&nbsp;9. The implication is that as quantum hardware scales to larger code distances, the decoding challenge can be met by scaling up the AI decoder, given sufficient GPU compute for training and inference.
         </p>
       </section>
 

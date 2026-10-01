@@ -45,6 +45,7 @@ export function Navigation() {
 
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 bg-paper/85 backdrop-blur-md border-b border-rule transition-colors duration-300 ${scrolled ? "nav-scrolled" : ""}`}>
+      <a href="#main" className="skip-link">Skip to content</a>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="logo-hover flex items-center gap-3">
           <Logo className="w-8 h-8 relative -top-px" intro={shouldPlayLogoIntro} />

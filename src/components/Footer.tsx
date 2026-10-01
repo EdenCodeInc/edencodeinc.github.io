@@ -11,7 +11,7 @@ export function Footer() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const linkClass = "text-[15px] text-ink-2 hover:text-ink transition-colors";
+  const linkClass = "inline-block py-1 text-[15px] text-ink-2 hover:text-ink transition-colors";
 
   return (
     <footer className="border-t border-rule transition-colors duration-300">

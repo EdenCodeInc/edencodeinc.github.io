@@ -39,7 +39,7 @@ function EventLink({ href, label }: { href: string; label: string }) {
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="link-arrow"
+      className="link-arrow py-1"
     >
       <span>{label}</span>
       {external ? <ArrowUpRight className="w-4 h-4 arrow-ext" /> : <ArrowRight className="w-4 h-4" />}
@@ -135,7 +135,6 @@ export function Timeline() {
         <div className="flex items-end justify-between gap-6 mb-10 md:mb-12">
           <div>
             <span className="accent-rule" />
-            <p className="eyebrow mb-3">Timeline</p>
             <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.02em] text-ink">
               Development timeline
             </h2>

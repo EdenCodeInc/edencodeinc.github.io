@@ -68,10 +68,10 @@ export default function ResearchPage() {
     <div className="min-h-screen bg-paper">
       <Navigation />
 
+      <main id="main">
       <header className="pt-36 pb-12">
         <div className="max-w-6xl mx-auto px-6">
           <span className="accent-rule" />
-          <p className="eyebrow mb-4">Research</p>
           <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold tracking-[-0.025em] text-ink">
             Research
           </h1>
@@ -114,6 +114,7 @@ export default function ResearchPage() {
           </ol>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

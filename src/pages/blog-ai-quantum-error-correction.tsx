@@ -24,7 +24,7 @@ export default function BlogAIQuantumErrorCorrection() {
       <section>
         <h2>What is Quantum Error Correction (QEC)?</h2>
         <p>
-          Quantum Error Correction (QEC) is a set of techniques designed to protect quantum information from errors that inevitably arise due to quantum decoherence and operational imperfections. Quantum decoherence occurs when quantum bits (qubits) lose their delicate quantum states due to environmental interactions, causing quantum noise and errors. Unlike classical error correction, quantum error correction must address errors without directly observing the quantum states themselves, as direct observation collapses these fragile states. QEC uses redundancy, encoding a single logical qubit into multiple physical qubits. This redundancy enables indirect measurement of "error syndromes," revealing the presence and type of errors without disturbing the protected quantum information, allowing the system to correct these errors and maintain the integrity of quantum computations.
+          Quantum Error Correction (QEC) is a set of techniques designed to protect quantum information from errors that inevitably arise due to quantum decoherence and operational imperfections. Quantum decoherence occurs when quantum bits (qubits) lose their delicate quantum states due to environmental interactions, causing quantum noise and errors. Unlike classical error correction, quantum error correction must address errors without directly observing the quantum states themselves, as direct observation collapses these fragile states. QEC uses redundancy, encoding a single logical qubit into multiple physical qubits. This redundancy enables indirect measurement of “error syndromes,” revealing the presence and type of errors without disturbing the protected quantum information, allowing the system to correct these errors and maintain the integrity of quantum computations.
         </p>
         <p>
           QEC is essential for quantum computing because quantum states are incredibly sensitive to even slight disturbances. Without effective error correction, quantum algorithms rapidly accumulate errors, leading to inaccurate results and potentially rendering quantum computations impractical.
@@ -53,7 +53,7 @@ export default function BlogAIQuantumErrorCorrection() {
           <figcaption>Quantum Error Correction Circuit with AI Decoder</figcaption>
         </figure>
         <p>
-          A schematic diagram shows how the AI interacts directly with the quantum computer. The AI begins by taking a quantum error correction code, such as the LDPC code, represented as a "Tanner graph," as input. It then proposes which syndrome qubits should be measured. Measurement outcomes from these qubits are fed back into the AI, which predicts appropriate quantum gate operations (actions) to correct detected errors. This process ensures real-time error detection and correction.
+          A schematic diagram shows how the AI interacts directly with the quantum computer. The AI begins by taking a quantum error correction code, such as the LDPC code, represented as a “Tanner graph,” as input. It then proposes which syndrome qubits should be measured. Measurement outcomes from these qubits are fed back into the AI, which predicts appropriate quantum gate operations (actions) to correct detected errors. This process ensures real-time error detection and correction.
         </p>
         <figure className="figure">
           <img src={errorDynImage} alt="Error Dynamics with AI Decoder" />

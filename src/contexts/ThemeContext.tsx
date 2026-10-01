@@ -9,6 +9,12 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+// Browser chrome (mobile address bar) follows the page background.
+const THEME_COLORS: Record<Theme, string> = { light: '#FBF5EC', dark: '#16110C' };
+const syncThemeColor = (theme: Theme) => {
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLORS[theme]);
+};
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light');
 
@@ -18,6 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const initial: Theme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light';
     setTheme(initial);
     document.documentElement.classList.toggle('light', initial === 'light');
+    syncThemeColor(initial);
   }, []);
 
   const toggleTheme = () => {
@@ -25,6 +32,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme(newTheme);
     localStorage.setItem('edencode-theme', newTheme);
     document.documentElement.classList.toggle('light', newTheme === 'light');
+    syncThemeColor(newTheme);
   };
 
   return (
