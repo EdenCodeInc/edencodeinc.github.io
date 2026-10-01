@@ -34,7 +34,7 @@ export default function ResearchPage() {
       excerpt: "EdenCode obtained early access to NVIDIA's Ising Decoding framework and applied it to quantum error correction beyond its original design. Using the Ising CNN on H200 GPUs, we demonstrated that the architecture successfully generalizes to repetition code Tanner graphs with up to 2× LER improvement and 7× PyMatching speedup, validating a universal AI decoder framework across code families.",
       author: "EdenCode Research",
       date: "2026-04-14",
-      category: "NVIDIA_COLLAB",
+      category: "NVIDIA_COLLABORATION",
       readTime: "10",
       link: "/blog-nvidia-ising",
       isSpecial: true,
@@ -68,10 +68,10 @@ export default function ResearchPage() {
     <div className="min-h-screen bg-paper">
       <Navigation />
 
+      <main id="main">
       <header className="pt-36 pb-12">
         <div className="max-w-6xl mx-auto px-6">
           <span className="accent-rule" />
-          <p className="eyebrow mb-4">Research</p>
           <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold tracking-[-0.025em] text-ink">
             Research
           </h1>
@@ -114,6 +114,7 @@ export default function ResearchPage() {
           </ol>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

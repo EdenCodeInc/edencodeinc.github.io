@@ -39,7 +39,7 @@ function EventLink({ href, label }: { href: string; label: string }) {
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="link-arrow"
+      className="link-arrow py-1"
     >
       <span>{label}</span>
       {external ? <ArrowUpRight className="w-4 h-4 arrow-ext" /> : <ArrowRight className="w-4 h-4" />}
@@ -103,7 +103,7 @@ export function Timeline() {
       date: "2026-04-14",
       title: "World Quantum Day: EdenCode Featured in NVIDIA Ising Launch",
       description: "EdenCode obtained early access to NVIDIA's Ising Decoding framework and applied it to quantum error correction beyond its original design. Using the Ising CNN on H200 GPUs, we demonstrated that the architecture successfully generalizes to repetition code Tanner graphs with up to 2× LER improvement and 7× PyMatching speedup, validating a universal AI decoder framework across code families.",
-      category: "NVIDIA_COLLAB",
+      category: "NVIDIA_COLLABORATION",
       link: "/blog-nvidia-ising",
       linkLabel: "READ_MORE",
       link2: "https://nvidianews.nvidia.com/news/nvidia-launches-ising-the-worlds-first-open-ai-models-to-accelerate-the-path-to-useful-quantum-computers",
@@ -135,7 +135,6 @@ export function Timeline() {
         <div className="flex items-end justify-between gap-6 mb-10 md:mb-12">
           <div>
             <span className="accent-rule" />
-            <p className="eyebrow mb-3">Timeline</p>
             <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.02em] text-ink">
               Development timeline
             </h2>

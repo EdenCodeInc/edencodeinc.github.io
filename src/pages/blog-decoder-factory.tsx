@@ -7,7 +7,7 @@ export default function BlogDecoderFactory() {
       tone="rust"
       title="An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes"
       author="Yi-Zhuang (Everett) You · EdenCode & UC San Diego"
-      date="KITP, September 28, 2026"
+      date="2026-09-28"
       readTime="10"
     >
       <section>
@@ -31,7 +31,7 @@ export default function BlogDecoderFactory() {
       <aside className="callout">
         <p className="callout-title">Key results</p>
         <ul>
-          <li><strong>Three codes taught, twelve decoded:</strong> GraphMP is trained only on BB<sub>144</sub>, Mitten<sub>150</sub> and GB<sub>180</sub>, then evaluated on twelve decoding problems across bivariate-bicycle, generalized-bicycle, Mitten and lifted-product codes — up to [[2610, 744, ≤16]] — under code-capacity and phenomenological noise</li>
+          <li><strong>Three codes taught, twelve decoded:</strong> GraphMP is trained only on BB<sub>144</sub>, Mitten<sub>150</sub> and GB<sub>180</sub>, then evaluated on twelve decoding problems across bivariate-bicycle, generalized-bicycle, Mitten and lifted-product codes — up to [[2610,&nbsp;744,&nbsp;≤16]] — under code-capacity and phenomenological noise</li>
           <li><strong>Ahead of the decoders that trained it:</strong> after three generations of self-improvement, GraphMP G3<sup>+</sup> matches or surpasses BP+OSD/LSD and Relay-BP almost everywhere, including on codes it never saw in training</li>
           <li><strong>Search folded into the weights:</strong> each generation's single-pass decoder inherits the accuracy that the previous generation bought with search. Single-pass G3 runs in constant time per shot on one GPU regardless of noise strength; the search-enhanced G3<sup>+</sup> stays at or below BP+OSD/LSD and well below Relay-BP across the whole noise range</li>
           <li><strong>Adaptive:</strong> when the noise model was switched mid-run (depolarizing to X/Z-only), the factory re-adapted within three generations and finished below Relay-BP — even after Relay-BP was handed the updated noise prior</li>
@@ -58,7 +58,7 @@ export default function BlogDecoderFactory() {
       <section>
         <h2>A Fast-Growing Family of Quantum LDPC Codes</h2>
         <p>
-          Quantum LDPC codes promise far lower qubit overhead than the surface code, and new families appear every few months. The talk considered four: <strong>bivariate bicycle</strong> (BB) codes BB<sub>144</sub> [[144, 12, 12]] and BB<sub>288</sub> [[288, 12, 18]]; <strong>generalized bicycle</strong> (GB) codes GB<sub>180</sub> [[180, 10, ≤18]] and GB<sub>900</sub> [[900, 50, 15]]; the <strong>Mitten</strong> codes Mitten<sub>150</sub> [[150, 30, 10]], Mitten<sub>200</sub> [[200, 40, 12]] and Mitten<sub>300</sub> [[300, 60, 14]]; and <strong>lifted-product</strong> (LP) codes LP<sub>20</sub><sup>3,5</sup> [[1122, 148, ≤20]] and LP<sub>16</sub><sup>3,7</sup> [[2610, 744, ≤16]]. In the [[n, k, d]] notation, n is the number of physical qubits, k the number of logical qubits and d the code distance; n : k is the overhead.
+          Quantum LDPC codes promise far lower qubit overhead than the surface code, and new families appear every few months. The talk considered four: <strong>bivariate bicycle</strong> (BB) codes BB<sub>144</sub> [[144,&nbsp;12,&nbsp;12]] and BB<sub>288</sub> [[288,&nbsp;12,&nbsp;18]]; <strong>generalized bicycle</strong> (GB) codes GB<sub>180</sub> [[180,&nbsp;10,&nbsp;≤18]] and GB<sub>900</sub> [[900,&nbsp;50,&nbsp;15]]; the <strong>Mitten</strong> codes Mitten<sub>150</sub> [[150,&nbsp;30,&nbsp;10]], Mitten<sub>200</sub> [[200,&nbsp;40,&nbsp;12]] and Mitten<sub>300</sub> [[300,&nbsp;60,&nbsp;14]]; and <strong>lifted-product</strong> (LP) codes LP<sub>20</sub><sup>3,5</sup> [[1122,&nbsp;148,&nbsp;≤20]] and LP<sub>16</sub><sup>3,7</sup> [[2610,&nbsp;744,&nbsp;≤16]]. In the [[n, k, d]] notation, n is the number of physical qubits, k the number of logical qubits and d the code distance; n : k is the overhead.
         </p>
         <p>
           Each of these codes needs a decoder, and hand-tuning one per code does not scale. Within the stabilizer formalism, however, a code and its noise model compile to a <strong>detector error model</strong> (DEM): a detector matrix H, an observable matrix L, and a prior π(e) over faults. The syndrome is s = He, the logical effect is ℓ = Le, and the decoder's job is to model p(e|s) and propose a correction ê. Its quality is measured by the residual e ⊕ ê: the correction is consistent when the residual is invisible to the checks, H(e ⊕ ê) = 0, and correct when it is harmless to the logical qubits, L(e ⊕ ê) = 0. The <strong>logical error rate</strong> p<sub>L</sub> = Pr[L(e ⊕ ê) ≠ 0] is how often the logical word comes out wrong. Different codes, same decoding framework — which is what makes a universal decoder possible.
@@ -99,7 +99,7 @@ export default function BlogDecoderFactory() {
           <img
             src="/fig-factory-loop.jpg"
             alt="The decoder factory loop: cumulative training data trains a single-pass decoder; beam search turns it into a search decoder; verified trajectories are collected and appended for the next round"
-          />
+           width={2000} height={684} loading="lazy" decoding="async" />
           <figcaption>
             <strong>Figure 1.</strong> The decoder factory. The single-pass decoder GraphMP G<sub>x</sub> is trained by supervised learning on the cumulative data D<sub>1</sub> ∪ ⋯ ∪ D<sub>x</sub>; beam search turns it into G<sub>x</sub><sup>+</sup>, whose logically correct search trajectories are collected as D<sub>x+1</sub> and appended to the training data for the next generation.
           </figcaption>
@@ -115,9 +115,9 @@ export default function BlogDecoderFactory() {
           <img
             src="/fig-factory-generations.jpg"
             alt="Logical error rate versus factory generation on Mitten-150 (in training set) and LP-20 (not in training set), compared with BP, BP+OSD/LSD and Relay-BP"
-          />
+           width={2000} height={703} loading="lazy" decoding="async" />
           <figcaption>
-            <strong>Figure 2.</strong> Each generation is better than the last — and the improvement transfers. Logical error rate p<sub>L</sub> versus factory generation for the single-pass decoder (dashed) and the search-enhanced decoder (solid), against BP, BP+OSD/LSD and Relay-BP (horizontal lines). Left: Mitten<sub>150</sub> at p = 0.05, a code in the training set. Right: LP<sub>20</sub><sup>3,5</sup> at p = 0.09, a code outside the training set.
+            <strong>Figure 2.</strong> Each generation is better than the last — and the improvement transfers. Logical error rate p<sub>L</sub> versus factory generation for the single-pass decoder (dashed) and the search-enhanced decoder (solid), against BP, BP+OSD/LSD and Relay-BP (horizontal lines). Left: Mitten<sub>150</sub> at p&nbsp;=&nbsp;0.05, a code in the training set. Right: LP<sub>20</sub><sup>3,5</sup> at p&nbsp;=&nbsp;0.09, a code outside the training set.
           </figcaption>
         </figure>
       </section>
@@ -131,7 +131,7 @@ export default function BlogDecoderFactory() {
           <img
             src="/fig-factory-benchmark.jpg"
             alt="Logical error rate of GraphMP G3 and G3+ versus BP teacher, BP+OSD/LSD and Relay-BP on twelve quantum LDPC decoding problems"
-          />
+           width={2000} height={704} loading="lazy" decoding="async" />
           <figcaption>
             <strong>Figure 3.</strong> Twelve decoding problems, three training codes. Logical error rate of GraphMP G3 (single pass) and G3<sup>+</sup> (search) against the BP teacher, BP+OSD/LSD and Relay-BP. Shaded: the training set. Left of the divider: code-capacity noise; right: phenomenological noise. Physical error rate p per code as labelled.
           </figcaption>
@@ -147,7 +147,7 @@ export default function BlogDecoderFactory() {
           <img
             src="/fig-factory-latency.jpg"
             alt="Decoding time per shot versus physical error rate on GB-180 and LP-20 for GraphMP generations, BP+OSD/LSD and Relay-BP"
-          />
+           width={2000} height={664} loading="lazy" decoding="async" />
           <figcaption>
             <strong>Figure 4.</strong> Decoding time per shot versus physical error rate on GB<sub>180</sub> and LP<sub>20</sub><sup>3,5</sup> (code capacity). GraphMP runs on one GPU; BP+OSD/LSD and Relay-BP run on one CPU core. Dashed: single-pass G3; solid: search-enhanced G0<sup>+</sup> to G3<sup>+</sup>.
           </figcaption>
@@ -157,15 +157,15 @@ export default function BlogDecoderFactory() {
       <section>
         <h2>When the Noise Drifts, the Decoder Adapts</h2>
         <p>
-          Real devices drift. Figure 5 runs the factory on BB<sub>144</sub> at p = 0.08 under depolarizing noise (X, Y and Z each with probability p/3) for three generations, then changes the physics: from G<sub>3</sub> on, only X and Z errors occur, each with probability p/2. A decoder built around a fixed noise prior is stuck with the model it was given — Relay-BP with the stale prior (solid) sits high in the new regime. GraphMP, which learns from the device's verified answers rather than from a stated noise model, re-adapts over G<sub>4</sub> to G<sub>6</sub> and ends just below Relay-BP even after Relay-BP is handed the updated prior (dashed). Like an immune system meeting a novel pathogen, it evolves new strategies in the fight.
+          Real devices drift. Figure 5 runs the factory on BB<sub>144</sub> at p&nbsp;=&nbsp;0.08 under depolarizing noise (X, Y and Z each with probability p/3) for three generations, then changes the physics: from G<sub>3</sub> on, only X and Z errors occur, each with probability p/2. A decoder built around a fixed noise prior is stuck with the model it was given — Relay-BP with the stale prior (solid) sits high in the new regime. GraphMP, which learns from the device's verified answers rather than from a stated noise model, re-adapts over G<sub>4</sub> to G<sub>6</sub> and ends just below Relay-BP even after Relay-BP is handed the updated prior (dashed). Like an immune system meeting a novel pathogen, it evolves new strategies in the fight.
         </p>
         <figure className="figure">
           <img
             src="/fig-factory-drift.jpg"
             alt="Logical error rate across factory generations on BB-144 when the noise model switches from depolarizing to X/Z-only, compared with Relay-BP using stale and updated priors"
-          />
+           width={2000} height={695} loading="lazy" decoding="async" />
           <figcaption>
-            <strong>Figure 5.</strong> Adapting to noise drift on BB<sub>144</sub> at p = 0.08. Generations G<sub>0</sub> to G<sub>3</sub> run under depolarizing noise (X, Y, Z each p/3); from G<sub>3</sub> the noise switches to X and Z each p/2, and G<sub>4</sub> to G<sub>6</sub> re-adapt. Relay-BP is shown with the stale prior (solid) and with the updated prior (dashed).
+            <strong>Figure 5.</strong> Adapting to noise drift on BB<sub>144</sub> at p&nbsp;=&nbsp;0.08. Generations G<sub>0</sub> to G<sub>3</sub> run under depolarizing noise (X, Y, Z each p/3); from G<sub>3</sub> the noise switches to X and Z each p/2, and G<sub>4</sub> to G<sub>6</sub> re-adapt. Relay-BP is shown with the stale prior (solid) and with the updated prior (dashed).
           </figcaption>
         </figure>
       </section>
@@ -183,7 +183,7 @@ export default function BlogDecoderFactory() {
       </section>
 
       <blockquote>
-        <p>"Not one decoder — a factory that keeps making better ones, from its own verified experience."</p>
+        <p>“Not one decoder — a factory that keeps making better ones, from its own verified experience.”</p>
         <cite>Yi-Zhuang (Everett) You, co-founder and CTO, EdenCode, at KITP</cite>
       </blockquote>
 

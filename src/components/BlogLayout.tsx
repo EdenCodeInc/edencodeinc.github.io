@@ -21,6 +21,7 @@ export function BlogLayout({ tag, tone = "rust", title, author, date, readTime, 
     <div className="min-h-screen bg-paper">
       <Navigation />
 
+      <main id="main">
       <header className="pt-36 pb-10">
         <div className="max-w-3xl mx-auto px-6">
           <a
@@ -59,6 +60,7 @@ export function BlogLayout({ tag, tone = "rust", title, author, date, readTime, 
           </div>
         </div>
       </article>
+      </main>
 
       <Footer />
     </div>

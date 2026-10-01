@@ -7,7 +7,7 @@ export default function BlogGraphTransformer() {
       tone="rust"
       title="One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder"
       author="EdenCode Research"
-      date="World Quantum Day, April 14, 2026"
+      date="2026-04-14"
       readTime="12"
     >
       <section>
@@ -23,7 +23,7 @@ export default function BlogGraphTransformer() {
           , where the GPU continuously runs the AI decoder that makes the QPU fault-tolerant.
         </p>
         <p>
-          The Graph Transformer Decoder achieves an error threshold of <strong>9.0%</strong> on the surface code — a new state of the art among standalone AI decoders — while operating as a single <strong>foundational model</strong> that generalizes across code distances d = 3 to 21 without retraining. Scaling model size from 5,000 to 820,000 parameters reduces the logical error rate by <strong>57×</strong>, following a power law LER ∝ N⁻⁰·⁴³ — the first demonstration of neural scaling laws in quantum error correction.
+          The Graph Transformer Decoder achieves an error threshold of <strong>9.0%</strong> on the surface code — a new state of the art among standalone AI decoders — while operating as a single <strong>foundational model</strong> that generalizes across code distances d&nbsp;=&nbsp;3 to 21 without retraining. Scaling model size from 5,000 to 820,000 parameters reduces the logical error rate by <strong>57×</strong>, following a power law LER ∝ N⁻⁰·⁴³ — the first demonstration of neural scaling laws in quantum error correction.
         </p>
       </section>
 
@@ -32,7 +32,7 @@ export default function BlogGraphTransformer() {
         <ul>
           <li><strong>Error threshold:</strong> 9.0% ± 0.3% on the surface code</li>
           <li><strong>Scaling law:</strong> LER ∝ N⁻⁰·⁴³ — a <strong>57×</strong> reduction in LER scaling from 5K to 820K parameters (d=15, p=5%)</li>
-          <li><strong>Foundational model:</strong> A single set of weights decodes surface codes at d = 3 through 21, with decode depth scaling automatically as L = 2d iterations</li>
+          <li><strong>Foundational model:</strong> A single set of weights decodes surface codes at d&nbsp;=&nbsp;3 through 21, with decode depth scaling automatically as L&nbsp;=&nbsp;2d iterations</li>
           <li><strong>Decode latency:</strong> 0.64d + 1.58 ms per syndrome on NVIDIA H200 GPU, achieving theoretically optimal time complexity</li>
         </ul>
       </aside>
@@ -85,15 +85,15 @@ export default function BlogGraphTransformer() {
           Our experiments show a consistent pattern: as we scale up the Graph Transformer Decoder — increasing model parameters, expanding the training dataset with more quantum measurement data, and training longer — decoding performance improves continuously, approaching the theoretically optimal error threshold.
         </p>
         <figure className="figure">
-          <img src="/fig-gt-threshold.png" alt="Error threshold on the surface code" />
+          <img src="/fig-gt-threshold.png" alt="Error threshold on the surface code"  width={955} height={834} loading="lazy" decoding="async" />
           <figcaption>
-            <strong>Figure 1.</strong> Error threshold on the surface code. The Graph Transformer Decoder achieves p_th = 9.0% ± 0.3%, tested across code distances d = 3, 5, 7, 9, and 11, approaching the 9.7% threshold of Perfect Matching.
+            <strong>Figure 1.</strong> Error threshold on the surface code. The Graph Transformer Decoder achieves p_th = 9.0% ± 0.3%, tested across code distances d&nbsp;=&nbsp;3, 5, 7, 9, and 11, approaching the 9.7% threshold of Perfect Matching.
           </figcaption>
         </figure>
         <figure className="figure">
-          <img src="/fig-gt-scaling.png" alt="Neural scaling law for quantum error correction" />
+          <img src="/fig-gt-scaling.png" alt="Neural scaling law for quantum error correction"  width={1029} height={730} loading="lazy" decoding="async" />
           <figcaption>
-            <strong>Figure 2.</strong> Neural scaling law for quantum error correction. Logical error rate follows LER ∝ N⁻⁰·⁴³ with model parameter count N. Scaling from 5K to 820K parameters yields a 57× reduction in LER (d = 15, p = 5%).
+            <strong>Figure 2.</strong> Neural scaling law for quantum error correction. Logical error rate follows LER ∝ N⁻⁰·⁴³ with model parameter count N. Scaling from 5K to 820K parameters yields a 57× reduction in LER (d&nbsp;=&nbsp;15, p&nbsp;=&nbsp;5%).
           </figcaption>
         </figure>
         <p>
@@ -126,7 +126,7 @@ export default function BlogGraphTransformer() {
 
       <blockquote>
         <p>
-          "GPU computing is not just accelerating quantum error correction — it is defining what error correction can become. Our research shows that AI decoders obey the same scaling laws as large language models: more compute, more parameters, better performance. By joining the NVIDIA Ising ecosystem on World Quantum Day, EdenCode is making these tools available to the quantum research community, and establishing GPU infrastructure as the backbone of fault-tolerant quantum computing. We are at the beginning of a scaling curve — and the curve is steep."
+          “GPU computing is not just accelerating quantum error correction — it is defining what error correction can become. Our research shows that AI decoders obey the same scaling laws as large language models: more compute, more parameters, better performance. By joining the NVIDIA Ising ecosystem on World Quantum Day, EdenCode is making these tools available to the quantum research community, and establishing GPU infrastructure as the backbone of fault-tolerant quantum computing. We are at the beginning of a scaling curve — and the curve is steep.”
         </p>
         <cite>Prof. Everett You, CTO, EdenCode</cite>
       </blockquote>

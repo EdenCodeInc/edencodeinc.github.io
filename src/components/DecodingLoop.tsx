@@ -9,9 +9,15 @@ import { useEffect, useMemo, useState, type CSSProperties } from "react";
 const LOGICAL = [136, 264, 392];
 const FAULTS = [40, 104, 168, 232, 296, 360, 424, 488];
 const CHECKS = [72, 168, 264, 360, 456];
-const Y_LOGICAL = 56;
-const Y_FAULT = 160;
-const Y_CHECK = 262;
+const Y_LOGICAL = 34;
+const Y_FAULT = 138;
+const Y_CHECK = 240;
+const VB_H = 270;
+const AXIS = [
+  { y: Y_LOGICAL, v: "ℓ", name: "Logical", sub: "to predict" },
+  { y: Y_FAULT, v: "e", name: "Faults", sub: "hidden" },
+  { y: Y_CHECK, v: "s", name: "Syndrome", sub: "observed" },
+];
 
 const LOGICAL_EDGES: Array<[number, number]> = [
   [0, 0], [0, 3],
@@ -71,8 +77,8 @@ export function DecodingLoop() {
   const key = `${step}-${phase}`;
 
   return (
-    <div className="loop-panel">
-      <div className="flex items-center justify-between font-mono text-[10.5px] tracking-[0.16em] uppercase text-ink-3">
+    <div className="loop-field">
+      <div className="flex items-center justify-between font-mono text-[10.5px] tracking-[0.18em] uppercase text-ink-3">
         <span>Detector error model</span>
         <span className="inline-flex items-center gap-2">
           <span className="loop-dot pulse-slow" />
@@ -80,16 +86,17 @@ export function DecodingLoop() {
         </span>
       </div>
 
-      <svg viewBox="0 0 528 300" className="w-full h-auto mt-3" aria-hidden="true" focusable="false">
-        <text x="40" y="22" className="font-mono" fontSize="10.5" letterSpacing="0.12em" fill="var(--ink-3)">
-          ℓ · LOGICAL
-        </text>
-        <text x="40" y="126" className="font-mono" fontSize="10.5" letterSpacing="0.12em" fill="var(--ink-3)">
-          e · FAULTS · HIDDEN
-        </text>
-        <text x="40" y="294" className="font-mono" fontSize="10.5" letterSpacing="0.12em" fill="var(--ink-3)">
-          s · SYNDROME · OBSERVED
-        </text>
+      <div className="mt-6 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 items-stretch">
+        <div className="loop-axis" aria-hidden="true">
+          {AXIS.map((a) => (
+            <div key={a.v} className="loop-axis-item" style={{ top: `${(a.y / VB_H) * 100}%` }}>
+              <span className="loop-axis-var">{a.v}</span>
+              <span className="loop-axis-name">{a.name}</span>
+              <span className="loop-axis-sub">{a.sub}</span>
+            </div>
+          ))}
+        </div>
+      <svg viewBox="0 0 528 270" className="w-full h-auto" aria-hidden="true" focusable="false">
 
         {LOGICAL_EDGES.map(([l, f]) => (
           <path
@@ -240,8 +247,9 @@ export function DecodingLoop() {
           );
         })}
       </svg>
+      </div>
 
-      <ol className="mt-4 grid grid-cols-4 gap-3" style={{ "--phase-ms": `${PHASE_MS}ms` } as CSSProperties}>
+      <ol className="mt-6 grid grid-cols-4 gap-3" style={{ "--phase-ms": `${PHASE_MS}ms` } as CSSProperties}>
         {PHASES.map((label, i) => (
           <li key={`${label}-${phase === i ? tick : "idle"}`} className={`phase ${phase === i ? "is-active" : ""}`}>
             {label}
