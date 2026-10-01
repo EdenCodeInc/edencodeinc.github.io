@@ -393,6 +393,19 @@
   .logo-hover:hover .logo-dot {
     animation: logo-orbit 0.9s cubic-bezier(0.45, 0, 0.2, 1);
   }
+  /* Warm halo on hover: a soft amber ring, not a neon glow */
+  .logo-hover svg {
+    transition: filter 0.35s var(--ease-out);
+  }
+  .logo-hover:hover svg {
+    filter: drop-shadow(0 0 7px color-mix(in srgb, var(--brand) 55%, transparent));
+  }
+  .logo-word-accent {
+    transition: color 0.3s ease;
+  }
+  .logo-hover:hover .logo-word-accent {
+    color: var(--brand);
+  }
   .logo-intro .logo-arc {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;

@@ -23,8 +23,8 @@ export function Footer() {
                 <Logo className="w-10 h-10" />
               </a>
               <div>
-                <a href="/" className="inline-block mt-1.5 font-display font-semibold text-[20px] tracking-[-0.02em] leading-none text-ink">
-                  Eden<span className="text-rust">Code</span>
+                <a href="/" className="logo-hover inline-block mt-1.5 font-display font-bold text-[20px] tracking-[-0.02em] leading-none text-ink">
+                  Eden<span className="logo-word-accent text-rust">Code</span>
                 </a>
                 <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-ink-2">
                   Real-time AI decoder technology for quantum error correction

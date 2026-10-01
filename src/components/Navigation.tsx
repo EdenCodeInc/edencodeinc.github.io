@@ -48,8 +48,8 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="logo-hover flex items-center gap-3">
           <Logo className="w-8 h-8 relative -top-px" intro={shouldPlayLogoIntro} />
-          <span className="font-display font-semibold text-[18px] tracking-[-0.02em] text-ink">
-            Eden<span className="text-rust">Code</span>
+          <span className="font-display font-bold text-[18px] tracking-[-0.02em] text-ink">
+            Eden<span className="logo-word-accent text-rust">Code</span>
           </span>
         </a>
 
