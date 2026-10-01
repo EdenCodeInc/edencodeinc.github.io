@@ -103,7 +103,7 @@ export function Timeline() {
       date: "2026-04-14",
       title: "World Quantum Day: EdenCode Featured in NVIDIA Ising Launch",
       description: "EdenCode obtained early access to NVIDIA's Ising Decoding framework and applied it to quantum error correction beyond its original design. Using the Ising CNN on H200 GPUs, we demonstrated that the architecture successfully generalizes to repetition code Tanner graphs with up to 2× LER improvement and 7× PyMatching speedup, validating a universal AI decoder framework across code families.",
-      category: "NVIDIA_COLLAB",
+      category: "NVIDIA_COLLABORATION",
       link: "/blog-nvidia-ising",
       linkLabel: "READ_MORE",
       link2: "https://nvidianews.nvidia.com/news/nvidia-launches-ising-the-worlds-first-open-ai-models-to-accelerate-the-path-to-useful-quantum-computers",

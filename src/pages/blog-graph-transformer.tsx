@@ -7,7 +7,7 @@ export default function BlogGraphTransformer() {
       tone="rust"
       title="One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder"
       author="EdenCode Research"
-      date="World Quantum Day, April 14, 2026"
+      date="2026-04-14"
       readTime="12"
     >
       <section>

@@ -34,7 +34,7 @@ export default function ResearchPage() {
       excerpt: "EdenCode obtained early access to NVIDIA's Ising Decoding framework and applied it to quantum error correction beyond its original design. Using the Ising CNN on H200 GPUs, we demonstrated that the architecture successfully generalizes to repetition code Tanner graphs with up to 2× LER improvement and 7× PyMatching speedup, validating a universal AI decoder framework across code families.",
       author: "EdenCode Research",
       date: "2026-04-14",
-      category: "NVIDIA_COLLAB",
+      category: "NVIDIA_COLLABORATION",
       readTime: "10",
       link: "/blog-nvidia-ising",
       isSpecial: true,

@@ -5,7 +5,7 @@ import errorDynImage from "figma:asset/4088fad955113e3f11357ea74e4cf45c3e39c4c2.
 export default function BlogAIQuantumErrorCorrection() {
   return (
     <BlogLayout
-      tag="QEC"
+      tag="Research"
       tone="amber"
       title="AI for Quantum Error Correction"
       author="Dr. Wanda Hou"
@@ -73,6 +73,13 @@ export default function BlogAIQuantumErrorCorrection() {
           As quantum technology advances, AI-powered quantum error correction will be critical in bridging the gap between theory and practical, fault-tolerant quantum computation. This collaboration between AI and quantum mechanics promises to unlock new frontiers in computing, paving the way for breakthroughs in science, cryptography, materials design, and beyond.
         </p>
       </section>
+
+      <div className="about">
+        <p className="about-title">About EdenCode</p>
+        <p>
+          EdenCode Inc. is a quantum AI company on a mission to unlock quantum computing with AI — and ultimately use quantum to design better AI. Founded in 2025, EdenCode builds real-time AI decoder technology for quantum error correction ecosystems, working across all quantum hardware modalities. Learn more at www.edencode.ai.
+        </p>
+      </div>
     </BlogLayout>
   );
 }

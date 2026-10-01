@@ -7,7 +7,7 @@ export default function BlogDecoderFactory() {
       tone="rust"
       title="An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes"
       author="Yi-Zhuang (Everett) You · EdenCode & UC San Diego"
-      date="KITP, September 28, 2026"
+      date="2026-09-28"
       readTime="10"
     >
       <section>

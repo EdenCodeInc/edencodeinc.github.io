@@ -7,7 +7,7 @@ export default function BlogNvidiaIsing() {
       tone="nvidia"
       title="Scaling AI-Powered Quantum Error Correction with NVIDIA Ising and GPU Compute"
       author="EdenCode Research"
-      date="World Quantum Day, April 14, 2026"
+      date="2026-04-14"
       readTime="10"
     >
       <section>
@@ -122,7 +122,7 @@ export default function BlogNvidiaIsing() {
       </section>
 
       <div className="about">
-        <p className="about-title">About</p>
+        <p className="about-title">About EdenCode</p>
         <p>
           EdenCode is a quantum computing startup exploring AI-powered approaches to quantum error correction, with a focus on generalizing decoder architectures across code families via the Tanner graph formalism. Our research is conducted on NVIDIA H200 GPUs with NVLink. For more information, visit edencode.ai.
         </p>

@@ -4,7 +4,7 @@ import { BlogLayout } from "../components/BlogLayout";
 export default function BlogLLMAccuracy() {
   return (
     <BlogLayout
-      tag="AI/ML"
+      tag="Research"
       tone="amber"
       title="How Focused Are LLMs?"
       author="EdenCode Research"
@@ -142,6 +142,13 @@ export default function BlogLLMAccuracy() {
           </a>
         </p>
       </aside>
+
+      <div className="about">
+        <p className="about-title">About EdenCode</p>
+        <p>
+          EdenCode Inc. is a quantum AI company on a mission to unlock quantum computing with AI — and ultimately use quantum to design better AI. Founded in 2025, EdenCode builds real-time AI decoder technology for quantum error correction ecosystems, working across all quantum hardware modalities. Learn more at www.edencode.ai.
+        </p>
+      </div>
     </BlogLayout>
   );
 }
