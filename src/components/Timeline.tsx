@@ -7,6 +7,7 @@ const LINK_LABELS: Record<string, string> = {
   WATCH_TALK: "Watch the talk",
   GITHUB: "GitHub",
   DOE_ANNOUNCEMENT: "DOE announcement",
+  UCSD_NEWS: "UC San Diego News",
   NVIDIA_ISING: "NVIDIA Ising",
   KITP_PROGRAM: "KITP program",
   CONFERENCE: "Conference",
@@ -77,6 +78,8 @@ export function Timeline() {
       category: "DOE_AWARD",
       link: "https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate",
       linkLabel: "DOE_ANNOUNCEMENT",
+      link2: "https://today.ucsd.edu/story/genesis-mission-to-fund-new-scientific-ai-tools",
+      link2Label: "UCSD_NEWS",
       isHighlight: true,
     },
     {
