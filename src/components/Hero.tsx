@@ -7,8 +7,8 @@ const rise = (ms: number) => ({ "--rise-delay": `${ms}ms` } as CSSProperties);
 export function Hero() {
   return (
     <section className="pt-36 md:pt-44 pb-20 md:pb-28">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 md:gap-8 items-center">
-        <div className="md:col-span-7">
+      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="lg:col-span-7">
           <div className="rise" style={rise(0)}>
             <span className="accent-rule" />
             <p className="eyebrow">AI-native quantum error correction</p>
@@ -38,7 +38,7 @@ export function Hero() {
             </a>
           </div>
         </div>
-        <div className="rise md:col-span-5 md:pl-6" style={rise(240)}>
+        <div className="rise lg:col-span-5 lg:pl-6 w-full max-w-2xl lg:max-w-none" style={rise(240)}>
           <DecodingLoop />
         </div>
       </div>

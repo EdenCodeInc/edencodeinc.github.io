@@ -676,6 +676,13 @@
   to { stroke-dashoffset: 0; }
 }
 
+@media (max-width: 640px) {
+  .loop-panel { padding: 0.9rem 0.9rem 0.8rem; }
+  .loop-panel svg text { font-size: 17px; }
+  .prose-ec blockquote p { font-size: 1.55rem; }
+  .prose-ec .callout { padding: 1.25rem 1.25rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pulse-slow { animation: none; }
   .rise { animation: none; }
