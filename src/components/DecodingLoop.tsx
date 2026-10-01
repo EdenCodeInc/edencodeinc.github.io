@@ -9,9 +9,9 @@ import { useEffect, useMemo, useState, type CSSProperties } from "react";
 const LOGICAL = [136, 264, 392];
 const FAULTS = [40, 104, 168, 232, 296, 360, 424, 488];
 const CHECKS = [72, 168, 264, 360, 456];
-const Y_LOGICAL = 56;
-const Y_FAULT = 160;
-const Y_CHECK = 262;
+const Y_LOGICAL = 34;
+const Y_FAULT = 138;
+const Y_CHECK = 240;
 
 const LOGICAL_EDGES: Array<[number, number]> = [
   [0, 0], [0, 3],
@@ -80,16 +80,7 @@ export function DecodingLoop() {
         </span>
       </div>
 
-      <svg viewBox="0 0 528 300" className="w-full h-auto mt-3" aria-hidden="true" focusable="false">
-        <text x="40" y="22" className="font-mono" fontSize="10.5" letterSpacing="0.12em" fill="var(--ink-3)">
-          ℓ · LOGICAL
-        </text>
-        <text x="40" y="126" className="font-mono" fontSize="10.5" letterSpacing="0.12em" fill="var(--ink-3)">
-          e · FAULTS · HIDDEN
-        </text>
-        <text x="40" y="294" className="font-mono" fontSize="10.5" letterSpacing="0.12em" fill="var(--ink-3)">
-          s · SYNDROME · OBSERVED
-        </text>
+      <svg viewBox="0 0 528 270" className="w-full h-auto mt-4" aria-hidden="true" focusable="false">
 
         {LOGICAL_EDGES.map(([l, f]) => (
           <path
@@ -240,6 +231,21 @@ export function DecodingLoop() {
           );
         })}
       </svg>
+
+      <ul className="loop-legend" aria-hidden="true">
+        <li>
+          <svg viewBox="0 0 12 12" className="loop-glyph"><path d="M6 1.6 L11 10.4 L1 10.4 Z" /></svg>
+          <span><i className="loop-var">ℓ</i> · Logical</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 12 12" className="loop-glyph"><circle cx="6" cy="6" r="4.6" /></svg>
+          <span><i className="loop-var">e</i> · Faults · hidden</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 12 12" className="loop-glyph"><rect x="1.5" y="1.5" width="9" height="9" rx="1.5" /></svg>
+          <span><i className="loop-var">s</i> · Syndrome · observed</span>
+        </li>
+      </ul>
 
       <ol className="mt-4 grid grid-cols-4 gap-3" style={{ "--phase-ms": `${PHASE_MS}ms` } as CSSProperties}>
         {PHASES.map((label, i) => (
