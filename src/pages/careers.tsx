@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Plus, Minus, ArrowUpRight } from "lucide-react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
+import { Reveal } from "../components/Reveal";
 
 export default function CareersPage() {
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
@@ -92,8 +93,9 @@ export default function CareersPage() {
 
       <header className="pt-36 pb-12">
         <div className="max-w-6xl mx-auto px-6">
+          <span className="accent-rule" />
           <p className="eyebrow mb-4">Careers</p>
-          <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold tracking-[-0.025em] text-ink">
             Careers
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-2">
@@ -108,7 +110,7 @@ export default function CareersPage() {
             {jobs.map((job) => {
               const open = expandedJob === job.id;
               return (
-                <li key={job.id} className="hairline">
+                <Reveal as="li" key={job.id} delay={job.id * 70} className="row hairline">
                   <button
                     onClick={() => toggleJob(job.id)}
                     aria-expanded={open}
@@ -156,7 +158,7 @@ export default function CareersPage() {
                             style={{ textDecoration: "none" }}
                           >
                             Apply by email
-                            <ArrowUpRight className="w-4 h-4" />
+                            <ArrowUpRight className="w-4 h-4 btn-icon" />
                           </a>
                           <span className="font-mono text-[12px] tracking-wide text-ink-3">
                             or write to {job.email}
@@ -165,7 +167,7 @@ export default function CareersPage() {
                       </div>
                     </div>
                   )}
-                </li>
+                </Reveal>
               );
             })}
           </ol>

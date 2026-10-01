@@ -1,4 +1,5 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const LINK_LABELS: Record<string, string> = {
   READ_MORE: "Read more",
@@ -40,8 +41,8 @@ function EventLink({ href, label }: { href: string; label: string }) {
       rel={external ? "noopener noreferrer" : undefined}
       className="link-arrow"
     >
-      {label}
-      {external ? <ArrowUpRight className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
+      <span>{label}</span>
+      {external ? <ArrowUpRight className="w-4 h-4 arrow-ext" /> : <ArrowRight className="w-4 h-4" />}
     </a>
   );
 }
@@ -133,8 +134,9 @@ export function Timeline() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-end justify-between gap-6 mb-10 md:mb-12">
           <div>
+            <span className="accent-rule" />
             <p className="eyebrow mb-3">Timeline</p>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.02em] text-ink">
               Development timeline
             </h2>
           </div>
@@ -145,13 +147,13 @@ export function Timeline() {
 
         <ol>
           {timelineEvents.map((event, index) => (
-            <li key={index} className="hairline py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8">
+            <Reveal as="li" key={index} delay={Math.min(index, 3) * 70} className="row hairline py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8">
               <div className="md:col-span-2 font-mono text-[13px] tracking-wide text-ink-2 md:pt-1">
                 {event.date}
               </div>
               <div className="md:col-span-10 max-w-3xl">
                 <span className={`tag ${tagTone(event)}`}>{event.category.replace(/_/g, " ")}</span>
-                <h3 className="mt-4 font-display text-xl md:text-2xl font-semibold tracking-tight leading-snug text-ink">
+                <h3 className="mt-4 font-display text-[1.375rem] md:text-[1.625rem] font-semibold tracking-tight leading-snug text-ink">
                   {event.title}
                 </h3>
                 <p className="mt-3 text-[15px] md:text-base leading-relaxed text-ink-2">
@@ -166,7 +168,7 @@ export function Timeline() {
                   </div>
                 )}
               </div>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </div>

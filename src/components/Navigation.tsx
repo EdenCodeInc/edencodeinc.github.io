@@ -11,10 +11,15 @@ const navLinks = [
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState("/");
+  const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setCurrentPath(window.location.pathname.replace(/\/$/, "") || "/");
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Blog posts live under /blog-*, so they count as "Research".
@@ -25,7 +30,7 @@ export function Navigation() {
   const themeLabel = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-paper/85 backdrop-blur-md border-b border-rule transition-colors duration-300">
+    <nav className={`fixed top-0 inset-x-0 z-50 bg-paper/85 backdrop-blur-md border-b border-rule transition-colors duration-300 ${scrolled ? "nav-scrolled" : ""}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3">
           <Logo className="w-7 h-7" />
@@ -50,7 +55,9 @@ export function Navigation() {
             title={themeLabel}
             className="p-2 -mr-2 text-ink-2 hover:text-ink transition-colors"
           >
-            <ThemeIcon className="w-4 h-4" />
+            <span className="theme-icon" style={{ transform: theme === "dark" ? "rotate(180deg)" : "rotate(0deg)" }}>
+              <ThemeIcon className="w-4 h-4" />
+            </span>
           </button>
         </div>
 

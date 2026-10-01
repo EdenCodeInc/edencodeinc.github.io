@@ -11,6 +11,7 @@
  */
 :root {
   --font-size: 16px;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 
   --paper: #FBF5EC;
   --paper-2: #F3EADA;
@@ -159,6 +160,11 @@
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   ::selection {
@@ -169,8 +175,8 @@
 @layer components {
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--amber);
   }
@@ -204,7 +210,20 @@
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.25s var(--ease-out), border-color 0.25s var(--ease-out), color 0.25s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.985);
+    transition-duration: 0.1s;
+  }
+  .btn .btn-icon {
+    transition: transform 0.25s var(--ease-out);
+  }
+  .btn:hover .btn-icon {
+    transform: translateX(3px);
   }
   .btn-primary {
     background: var(--ink);
@@ -215,6 +234,7 @@
     background: var(--rust);
     border-color: var(--rust);
     color: #FFFFFF;
+    box-shadow: 0 12px 28px -14px color-mix(in srgb, var(--rust) 70%, transparent);
   }
   .btn-secondary {
     background: transparent;
@@ -223,6 +243,7 @@
   }
   .btn-secondary:hover {
     border-color: var(--ink);
+    background: var(--paper-2);
   }
 
   .link-arrow {
@@ -232,10 +253,33 @@
     font-size: 14px;
     font-weight: 500;
     color: var(--rust);
-    text-underline-offset: 4px;
   }
-  .link-arrow:hover {
-    text-decoration: underline;
+  .link-arrow > span {
+    position: relative;
+  }
+  .link-arrow > span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-out);
+  }
+  .link-arrow:hover > span::after {
+    transform: scaleX(1);
+  }
+  .link-arrow svg {
+    transition: transform 0.25s var(--ease-out);
+  }
+  .link-arrow:hover svg {
+    transform: translateX(3px);
+  }
+  .link-arrow:hover svg.arrow-ext {
+    transform: translate(2px, -2px);
   }
 
   .hairline {
@@ -243,21 +287,97 @@
   }
 
   .nav-link {
+    position: relative;
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-2);
     padding: 0.5rem 0;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition: color 0.2s ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--rust);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-out);
   }
   .nav-link:hover {
     color: var(--ink);
   }
+  .nav-link:hover::after,
+  .nav-link.is-active::after {
+    transform: scaleX(1);
+  }
   .nav-link.is-active {
     color: var(--ink);
-    border-bottom-color: var(--rust);
+  }
+
+  .nav-scrolled {
+    border-bottom-color: var(--rule-strong);
+  }
+
+  .theme-icon {
+    display: inline-flex;
+    transition: transform 0.45s var(--ease-out);
+  }
+
+  /* Short brand rule above eyebrows (echoes the talk deck) */
+  .accent-rule {
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: var(--rust);
+    margin-bottom: 1.1rem;
+  }
+
+  /* List rows: a rust rule grows in from the left on hover */
+  .row {
+    position: relative;
+  }
+  .row::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--rust);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.35s var(--ease-out);
+  }
+  .row:hover::before {
+    transform: scaleY(1);
+  }
+
+  /* Scroll reveal (see Reveal.tsx) and load-in rise */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  .rise {
+    animation: rise 0.8s var(--ease-out) both;
+    animation-delay: var(--rise-delay, 0ms);
+  }
+
+  .tg-node {
+    transition: fill 0.6s ease, stroke 0.6s ease;
+  }
+  .tg-edge {
+    transition: stroke 0.6s ease, stroke-opacity 0.6s ease, stroke-width 0.6s ease;
   }
 
   .pulse-slow {
@@ -282,7 +402,7 @@
 .prose-ec p { margin: 0; }
 .prose-ec p + p { margin-top: 1.25rem; }
 .prose-ec h2 {
-  font-size: 1.75rem;
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
   line-height: 1.2;
   margin: 3rem 0 1rem;
 }
@@ -415,7 +535,15 @@
   50% { opacity: 0.35; }
 }
 
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pulse-slow { animation: none; }
+  .rise { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn:hover, .btn:active { transform: none; }
   html { scroll-behavior: auto; }
 }

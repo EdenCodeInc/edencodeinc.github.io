@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Reveal } from "../components/Reveal";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 
@@ -69,8 +70,9 @@ export default function ResearchPage() {
 
       <header className="pt-36 pb-12">
         <div className="max-w-6xl mx-auto px-6">
+          <span className="accent-rule" />
           <p className="eyebrow mb-4">Research</p>
-          <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold tracking-[-0.025em] text-ink">
             Research
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-2">
@@ -83,7 +85,7 @@ export default function ResearchPage() {
         <div className="max-w-6xl mx-auto px-6">
           <ol>
             {blogPosts.map((post) => (
-              <li key={post.id} className="hairline py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8">
+              <Reveal as="li" key={post.id} delay={Math.min(post.id, 3) * 70} className="row hairline py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8">
                 <div className="md:col-span-2 font-mono text-[13px] tracking-wide text-ink-2 md:pt-1">
                   {post.date}
                 </div>
@@ -102,12 +104,12 @@ export default function ResearchPage() {
                       {post.author} · {post.readTime} min read
                     </span>
                     <a href={post.link} className="link-arrow">
-                      Read the post
+                      <span>Read the post</span>
                       <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>
