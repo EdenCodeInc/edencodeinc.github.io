@@ -1,6 +1,8 @@
+import { useState } from "react";
+import { Plus, Minus, ArrowUpRight } from "lucide-react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
-import { useState } from "react";
+import { Reveal } from "../components/Reveal";
 
 export default function CareersPage() {
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
@@ -11,8 +13,7 @@ export default function CareersPage() {
       title: "Technical Marketing Manager",
       tagline: "Be the public face of our quantum AI technology",
       location: "Palo Alto or San Jose, CA",
-      type: "FULL_TIME",
-      remote: false,
+      type: "Full time",
       description: "We are looking for a charismatic and organized Technical Marketing Manager to be the public face of our technology. You will bridge the gap between our internal R&D team and the global quantum community.",
       responsibilities: [
         "Conference & Event Strategy: Own the global event calendar. Plan, organize, and execute our presence at key Quantum and AI conferences.",
@@ -35,8 +36,7 @@ export default function CareersPage() {
       title: "AI Research Scientist – Quantum Error Correction",
       tagline: "Work at the intersection of Deep Learning and Quantum Physics",
       location: "San Jose, CA",
-      type: "FULL_TIME",
-      remote: false,
+      type: "Full time",
       description: "Research and design advanced neural network architectures that improve the accuracy and decoding speed of Quantum Error Correction. Collaborate closely with hardware architects to ensure algorithms are scalable for real-time control systems.",
       responsibilities: [
         "Design novel deep learning architectures for quantum error correction",
@@ -59,8 +59,7 @@ export default function CareersPage() {
       title: "Principal FPGA Engineer – Quantum Control",
       tagline: "Integrate AI onto the FPGA fabric driving real-time quantum control",
       location: "San Jose, CA",
-      type: "FULL_TIME",
-      remote: false,
+      type: "Full time",
       description: "Own the hardware-software interface between EdenCode's AI decoders and the real-time FPGA control stacks running modern quantum computers. Deploy our ML models onto modern RFSoC-class control platforms, drive the feedforward loop down to the microsecond scale, and help make fault-tolerant quantum error correction feasible at the speed of physics. A deeply technical IC role spanning AI deployment, FPGA fabric, and the RF/analog chain behind quantum gate operations.",
       responsibilities: [
         "Deploy EdenCode's QEC decoders onto FPGA fabric and tightly-coupled accelerators with deterministic, low-latency links",
@@ -89,127 +88,89 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-paper">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-28 sm:pt-32 pb-6 overflow-hidden bg-background">
-        <div className="absolute inset-0 scanlines pointer-events-none opacity-20"></div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="bg-background p-4 sm:p-6 border-l-4 border-[var(--terminal-secondary)] relative">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-              <div className="text-[var(--terminal-secondary)] text-xs font-mono">
-                $ cat open_positions/
-              </div>
-              <div className="text-[var(--terminal-primary)] text-xs hidden sm:block">│</div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl text-[var(--terminal-primary)] font-bold font-mono text-glow">
-                CAREERS
-              </h1>
-            </div>
-          </div>
+      <header className="pt-36 pb-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <span className="accent-rule" />
+          <p className="eyebrow mb-4">Careers</p>
+          <h1 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold tracking-[-0.025em] text-ink">
+            Careers
+          </h1>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-2">
+            Open positions at EdenCode.
+          </p>
         </div>
-      </section>
+      </header>
 
-      {/* Job Listings */}
-      <section className="pt-6 pb-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="space-y-6">
-            {jobs.map((job) => (
-              <div
-                key={job.id}
-                className="border-2 border-[var(--terminal-primary)]/30 bg-card hover:border-[var(--terminal-primary)] transition-all"
-              >
-                {/* Job Header - Clickable */}
-                <div
-                  className="cursor-pointer"
-                  onClick={() => toggleJob(job.id)}
-                >
-                  {/* File Info Bar */}
-                  <div className="border-b border-[var(--terminal-primary)]/30 px-3 sm:px-6 py-3 bg-muted/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs font-mono">
-                      <span className="text-[var(--terminal-secondary)]">[{job.type}]</span>
-                      <span className="text-[var(--terminal-secondary)] text-[10px] sm:text-xs">{job.location}</span>
+      <section className="pb-24 md:pb-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <ol>
+            {jobs.map((job) => {
+              const open = expandedJob === job.id;
+              return (
+                <Reveal as="li" key={job.id} delay={job.id * 70} className="row hairline">
+                  <button
+                    onClick={() => toggleJob(job.id)}
+                    aria-expanded={open}
+                    className="w-full text-left py-8 md:py-10 grid md:grid-cols-12 gap-3 md:gap-8 group"
+                  >
+                    <div className="md:col-span-2 font-mono text-[12px] tracking-wide text-ink-2 md:pt-1.5 space-y-1">
+                      <div>{job.type}</div>
+                      <div className="text-ink-3">{job.location}</div>
                     </div>
-                    <div className="text-[var(--terminal-primary)] text-xs font-mono">
-                      {expandedJob === job.id ? "[-] COLLAPSE" : "[+] EXPAND"}
+                    <div className="md:col-span-9 max-w-3xl">
+                      <h2 className="font-display text-2xl md:text-[1.75rem] font-semibold tracking-tight leading-snug text-ink group-hover:text-rust transition-colors">
+                        {job.title}
+                      </h2>
+                      <p className="mt-2 text-[15px] md:text-base text-ink-2">{job.tagline}</p>
                     </div>
-                  </div>
+                    <div className="hidden md:flex md:col-span-1 justify-end md:pt-1 text-ink-2 group-hover:text-ink transition-colors">
+                      {open ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    </div>
+                  </button>
 
-                  {/* Job Title */}
-                  <div className="p-4 sm:p-6 hover:bg-[var(--terminal-primary)]/5 transition-colors">
-                    <h2 className="text-lg sm:text-xl md:text-2xl text-[var(--terminal-primary)] font-bold font-mono mb-2">
-                      {job.title}
-                    </h2>
-                    <p className="text-[var(--terminal-secondary)] text-sm font-mono">
-                      {'>'} {job.tagline}
-                    </p>
-                  </div>
-                </div>
+                  {open && (
+                    <div className="pb-10 md:pb-12 grid md:grid-cols-12 gap-3 md:gap-8">
+                      <div className="hidden md:block md:col-span-2" />
+                      <div className="md:col-span-9 max-w-3xl prose-ec">
+                        <p>{job.description}</p>
 
-                {/* Expanded Details */}
-                {expandedJob === job.id && (
-                  <div className="border-t border-[var(--terminal-primary)]/30 animate-[terminal-boot_0.3s_ease-out]">
-                    <div className="p-6 space-y-6">
-                      {/* Description */}
-                      <div>
-                        <div className="text-[var(--terminal-secondary)] text-sm font-bold font-mono mb-2">
-                          [DESCRIPTION]
-                        </div>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {job.description}
-                        </p>
-                      </div>
-
-                      {/* Responsibilities */}
-                      <div>
-                        <div className="text-[var(--terminal-secondary)] text-sm font-bold font-mono mb-3">
-                          [RESPONSIBILITIES]
-                        </div>
-                        <div className="space-y-2">
-                          {job.responsibilities.map((resp, idx) => (
-                            <div key={idx} className="flex items-start gap-3">
-                              <span className="text-[var(--terminal-primary)] mt-1 text-xs">{'>'}</span>
-                              <span className="text-muted-foreground text-sm">{resp}</span>
-                            </div>
+                        <h3>Responsibilities</h3>
+                        <ul>
+                          {job.responsibilities.map((item, idx) => (
+                            <li key={idx}>{item}</li>
                           ))}
-                        </div>
-                      </div>
+                        </ul>
 
-                      {/* Qualifications */}
-                      <div>
-                        <div className="text-[var(--terminal-secondary)] text-sm font-bold font-mono mb-3">
-                          [QUALIFICATIONS]
-                        </div>
-                        <div className="space-y-2">
-                          {job.qualifications.map((qual, idx) => (
-                            <div key={idx} className="flex items-start gap-3">
-                              <span className="text-[var(--terminal-primary)] mt-1 text-xs">{'>'}</span>
-                              <span className="text-muted-foreground text-sm">{qual}</span>
-                            </div>
+                        <h3>Qualifications</h3>
+                        <ul>
+                          {job.qualifications.map((item, idx) => (
+                            <li key={idx}>{item}</li>
                           ))}
-                        </div>
-                      </div>
+                        </ul>
 
-                      {/* Apply Button */}
-                      <div className="pt-4 border-t border-[var(--terminal-primary)]/30">
-                        <a
-                          href={`mailto:${job.email}?subject=Application: ${job.title}`}
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-primary border-2 border-primary text-primary-foreground font-bold font-mono hover:bg-accent transition-all"
-                        >
-                          {'>'} SEND_APPLICATION
-                          <span>▶</span>
-                        </a>
-                        <div className="mt-3 text-xs font-mono text-muted-foreground">
-                          # or email {job.email}
+                        <div className="pt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                          <a
+                            href={`mailto:${job.email}?subject=Application: ${job.title}`}
+                            className="btn btn-primary no-underline"
+                            style={{ textDecoration: "none" }}
+                          >
+                            Apply by email
+                            <ArrowUpRight className="w-4 h-4 btn-icon" />
+                          </a>
+                          <span className="font-mono text-[12px] tracking-wide text-ink-3">
+                            or write to {job.email}
+                          </span>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                  )}
+                </Reveal>
+              );
+            })}
+          </ol>
         </div>
       </section>
 
