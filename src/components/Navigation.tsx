@@ -19,6 +19,7 @@ const shouldPlayLogoIntro = (() => {
 
 const navLinks = [
   { path: "/blogs", label: "Research" },
+  { path: "/publications", label: "Publications" },
   { path: "/careers", label: "Careers" },
 ];
 

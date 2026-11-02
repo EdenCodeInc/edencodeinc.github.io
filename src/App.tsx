@@ -11,6 +11,7 @@ import BlogNvidiaIsing from "./pages/blog-nvidia-ising";
 import BlogGraphTransformer from "./pages/blog-graph-transformer";
 import BlogDecoderFactory from "./pages/blog-decoder-factory";
 import CareersPage from "./pages/careers";
+import PublicationsPage from "./pages/publications";
 
 // Get base path at module level
 const BASE_PATH = import.meta.env?.BASE_URL || '/';
@@ -20,6 +21,7 @@ const BASE_PATH = import.meta.env?.BASE_URL || '/';
 const TITLES: Record<string, string> = {
   "/": "EdenCode - Unlock Quantum with AI",
   "/blogs": "Research — EdenCode",
+  "/publications": "Publications — EdenCode",
   "/blog-decoder-factory": "Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes",
   "/blog-graph-transformer": "One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder",
   "/blog-nvidia-ising": "Scaling AI-Powered Quantum Error Correction with NVIDIA Ising and GPU Compute",
@@ -73,7 +75,7 @@ function AppContent() {
         const url = new URL(link.href);
         const path = normalizePath(url.pathname);
 
-        const validPaths = ["/", "/blogs", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/blog-decoder-factory", "/careers"];
+        const validPaths = ["/", "/blogs", "/publications", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/blog-decoder-factory", "/careers"];
         if (validPaths.includes(path)) {
           e.preventDefault();
           window.history.pushState({}, "", link.href);
@@ -90,6 +92,10 @@ function AppContent() {
       document.removeEventListener("click", handleClick);
     };
   }, []);
+
+  if (currentPage === "/publications") {
+    return <PublicationsPage />;
+  }
 
   if (currentPage === "/blogs") {
     return <ResearchPage />;

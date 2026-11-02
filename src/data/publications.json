@@ -1,0 +1,64 @@
+[
+  {
+    "id": "decoder-factory",
+    "title": "Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes",
+    "authors": ["Anil Bilgin", "Wanda Hou", "Pranav Srinivas", "Yi-Zhuang You"],
+    "date": "2026-10-30",
+    "status": "Preprint",
+    "topic": "Quantum decoding",
+    "venue": "arXiv:2610.41398",
+    "identifier": "2610.41398",
+    "doi": "10.48550/arXiv.2610.41398",
+    "url": "https://arxiv.org/abs/2610.41398",
+    "pdf": "https://arxiv.org/pdf/2610.41398",
+    "note": "/blog-decoder-factory",
+    "summary": "A local neural decoder learns from verified search trajectories, transferring across quantum LDPC decoding tasks and adapting to changed noise in simulation.",
+    "bibtex": "@misc{bilgin2026distilling,\n  title = {Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes},\n  author = {Bilgin, Anil and Hou, Wanda and Srinivas, Pranav and You, Yi-Zhuang},\n  year = {2026},\n  eprint = {2610.41398},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  doi = {10.48550/arXiv.2610.41398},\n  url = {https://arxiv.org/abs/2610.41398}\n}"
+  },
+  {
+    "id": "llm-focus",
+    "title": "Quantitative study of sustained focus in large language models via repetitive deterministic prediction tasks",
+    "authors": [
+      "Wanda Hou",
+      "Leon Zhou",
+      "Hong-Ye Hu",
+      "Yubei Chen",
+      "Yi-Zhuang You",
+      "Xiao-Liang Qi"
+    ],
+    "date": "2026-10-13",
+    "status": "Journal article",
+    "topic": "AI reliability",
+    "venue": "Physical Review Research 8, 043036",
+    "identifier": "Phys. Rev. Research 8, 043036",
+    "doi": "10.1103/fn1m-wn2b",
+    "url": "https://journals.aps.org/prresearch/abstract/10.1103/fn1m-wn2b",
+    "pdf": "https://journals.aps.org/prresearch/pdf/10.1103/fn1m-wn2b",
+    "note": "/blog-llm-accuracy",
+    "summary": "A quantitative study of the accuracy cliff in repeated reasoning tasks, with an effective statistical-physics model of how errors accumulate across a sequence.",
+    "bibtex": "@article{hou2026focus,\n  title = {Quantitative study of sustained focus in large language models via repetitive deterministic prediction tasks},\n  author = {Hou, Wanda and Zhou, Leon and Hu, Hong-Ye and Chen, Yubei and You, Yi-Zhuang and Qi, Xiao-Liang},\n  journal = {Physical Review Research},\n  volume = {8},\n  pages = {043036},\n  year = {2026},\n  month = {oct},\n  doi = {10.1103/fn1m-wn2b},\n  url = {https://doi.org/10.1103/fn1m-wn2b}\n}"
+  },
+  {
+    "id": "error-detection",
+    "title": "Opportunities and challenges in scaling quantum error detection on hardware",
+    "authors": [
+      "Yanis Le Fur",
+      "Ethan Egger",
+      "Hong-Ye Hu",
+      "Vincent Russo",
+      "William J. Zeng",
+      "Ryan LaRose"
+    ],
+    "date": "2026-05-04",
+    "status": "Preprint",
+    "topic": "Quantum hardware",
+    "venue": "arXiv:2605.02861",
+    "identifier": "2605.02861",
+    "doi": "10.48550/arXiv.2605.02861",
+    "url": "https://arxiv.org/abs/2605.02861",
+    "pdf": "https://arxiv.org/pdf/2605.02861",
+    "note": null,
+    "summary": "Hardware experiments and noisy simulations map the promise and resource costs of quantum error detection, including sampling overhead and classical processing constraints.",
+    "bibtex": "@misc{lefur2026opportunities,\n  title = {Opportunities and challenges in scaling quantum error detection on hardware},\n  author = {Le Fur, Yanis and Egger, Ethan and Hu, Hong-Ye and Russo, Vincent and Zeng, William J. and LaRose, Ryan},\n  year = {2026},\n  eprint = {2605.02861},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  doi = {10.48550/arXiv.2605.02861},\n  url = {https://arxiv.org/abs/2605.02861}\n}"
+  }
+]

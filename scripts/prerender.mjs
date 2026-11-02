@@ -24,6 +24,12 @@ const BASE_URL = 'https://www.edencode.ai';
 
 /** @type {Record<string, { title: string; description: string; image: string; type?: string }>} */
 const routes = {
+  '/publications': {
+    title: 'Publications — EdenCode',
+    description:
+      'Academic papers from EdenCode and collaborators on quantum decoding, quantum hardware, and AI reliability, with journal and arXiv links.',
+    image: '/favicon.png',
+  },
   '/blogs': {
     title: 'Research — EdenCode',
     description:
