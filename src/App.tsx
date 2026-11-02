@@ -20,7 +20,7 @@ const BASE_PATH = import.meta.env?.BASE_URL || '/';
 const TITLES: Record<string, string> = {
   "/": "EdenCode - Unlock Quantum with AI",
   "/blogs": "Research — EdenCode",
-  "/blog-decoder-factory": "An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes",
+  "/blog-decoder-factory": "Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes",
   "/blog-graph-transformer": "One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder",
   "/blog-nvidia-ising": "Scaling AI-Powered Quantum Error Correction with NVIDIA Ising and GPU Compute",
   "/blog-llm-accuracy": "How Focused Are LLMs? — EdenCode Research",

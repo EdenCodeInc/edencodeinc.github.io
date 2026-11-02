@@ -8,12 +8,12 @@ export default function ResearchPage() {
   const blogPosts = [
     {
       id: 0,
-      title: "An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes",
-      excerpt: "Presented at KITP's 'Artificial Intelligence at the Quantum Frontier' conference: a self-improving loop in which the GraphMP neural decoder trains on its own device-verified search trajectories. Taught on three quantum LDPC codes and tested on twelve, the third-generation decoder matches or surpasses BP+OSD and Relay-BP almost everywhere — and re-adapts when the noise drifts.",
-      author: "Yi-Zhuang You",
-      date: "2026-09-28",
-      category: "KITP_TALK",
-      readTime: "10",
+      title: "Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes",
+      excerpt: "Introducing our arXiv preprint on GraphMP: a local message-passing decoder that learns from verified search trajectories. A decoder model factory distills that experience into successive models, improving decoding, transferring to unseen tasks without fine-tuning, and adapting to changed noise in simulation.",
+      author: "EdenCode Research",
+      date: "2026-10-30",
+      category: "RESEARCH",
+      readTime: "7",
       link: "/blog-decoder-factory",
       isHighlight: true,
     },

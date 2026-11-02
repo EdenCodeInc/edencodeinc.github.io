@@ -32,10 +32,10 @@ const routes = {
   },
   '/blog-decoder-factory': {
     title:
-      'An Immune System for Quantum Computers: Building an AI Decoder Factory for Quantum LDPC Codes',
+      'Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes',
     description:
-      "Presented at KITP: a self-improving loop in which EdenCode's GraphMP neural decoder trains on its own device-verified search trajectories. Taught on three quantum LDPC codes and tested on twelve, it matches or surpasses BP+OSD and Relay-BP almost everywhere — and re-adapts when the noise drifts.",
-    image: '/fig-factory-benchmark.jpg',
+      "EdenCode's arXiv preprint introduces GraphMP and a decoder model factory: verified search trajectories train successive quantum LDPC decoders, enabling transfer and noise adaptation in simulation.",
+    image: '/fig-factory-paper-benchmark.png',
     type: 'article',
   },
   '/blog-graph-transformer': {

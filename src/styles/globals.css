@@ -658,6 +658,8 @@
   color: var(--ink-2);
 }
 .prose-ec .figure figcaption strong { color: var(--ink); }
+/* Paper figures have dark labels and transparent SVG backgrounds. */
+.prose-ec .decoder-factory-figure img { background: #fff; }
 .prose-ec .callout {
   background: var(--paper-2);
   border-left: 3px solid var(--rust);

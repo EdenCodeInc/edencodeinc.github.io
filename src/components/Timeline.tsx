@@ -51,14 +51,14 @@ function EventLink({ href, label }: { href: string; label: string }) {
 export function Timeline() {
   const timelineEvents: TimelineEvent[] = [
     {
-      date: "2026-09-28",
-      title: "EdenCode Presents the AI Decoder Factory for Quantum LDPC Codes at KITP",
-      description: "At KITP's 'Artificial Intelligence at the Quantum Frontier' conference, EdenCode co-founder and CTO Yi-Zhuang You presented the AI Decoder Factory: a self-improving loop in which the GraphMP neural decoder trains on its own device-verified search trajectories. Taught on three codes and tested on twelve, the third-generation decoder matches or surpasses BP+OSD and Relay-BP almost everywhere — and re-adapts when the noise drifts.",
-      category: "KITP_TALK",
+      date: "2026-10-30",
+      title: "EdenCode Introduces a Decoder Model Factory for Quantum LDPC Codes",
+      description: "Our new arXiv preprint introduces GraphMP and a decoder model factory that turns verified search trajectories into training data for successive models. Trained on three tasks and evaluated on twelve, the same model transfers to unseen codes and noise settings without fine-tuning. Simulation experiments demonstrate improvement across generations and adaptation after a change in the noise model.",
+      category: "RESEARCH",
       link: "/blog-decoder-factory",
       linkLabel: "READ_MORE",
-      link2: "https://online.kitp.ucsb.edu/online/aiqmatter-c26/you/",
-      link2Label: "WATCH_TALK",
+      link2: "https://arxiv.org/abs/2610.41398",
+      link2Label: "READ_PAPER",
       isHighlight: true,
     },
     {
