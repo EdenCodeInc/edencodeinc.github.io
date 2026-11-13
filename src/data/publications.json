@@ -16,6 +16,25 @@
     "bibtex": "@misc{bilgin2026distilling,\n  title = {Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes},\n  author = {Bilgin, Anil and Hou, Wanda and Srinivas, Pranav and You, Yi-Zhuang},\n  year = {2026},\n  eprint = {2610.41398},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  doi = {10.48550/arXiv.2610.41398},\n  url = {https://arxiv.org/abs/2610.41398}\n}"
   },
   {
+    "id": "sample-complexity",
+    "title": "Sample Complexity for Generative Learning of Quantum Measurement Data",
+    "authors": [
+      "Shuhan Zhang",
+      "Yi-Zhuang You"
+    ],
+    "date": "2026-10-27",
+    "status": "Preprint",
+    "topic": "Quantum learning",
+    "venue": "arXiv:2610.38028",
+    "identifier": "2610.38028",
+    "doi": "10.48550/arXiv.2610.38028",
+    "url": "https://arxiv.org/abs/2610.38028",
+    "pdf": "https://arxiv.org/pdf/2610.38028",
+    "note": "/blog-sample-complexity",
+    "summary": "An information-theoretic bias–variance framework connects finite quantum measurement data to generative model capacity, predicting optimal context radii and contrasting learning curves in gapped and critical Ising regimes.",
+    "bibtex": "@misc{zhang2026sample,\n  title = {Sample Complexity for Generative Learning of Quantum Measurement Data},\n  author = {Zhang, Shuhan and You, Yi-Zhuang},\n  year = {2026},\n  eprint = {2610.38028},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  doi = {10.48550/arXiv.2610.38028},\n  url = {https://arxiv.org/abs/2610.38028}\n}"
+  },
+  {
     "id": "llm-focus",
     "title": "Quantitative study of sustained focus in large language models via repetitive deterministic prediction tasks",
     "authors": [

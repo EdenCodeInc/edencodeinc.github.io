@@ -7,6 +7,17 @@ export default function ResearchPage() {
 
   const blogPosts = [
     {
+      id: 5,
+      title: "How Much Can We Learn from Quantum Measurement Data?",
+      excerpt: "Introducing our preprint on the data budget behind generative quantum learning. An information-theoretic bias–variance framework predicts how much model capacity finite measurement records justify, and explains why learning curves differ between gapped and critical Ising regimes.",
+      author: "EdenCode Research",
+      date: "2026-11-12",
+      category: "RESEARCH",
+      readTime: "6",
+      link: "/blog-sample-complexity",
+      isHighlight: true,
+    },
+    {
       id: 0,
       title: "Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes",
       excerpt: "Introducing our arXiv preprint on GraphMP: a local message-passing decoder that learns from verified search trajectories. A decoder model factory distills that experience into successive models, improving decoding, transferring to unseen tasks without fine-tuning, and adapting to changed noise in simulation.",

@@ -27,7 +27,7 @@ const routes = {
   '/publications': {
     title: 'Publications — EdenCode',
     description:
-      'Academic papers from EdenCode and collaborators on quantum decoding, quantum hardware, and AI reliability, with journal and arXiv links.',
+      'Academic papers from EdenCode and collaborators on quantum decoding, quantum learning, quantum hardware, and AI reliability, with journal and arXiv links.',
     image: '/favicon.png',
   },
   '/blogs': {
@@ -35,6 +35,13 @@ const routes = {
     description:
       "EdenCode's research blog on AI-powered quantum error correction, decoder architectures, and the path to fault-tolerant quantum computing.",
     image: '/favicon.png',
+  },
+  '/blog-sample-complexity': {
+    title: 'How Much Can We Learn from Quantum Measurement Data? — EdenCode Research',
+    description:
+      'A new EdenCode preprint connects finite quantum measurement data to generative model capacity, predicting optimal context radii and contrasting learning curves in gapped and critical Ising regimes.',
+    image: '/fig-sample-complexity-scaling.png',
+    type: 'article',
   },
   '/blog-decoder-factory': {
     title:

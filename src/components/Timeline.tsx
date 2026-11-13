@@ -62,6 +62,17 @@ export function Timeline() {
       isHighlight: true,
     },
     {
+      date: "2026-10-27",
+      title: "How Much Quantum Measurement Data Does a Generative Model Need?",
+      description: "A new preprint by Shuhan Zhang and Yi-Zhuang You connects model capacity to finite measurement data through a bias–variance framework. For local autoregressive models, discarded conditional information sets the representation bias, while a smoothed histogram learner gives an exact finite-sample estimation cost. Tests on Ising measurement distributions predict the optimal context radius and explain contrasting learning curves in gapped and critical regimes.",
+      category: "RESEARCH",
+      link: "/blog-sample-complexity",
+      linkLabel: "READ_MORE",
+      link2: "https://arxiv.org/abs/2610.38028",
+      link2Label: "READ_PAPER",
+      isHighlight: true,
+    },
+    {
       date: "2026-07-27",
       title: "Co-Founder Yi-Zhuang You Coordinates KITP 'AI for Quantum Matter' Program",
       description: "EdenCode co-founder and CTO Yi-Zhuang You is a coordinator of the Kavli Institute for Theoretical Physics program 'AI for Quantum Matter' (July 27 – October 8, 2026) and its conference 'Artificial Intelligence at the Quantum Frontier' (September 28 – October 1), bringing together researchers across machine learning, quantum many-body physics, and quantum information at UC Santa Barbara.",

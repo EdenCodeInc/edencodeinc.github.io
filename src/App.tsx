@@ -10,6 +10,7 @@ import BlogLLMAccuracy from "./pages/blog-llm-accuracy";
 import BlogNvidiaIsing from "./pages/blog-nvidia-ising";
 import BlogGraphTransformer from "./pages/blog-graph-transformer";
 import BlogDecoderFactory from "./pages/blog-decoder-factory";
+import BlogSampleComplexity from "./pages/blog-sample-complexity";
 import CareersPage from "./pages/careers";
 import PublicationsPage from "./pages/publications";
 
@@ -22,6 +23,7 @@ const TITLES: Record<string, string> = {
   "/": "EdenCode - Unlock Quantum with AI",
   "/blogs": "Research — EdenCode",
   "/publications": "Publications — EdenCode",
+  "/blog-sample-complexity": "How Much Can We Learn from Quantum Measurement Data? — EdenCode Research",
   "/blog-decoder-factory": "Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes",
   "/blog-graph-transformer": "One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder",
   "/blog-nvidia-ising": "Scaling AI-Powered Quantum Error Correction with NVIDIA Ising and GPU Compute",
@@ -75,7 +77,7 @@ function AppContent() {
         const url = new URL(link.href);
         const path = normalizePath(url.pathname);
 
-        const validPaths = ["/", "/blogs", "/publications", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/blog-decoder-factory", "/careers"];
+        const validPaths = ["/", "/blogs", "/publications", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/blog-decoder-factory", "/blog-sample-complexity", "/careers"];
         if (validPaths.includes(path)) {
           e.preventDefault();
           window.history.pushState({}, "", link.href);
@@ -119,6 +121,10 @@ function AppContent() {
 
   if (currentPage === "/blog-decoder-factory") {
     return <BlogDecoderFactory />;
+  }
+
+  if (currentPage === "/blog-sample-complexity") {
+    return <BlogSampleComplexity />;
   }
 
   if (currentPage === "/careers") {
