@@ -87,31 +87,30 @@ export default function BlogSC26QuantumAIInfrastructure() {
 
       <section>
         <h2>Read the research</h2>
-        <p>
-          The companion QDPU preprint is now publicly available on arXiv.
-          The updated decoder manuscript (v2) has been submitted; its public link
-          will be added when available.
-        </p>
         <ul>
           <li>
             <a href="https://arxiv.org/abs/2610.41398v1" target="_blank" rel="noopener noreferrer">Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes</a>
-            {" "}— published arXiv v1. The 4,600+ logical-qubit results reported above are part of the submitted v2 update.
+            <span className="mt-1 block text-sm text-ink-2">
+              arXiv:2610.41398 · <a href="/blog-decoder-factory" aria-label="EdenCode overview of Decoder Model Factory">EdenCode overview</a>
+            </span>
           </li>
           <li>
             <a href="https://arxiv.org/abs/2611.17652" target="_blank" rel="noopener noreferrer">Quantum Data Processing Unit for Neutral-Atom Quantum Computers</a>
-            {" "}— arXiv:2611.17652, submitted November 13, 2026.
-            {" "}<a href="https://arxiv.org/pdf/2611.17652" target="_blank" rel="noopener noreferrer">Read the PDF</a>.
-            {" "}<a href="/blog-quantum-data-processing-unit">Read our QDPU introduction</a>.
+            <span className="mt-1 block text-sm text-ink-2">
+              arXiv:2611.17652 · <a href="/blog-quantum-data-processing-unit" aria-label="EdenCode overview of the Quantum Data Processing Unit">EdenCode overview</a>
+            </span>
           </li>
-          <li>
-            <a href="https://developer.nvidia.com/blog/nvidia-nvqlink-architecture-integrates-accelerated-computing-with-quantum-processors/" target="_blank" rel="noopener noreferrer">NVIDIA NVQLink architecture</a>
-            {" "}— NVIDIA’s architecture overview.
-          </li>
-          <li><a href="/publications">All EdenCode publications</a> and <a href="/blog-decoder-factory">our earlier decoder model factory introduction</a>.</li>
         </ul>
+
+        <h3>Technology reference</h3>
+        <p>
+          <a href="https://developer.nvidia.com/blog/nvidia-nvqlink-architecture-integrates-accelerated-computing-with-quantum-processors/" target="_blank" rel="noopener noreferrer">NVIDIA NVQLink architecture</a>
+          {" "}— NVIDIA’s architecture overview.
+        </p>
         <p className="text-sm text-ink-2">
           Figures 10 and 11 are adapted with generalized code labels and unchanged data.
-          Figure numbers refer to the submitted decoder update and the QDPU preprint. All large-code decoding results
+          Figure numbers refer to the revised decoder manuscript and the QDPU preprint. The linked decoder preprint is v1;
+          the 4,600+ logical-qubit results are from the revised manuscript. All large-code decoding results
           are simulations; the separate NVQLink and FPGA results are the stated board measurements.
         </p>
       </section>
