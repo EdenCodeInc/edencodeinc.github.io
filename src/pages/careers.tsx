@@ -29,7 +29,7 @@ export default function CareersPage() {
         "Proven experience organizing technology conferences or symposiums",
         "Willingness to travel (40-50%)",
       ],
-      email: "hwanda@edencode.ai",
+      email: "info@edencode.ai",
     },
     {
       id: 1,
@@ -52,7 +52,7 @@ export default function CareersPage() {
         "Track record of publications in top-tier conferences/journals",
         "Solid grounding in linear algebra, probability theory, and optimization",
       ],
-      email: "hwanda@edencode.ai",
+      email: "info@edencode.ai",
     },
     {
       id: 2,
@@ -79,7 +79,7 @@ export default function CareersPage() {
         "Experience deploying ML inference on FPGA or on FPGA-to-accelerator links a strong plus",
         "Systems mindset: comfortable owning a latency budget end-to-end",
       ],
-      email: "hwanda@edencode.ai",
+      email: "info@edencode.ai",
     },
   ];
 

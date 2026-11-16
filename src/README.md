@@ -58,7 +58,7 @@ Deployed to GitHub Pages via `edencodeinc.github.io`. Push to `main` branch trig
 
 ## Contact
 
-hwanda@edencode.ai | www.edencode.ai
+info@edencode.ai | www.edencode.ai
 
 ---
 

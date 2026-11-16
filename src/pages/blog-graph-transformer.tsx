@@ -119,7 +119,7 @@ export default function BlogGraphTransformer() {
         </p>
         <p>
           EdenCode is accepting a limited number of design partners for integration pilots. Contact us at{" "}
-          <a href="mailto:hwanda@edencode.ai">hwanda@edencode.ai</a>
+          <a href="mailto:info@edencode.ai">info@edencode.ai</a>
           {" "}to schedule a technical consultation.
         </p>
       </section>

@@ -6,7 +6,7 @@ export function Footer() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hwanda@edencode.ai");
+    navigator.clipboard.writeText("info@edencode.ai");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -59,7 +59,7 @@ export function Footer() {
               </li>
               <li>
                 <button onClick={handleCopyEmail} className={`${linkClass} text-left cursor-pointer`}>
-                  {copied ? "Copied hwanda@edencode.ai" : "Email"}
+                  {copied ? "Copied info@edencode.ai" : "Email"}
                 </button>
               </li>
             </ul>
