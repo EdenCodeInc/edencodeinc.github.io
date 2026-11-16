@@ -12,6 +12,7 @@ import BlogGraphTransformer from "./pages/blog-graph-transformer";
 import BlogDecoderFactory from "./pages/blog-decoder-factory";
 import BlogSampleComplexity from "./pages/blog-sample-complexity";
 import BlogSC26QuantumAIInfrastructure from "./pages/blog-sc26-quantum-ai-infrastructure";
+import BlogQuantumDataProcessingUnit from "./pages/blog-quantum-data-processing-unit";
 import CareersPage from "./pages/careers";
 import PublicationsPage from "./pages/publications";
 
@@ -25,6 +26,7 @@ const TITLES: Record<string, string> = {
   "/blogs": "Research — EdenCode",
   "/publications": "Publications — EdenCode",
   "/blog-sc26-quantum-ai-infrastructure": "EdenCode Advances Quantum Error Decoding with NVIDIA Accelerated Computing",
+  "/blog-quantum-data-processing-unit": "From Quantum Measurements to Control Decisions — EdenCode Research",
   "/blog-sample-complexity": "How Much Can We Learn from Quantum Measurement Data? — EdenCode Research",
   "/blog-decoder-factory": "Distilling Knowledge from Search: Decoder Model Factory for Quantum LDPC Codes",
   "/blog-graph-transformer": "One Decoder for Every Quantum Code: EdenCode Releases the Graph Transformer Decoder",
@@ -79,7 +81,7 @@ function AppContent() {
         const url = new URL(link.href);
         const path = normalizePath(url.pathname);
 
-        const validPaths = ["/", "/blogs", "/publications", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/blog-decoder-factory", "/blog-sample-complexity", "/blog-sc26-quantum-ai-infrastructure", "/careers"];
+        const validPaths = ["/", "/blogs", "/publications", "/blog-ai-quantum-error-correction", "/blog-llm-accuracy", "/blog-nvidia-ising", "/blog-graph-transformer", "/blog-decoder-factory", "/blog-sample-complexity", "/blog-sc26-quantum-ai-infrastructure", "/blog-quantum-data-processing-unit", "/careers"];
         if (validPaths.includes(path)) {
           e.preventDefault();
           window.history.pushState({}, "", link.href);
@@ -131,6 +133,10 @@ function AppContent() {
 
   if (currentPage === "/blog-sc26-quantum-ai-infrastructure") {
     return <BlogSC26QuantumAIInfrastructure />;
+  }
+
+  if (currentPage === "/blog-quantum-data-processing-unit") {
+    return <BlogQuantumDataProcessingUnit />;
   }
 
   if (currentPage === "/careers") {

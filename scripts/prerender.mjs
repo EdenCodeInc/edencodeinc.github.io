@@ -24,6 +24,13 @@ const BASE_URL = 'https://www.edencode.ai';
 
 /** @type {Record<string, { title: string; description: string; image: string; type?: string }>} */
 const routes = {
+  '/blog-quantum-data-processing-unit': {
+    title: 'From Quantum Measurements to Control Decisions — EdenCode Research',
+    description:
+      'EdenCode’s QDPU turns quantum measurements into control decisions, with measured NVIDIA NVQLink transport and FPGA kernel execution connecting NVIDIA DGX Spark and an AMD ZCU216 RFSoC board.',
+    image: '/fig-qdpu-architecture.png',
+    type: 'article',
+  },
   '/blog-sc26-quantum-ai-infrastructure': {
     title: 'EdenCode Advances Quantum Error Decoding with NVIDIA Accelerated Computing',
     description:

@@ -18,6 +18,17 @@ export default function ResearchPage() {
       isHighlight: true,
     },
     {
+      id: 7,
+      title: "From Quantum Measurements to Control Decisions",
+      excerpt: "A processing layer that turns quantum measurements into control decisions. Introducing EdenCode’s QDPU, with measured NVIDIA NVQLink transport and GraphMP ranking-kernel execution on a platform connecting NVIDIA DGX Spark and an AMD ZCU216 RFSoC board.",
+      author: "EdenCode Research",
+      date: "2026-11-15",
+      category: "RESEARCH",
+      readTime: "5",
+      link: "/blog-quantum-data-processing-unit",
+      isHighlight: true,
+    },
+    {
       id: 5,
       title: "How Much Can We Learn from Quantum Measurement Data?",
       excerpt: "Introducing our preprint on the data budget behind generative quantum learning. An information-theoretic bias–variance framework predicts how much model capacity finite measurement records justify, and explains why learning curves differ between gapped and critical Ising regimes.",

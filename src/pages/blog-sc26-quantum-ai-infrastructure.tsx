@@ -101,6 +101,7 @@ export default function BlogSC26QuantumAIInfrastructure() {
             <a href="https://arxiv.org/abs/2611.17652" target="_blank" rel="noopener noreferrer">Quantum Data Processing Unit for Neutral-Atom Quantum Computers</a>
             {" "}— arXiv:2611.17652, submitted November 13, 2026.
             {" "}<a href="https://arxiv.org/pdf/2611.17652" target="_blank" rel="noopener noreferrer">Read the PDF</a>.
+            {" "}<a href="/blog-quantum-data-processing-unit">Read our QDPU introduction</a>.
           </li>
           <li>
             <a href="https://developer.nvidia.com/blog/nvidia-nvqlink-architecture-integrates-accelerated-computing-with-quantum-processors/" target="_blank" rel="noopener noreferrer">NVIDIA NVQLink architecture</a>

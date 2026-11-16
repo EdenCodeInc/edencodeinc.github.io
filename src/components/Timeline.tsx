@@ -66,7 +66,7 @@ export function Timeline() {
       title: "EdenCode Releases QDPU Preprint for Neutral-Atom Quantum Computers",
       description: "Our quantum data processing unit connects quantum measurements with control decisions through FPGA processing. The preprint presents neutral-atom array assembly and learned qLDPC kernels, reports board-level NVQLink transport to NVIDIA DGX Spark, and proposes a GPU outer loop for model updates.",
       category: "RESEARCH",
-      link: "/blog-sc26-quantum-ai-infrastructure",
+      link: "/blog-quantum-data-processing-unit",
       linkLabel: "READ_MORE",
       link2: "https://arxiv.org/abs/2611.17652",
       link2Label: "READ_PAPER",

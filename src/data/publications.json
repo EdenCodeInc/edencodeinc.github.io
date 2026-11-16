@@ -18,7 +18,7 @@
     "doi": "10.48550/arXiv.2611.17652",
     "url": "https://arxiv.org/abs/2611.17652",
     "pdf": "https://arxiv.org/pdf/2611.17652",
-    "note": "/blog-sc26-quantum-ai-infrastructure",
+    "note": "/blog-quantum-data-processing-unit",
     "summary": "An FPGA quantum data processing architecture connects measurements to control, with neutral-atom array assembly and learned qLDPC kernels. Board tests measure NVQLink transport to NVIDIA DGX Spark; a GPU outer loop is proposed for updating models.",
     "bibtex": "@misc{murali2026qdpu,\n  title = {Quantum Data Processing Unit for Neutral-Atom Quantum Computers},\n  author = {Murali, Pranav Srinivas and Solares, Russell Marroquin and Zhou, Warren and Hou, Wanda and Bilgin, Anil and You, Yi-Zhuang},\n  year = {2026},\n  eprint = {2611.17652},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  doi = {10.48550/arXiv.2611.17652},\n  url = {https://arxiv.org/abs/2611.17652}\n}"
   },
