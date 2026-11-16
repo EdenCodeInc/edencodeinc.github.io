@@ -8,7 +8,7 @@
     "url": "https://www.nvidia.com/en-us/solutions/quantum-computing/nvqlink/"
   },
   "intro": [
-    "EdenCode is developing an immune system for quantum computers using AI: a decoding and data processing layer that responds to errors while learning from experience. A publicly available decoder preprint and a companion QDPU manuscript in preparation bring together a decoder model factory developed using NVIDIA accelerated computing and an FPGA-based quantum data processing architecture, with a proposed integration path through NVIDIA NVQLink."
+    "EdenCode is developing an immune system for quantum computers using AI: a decoding and data processing layer that responds to errors while learning from experience. A publicly available decoder preprint and a companion QDPU preprint bring together a decoder model factory developed using NVIDIA accelerated computing and an FPGA-based quantum data processing architecture, with a proposed integration path through NVIDIA NVQLink."
   ],
   "sections": [
     {
@@ -74,7 +74,7 @@
     {
       "title": "Connecting learned models to quantum data processing",
       "paragraphs": [
-        "The companion manuscript in preparation introduces the quantum data processing unit (QDPU), a layer between quantum measurements and control decisions. Its FPGA implementation work evaluates calibrated matched-filter and CNN occupancy detection with rearrangement scheduling, alongside a quantized qLDPC decoder. The revised array-assembly analysis favors the matched filter when inference time and atom loss are considered together. The architectural principle is to execute time-sensitive processing close to the device while a GPU learning loop updates the models.",
+        "The companion QDPU preprint introduces the quantum data processing unit (QDPU), a layer between quantum measurements and control decisions. Its FPGA implementation work evaluates calibrated matched-filter and CNN occupancy detection with rearrangement scheduling, alongside a quantized qLDPC decoder. The revised array-assembly analysis favors the matched filter when inference time and atom loss are considered together. The architectural principle is to execute time-sensitive processing close to the device while a GPU learning loop updates the models.",
         "NVIDIA NVQLink provides an open architecture for coupling accelerated computing to quantum controllers. EdenCode’s proposed integration would connect measurement data and model updates across this boundary, with GPU inference available for workloads beyond the resident FPGA model."
       ],
       "figure": {

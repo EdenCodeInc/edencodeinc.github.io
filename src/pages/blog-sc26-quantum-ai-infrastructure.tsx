@@ -88,8 +88,9 @@ export default function BlogSC26QuantumAIInfrastructure() {
       <section>
         <h2>Read the research</h2>
         <p>
-          The updated decoder manuscript (v2) and the companion QDPU manuscript have
-          been submitted to arXiv. Public links will be added when available.
+          The companion QDPU preprint is now publicly available on arXiv.
+          The updated decoder manuscript (v2) has been submitted; its public link
+          will be added when available.
         </p>
         <ul>
           <li>
@@ -97,8 +98,9 @@ export default function BlogSC26QuantumAIInfrastructure() {
             {" "}— published arXiv v1. The 4,600+ logical-qubit results reported above are part of the submitted v2 update.
           </li>
           <li>
-            Quantum Data Processing Unit for Neutral-Atom Quantum Computers
-            {" "}— submitted to arXiv; public link forthcoming.
+            <a href="https://arxiv.org/abs/2611.17652" target="_blank" rel="noopener noreferrer">Quantum Data Processing Unit for Neutral-Atom Quantum Computers</a>
+            {" "}— arXiv:2611.17652, submitted November 13, 2026.
+            {" "}<a href="https://arxiv.org/pdf/2611.17652" target="_blank" rel="noopener noreferrer">Read the PDF</a>.
           </li>
           <li>
             <a href="https://developer.nvidia.com/blog/nvidia-nvqlink-architecture-integrates-accelerated-computing-with-quantum-processors/" target="_blank" rel="noopener noreferrer">NVIDIA NVQLink architecture</a>
@@ -108,7 +110,7 @@ export default function BlogSC26QuantumAIInfrastructure() {
         </ul>
         <p className="text-sm text-ink-2">
           Figures 10 and 11 are adapted with generalized code labels and unchanged data.
-          Figure numbers refer to the submitted manuscripts. All large-code decoding results
+          Figure numbers refer to the submitted decoder update and the QDPU preprint. All large-code decoding results
           are simulations; the separate NVQLink and FPGA results are the stated board measurements.
         </p>
       </section>

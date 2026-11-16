@@ -62,6 +62,17 @@ export function Timeline() {
       isHighlight: true,
     },
     {
+      date: "2026-11-13",
+      title: "EdenCode Releases QDPU Preprint for Neutral-Atom Quantum Computers",
+      description: "Our quantum data processing unit connects quantum measurements with control decisions through FPGA processing. The preprint presents neutral-atom array assembly and learned qLDPC kernels, reports board-level NVQLink transport to NVIDIA DGX Spark, and proposes a GPU outer loop for model updates.",
+      category: "RESEARCH",
+      link: "/blog-sc26-quantum-ai-infrastructure",
+      linkLabel: "READ_MORE",
+      link2: "https://arxiv.org/abs/2611.17652",
+      link2Label: "READ_PAPER",
+      isHighlight: true,
+    },
+    {
       date: "2026-10-30",
       title: "EdenCode Introduces a Decoder Model Factory for Quantum LDPC Codes",
       description: "Our new arXiv preprint introduces GraphMP and a decoder model factory that turns verified search trajectories into training data for successive models. Trained on three tasks and evaluated on twelve, the same model transfers to unseen codes and noise settings without fine-tuning. Simulation experiments demonstrate improvement across generations and adaptation after a change in the noise model.",
