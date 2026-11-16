@@ -10,6 +10,15 @@ export default function BlogDecoderFactory() {
       date="2026-10-30"
       readTime="7"
     >
+      <aside className="callout">
+        <p className="callout-title">SC26 update · November 16, 2026</p>
+        <p>
+          Our updated manuscript demonstrates AI decoding for a previously unseen qLDPC code
+          encoding over 4,600 logical qubits in 9,216 physical qubits.
+          {" "}<a href="/blog-sc26-quantum-ai-infrastructure">Read the SC26 announcement and updated results</a>.
+          The introduction below describes the October 30 arXiv version.
+        </p>
+      </aside>
       <section>
         <p>
           Can the computation spent solving a difficult decoding problem help a quantum computer handle the next one? Our new paper introduces a <strong>decoder model factory</strong>: a cycle that turns experience from decoding into training data for better decoders.

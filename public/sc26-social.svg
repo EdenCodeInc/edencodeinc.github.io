@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FBF5EC"/>
+  <g font-family="sans-serif">
+    <text font-family="sans-serif" x="64" y="69" fill="#2A1C10" font-size="34" font-weight="700">Eden<tspan fill="#C8501C">Code</tspan></text>
+    <text font-family="sans-serif" x="1136" y="64" text-anchor="end" fill="#796B5E" font-size="18" letter-spacing="3">SC26 RESEARCH</text>
+    <path d="M64 115H1136" stroke="#DCD2C4"/>
+    <path d="M64 115H144" stroke="#C8501C" stroke-width="3"/>
+    <text font-family="sans-serif" x="64" y="192" fill="#2A1C10" font-size="43" font-weight="500">AI error protection for</text>
+    <text font-family="sans-serif" x="56" y="357" fill="#C8501C" font-size="164" font-weight="700" letter-spacing="-7">4,600+</text>
+    <text font-family="sans-serif" x="64" y="429" fill="#2A1C10" font-size="56" font-weight="600">logical qubits</text>
+    <text font-family="sans-serif" x="64" y="491" fill="#796B5E" font-size="25">NVIDIA accelerated computing · NVIDIA NVQLink</text>
+    <path d="M64 536H1136" stroke="#DCD2C4"/>
+    <text font-family="sans-serif" x="64" y="580" fill="#796B5E" font-size="18" letter-spacing="1">CODE-CAPACITY SIMULATIONS · UNSEEN QLDPC CODE</text>
+    <text font-family="sans-serif" x="1136" y="580" text-anchor="end" fill="#796B5E" font-size="18">edencode.ai</text>
+  </g>
+</svg>

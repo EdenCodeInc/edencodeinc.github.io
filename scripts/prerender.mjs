@@ -24,6 +24,13 @@ const BASE_URL = 'https://www.edencode.ai';
 
 /** @type {Record<string, { title: string; description: string; image: string; type?: string }>} */
 const routes = {
+  '/blog-sc26-quantum-ai-infrastructure': {
+    title: 'EdenCode Advances Quantum Error Decoding with NVIDIA Accelerated Computing',
+    description:
+      'SC26: AI decoding for a qLDPC code encoding 4,600+ logical qubits, with approximately 50% lower block LER than the stated classical baselines in simulation. NVIDIA GPUs and NVQLink support adaptive quantum infrastructure.',
+    image: '/sc26-social.png',
+    type: 'article',
+  },
   '/publications': {
     title: 'Publications — EdenCode',
     description:

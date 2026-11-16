@@ -51,6 +51,17 @@ function EventLink({ href, label }: { href: string; label: string }) {
 export function Timeline() {
   const timelineEvents: TimelineEvent[] = [
     {
+      date: "2026-11-16",
+      title: "SC26: AI Error Protection for 4,600+ Logical Qubits",
+      description: "In simulation, EdenCode’s AI decoder protects a qLDPC code encoding over 4,600 logical qubits, with approximately 50% lower block logical error rate than the configured BP+OSD and Relay-BP baselines. Developed using NVIDIA H200 and B300 GPUs, the decoder model factory learns from decoding experience. Companion FPGA QDPU work uses NVIDIA NVQLink technology to connect quantum data processing with accelerated computing.",
+      category: "SC26",
+      link: "/blog-sc26-quantum-ai-infrastructure",
+      linkLabel: "READ_MORE",
+      link2: "https://arxiv.org/abs/2610.41398v1",
+      link2Label: "PAPER_V1",
+      isHighlight: true,
+    },
+    {
       date: "2026-10-30",
       title: "EdenCode Introduces a Decoder Model Factory for Quantum LDPC Codes",
       description: "Our new arXiv preprint introduces GraphMP and a decoder model factory that turns verified search trajectories into training data for successive models. Trained on three tasks and evaluated on twelve, the same model transfers to unseen codes and noise settings without fine-tuning. Simulation experiments demonstrate improvement across generations and adaptation after a change in the noise model.",

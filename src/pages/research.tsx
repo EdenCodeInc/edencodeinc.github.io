@@ -7,6 +7,17 @@ export default function ResearchPage() {
 
   const blogPosts = [
     {
+      id: 6,
+      title: "EdenCode Advances Quantum Error Decoding with NVIDIA Accelerated Computing",
+      excerpt: "AI error protection for a qLDPC code encoding over 4,600 logical qubits, with approximately 50% lower block LER than the configured classical decoding baselines in simulation. Our SC26 announcement connects a decoder model factory using NVIDIA H200 and B300 GPUs with FPGA quantum data processing and NVIDIA NVQLink.",
+      author: "EdenCode Research",
+      date: "2026-11-16",
+      category: "SC26",
+      readTime: "7",
+      link: "/blog-sc26-quantum-ai-infrastructure",
+      isHighlight: true,
+    },
+    {
       id: 5,
       title: "How Much Can We Learn from Quantum Measurement Data?",
       excerpt: "Introducing our preprint on the data budget behind generative quantum learning. An information-theoretic bias–variance framework predicts how much model capacity finite measurement records justify, and explains why learning curves differ between gapped and critical Ising regimes.",

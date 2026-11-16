@@ -1,0 +1,99 @@
+{
+  "title": "EdenCode Advances Quantum Error Decoding with NVIDIA Accelerated Computing",
+  "subtitle": "AI decoding for 4,600+ logical qubits and a path toward adaptive quantum infrastructure",
+  "date": "2026-11-16",
+  "readTime": "7",
+  "introLink": {
+    "text": "NVIDIA NVQLink",
+    "url": "https://www.nvidia.com/en-us/solutions/quantum-computing/nvqlink/"
+  },
+  "intro": [
+    "EdenCode is developing an immune system for quantum computers using AI: a decoding and data processing layer that responds to errors while learning from experience. A publicly available decoder preprint and a companion QDPU manuscript in preparation bring together a decoder model factory developed using NVIDIA accelerated computing and an FPGA-based quantum data processing architecture, with a proposed integration path through NVIDIA NVQLink."
+  ],
+  "sections": [
+    {
+      "title": "AI decoding for 4,600+ logical qubits",
+      "paragraphs": [
+        "In simulation, EdenCode’s search-enhanced GraphMP decoder demonstrated AI error protection for a qLDPC code encoding 4,612 logical qubits in 9,216 physical qubits. It achieved a block logical error rate (LER) of 0.98%, compared with approximately 1.9% for the configured belief-propagation with ordered-statistics decoding (BP+OSD) baseline and 2.1% for Relay-BP 60 × 60 on the same 2,048 error samples. This is approximately 50% lower observed block LER than these established classical decoding baselines.",
+        "The model reached this scale without additional training or fine-tuning for the tested code. Training used 15 smaller codes with at most 544 physical qubits, so this result tests transfer to a previously unseen code about 17 times larger. The comparison uses a code-capacity noise model with ideal syndrome measurements at nominal sampler p = 0.045; it does not establish circuit-level fault tolerance."
+      ],
+      "figure": {
+        "src": "/fig-sc26-benchmark.png",
+        "width": 1724,
+        "height": 744,
+        "alt": "Decoder manuscript Figure 10: block logical error rates across twelve tasks, including an unseen qLDPC code encoding over 4,600 logical qubits",
+        "caption": "Adapted from decoder manuscript, Figure 10. The final model is evaluated on 12 tasks; the shaded task uses a training code. Comparisons use the same 2,048 error realizations per task, except for shorter Tesseract runs on the largest lifted-product and generalized-bicycle tasks. Bars above 0.06 are truncated. The 4,600+ logical-qubit benchmark uses nominal sampler p = 0.045. Display labels are generalized; plotted data are unchanged."
+      },
+      "comparison": {
+        "caption": "4,600+ logical qubits · 2,048 shared simulated error samples",
+        "headers": [
+          "Decoder",
+          "Block LER"
+        ],
+        "rows": [
+          [
+            "GraphMP G5 + beam search",
+            "0.98%"
+          ],
+          [
+            "BP+OSD",
+            "1.9%"
+          ],
+          [
+            "Relay-BP 60 × 60",
+            "2.1%"
+          ]
+        ],
+        "note": "Rounded rates from the decoder manuscript’s Table 12. The approximately 50% reduction is relative to the two stated baseline configurations. These are simulated block-level errors, not per-logical-qubit rates or a hardware demonstration."
+      }
+    },
+    {
+      "title": "An immune system that learns from decoding using AI",
+      "paragraphs": [
+        "Quantum error correction depends on interpreting noisy measurement records and identifying an appropriate correction. A decoder must also remain effective as device conditions change. EdenCode’s approach addresses both needs through two interacting processes: decoding with the current model and training successor models from verified experience.",
+        "GraphMP is a learned message-passing decoder that operates on the graph describing a decoding problem. Beam search uses its predictions to refine candidate error patterns, trading additional computation for accuracy. The Decoder Model Factory retains search trajectories whose final predictions satisfy the syndrome and preserve the logical information, then distills that experience into updated models. In the reported experiments, simulation supplies the logical verification.",
+        "This is the mechanism behind the immune-system analogy: a current model supplies the response, accumulated trajectories supply experience, and later models learn from it. The architecture stays fixed across generations, allowing distillation to improve single-pass accuracy without enlarging the model. Across the updated paper’s 12 benchmark tasks, only one uses a training code; the other eleven test transfer without further training.",
+        "The same process also supports adaptation in simulation. After a controlled change in the noise model, continued collection and distillation improve the decoder, including on tasks excluded from adaptation training. Extending this cycle to a running quantum device will require suitable verification experiments and a learning cycle fast enough to follow the relevant drift."
+      ]
+    },
+    {
+      "title": "NVIDIA accelerated computing supports learning and inference",
+      "paragraphs": [
+        "Model training and development used NVIDIA H200 and B300 GPUs. These resources support the computational work behind the decoder model factory, where model-guided search produces experience for subsequent learning. The manuscript’s decoding-time measurements use a dedicated NVIDIA B300 GPU with PyTorch 2.10.0 and CUDA 13.0.",
+        "The GPU inference implementation uses compiled kernels captured in NVIDIA CUDA execution graphs and TF32 NVIDIA Tensor Core arithmetic for matrix products. The paper reports numerical checks against its accuracy evaluations. Its timing comparison is between GPU GraphMP and single-core CPU reference decoders, so any speed interpretation must retain those hardware conditions.",
+        "Figure 11 shows the accuracy and computation tradeoff on a training task and the unseen code encoding over 4,600 logical qubits. Beam search improves accuracy by spending additional computation on difficult syndromes. In the plotted window, search-enhanced GraphMP tracks Relay-BP 60 × 60 in LER while using less measured time per shot in the stated GPU and CPU configurations. These stream timings do not establish single-shot feedback latency."
+      ],
+      "figure": {
+        "src": "/fig-sc26-accuracy-time.png",
+        "width": 1648,
+        "height": 1080,
+        "alt": "Decoder manuscript Figure 11: error rates and seconds per shot for a training task and an unseen code encoding over 4,600 logical qubits, comparing GraphMP on a B300 GPU with classical CPU baselines",
+        "caption": "Adapted from decoder manuscript, Figure 11. The right column evaluates the unseen code encoding over 4,600 logical qubits. Error curves are fitted to measured data with 90% bootstrap intervals conditional on the fit model. Times compare GPU GraphMP with single-core CPU references and measure time per shot in a stream of syndromes. Display labels are generalized; plotted data are unchanged."
+      }
+    },
+    {
+      "title": "Connecting learned models to quantum data processing",
+      "paragraphs": [
+        "The companion manuscript in preparation introduces the quantum data processing unit (QDPU), a layer between quantum measurements and control decisions. Its FPGA implementation work evaluates calibrated matched-filter and CNN occupancy detection with rearrangement scheduling, alongside a quantized qLDPC decoder. The revised array-assembly analysis favors the matched filter when inference time and atom loss are considered together. The architectural principle is to execute time-sensitive processing close to the device while a GPU learning loop updates the models.",
+        "NVIDIA NVQLink provides an open architecture for coupling accelerated computing to quantum controllers. EdenCode’s proposed integration would connect measurement data and model updates across this boundary, with GPU inference available for workloads beyond the resident FPGA model."
+      ],
+      "figure": {
+        "src": "/fig-sc26-qdpu-loops.png",
+        "width": 1068,
+        "height": 672,
+        "alt": "QDPU manuscript Figure 2: a proposed inner inference loop links a quantum device and QDPU, while data collection and model updates connect a slower GPU training loop",
+        "caption": "QDPU manuscript, Figure 2. Proposed fast inference and slower learning loops. The time ranges illustrate architectural workloads; they are not a measured end-to-end NVQLink result."
+      },
+      "after": [
+        "The updated QDPU manuscript adds measured NVQLink transport using NVIDIA Holoscan Sensor Bridge FPGA IP and ConnectX-7 networking. Between a ZCU216 and an NVIDIA DGX Spark over 10 GbE, the median FPGA-to-host-to-FPGA round trip is 2.74 μs for 128-byte messages forwarded by a CPU core. This is a CPU-forwarded transport measurement, not GPU inference latency.",
+        "A separate quantized GraphMP ranking kernel for a [[1122,148]] lifted-product code runs on the FPGA over the link. With one shot in flight, its median host-to-FPGA-to-host latency is 50.5 μs, excluding host-side BP+OSD post-processing. These measurements are separate from the GPU decoding results above. The transport and kernel tests have not yet been joined to the full camera-to-controller pipeline or a live quantum experiment."
+      ]
+    },
+    {
+      "title": "Toward adaptive quantum infrastructure",
+      "paragraphs": [
+        "Together, these efforts lay groundwork for quantum-enhanced capabilities in large-scale supercomputing centers. Connecting adaptive AI models with quantum data processing is a step toward the infrastructure needed for error-corrected quantum applications and future quantum-for-AI workloads."
+      ]
+    }
+  ]
+}
